@@ -14,6 +14,7 @@ skin:
         file: "screen_FileManagerProgress.ymlinc"
     - xmlinc:
         file: "screen_CockpitPlayer.ymlinc"
+        imagepath: "/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images"
     - xmlinc:
         file: "screen_CockpitPlayerSummary.ymlinc"
     - xmlinc:
