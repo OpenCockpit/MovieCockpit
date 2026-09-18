@@ -10,5 +10,3 @@
           position: "center,center"
           size: "100,100"
           transparent: "0"
-- xmlinc:
-    file: "screen_BufferingProgressSummary.ymlinc"

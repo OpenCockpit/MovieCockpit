@@ -1,0 +1,63 @@
+- widget:
+    alphatest: "blend"
+    backgroundColor: "backgroundMedium"
+    position: "0,0"
+    render: "COCCover"
+    size: "630,375"
+    source: "Service"
+    transparent: "1"
+- widget:
+    font: "$FB_medium"
+    position: "0,380"
+    render: "Label"
+    size: "630,80"
+    source: "Service"
+    transparent: "1"
+    valign: "center"
+    zPosition: "2"
+    children:
+      - convert:
+          type: "COCEventName"
+          text: "Name"
+- widget:
+    font: "$FB_medium"
+    position: "0,460"
+    render: "Label"
+    size: "280,40"
+    source: "Service"
+    transparent: "1"
+    valign: "center"
+    zPosition: "2"
+    children:
+      - convert:
+          type: "ServiceTime"
+          text: "Duration"
+      - convert:
+          type: "ClockToText"
+          text: "InMinutes"
+- widget:
+    font: "$FB_medium"
+    noWrap: "1"
+    position: "0,500"
+    render: "Label"
+    size: "630,40"
+    source: "Service"
+    transparent: "1"
+    valign: "center"
+    children:
+      - convert:
+          type: "COCEventName"
+          text: "Description"
+- widget:
+    font: "$FR_small"
+    options: "movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100"
+    position: "0,500"
+    render: "COCRunningText"
+    size: "630,345"
+    size2: "630,290"
+    source: "Service"
+    transparent: "1"
+    children:
+      - convert:
+          type: "COCEventName"
+          text: "ShortAndExtendedDescription"
