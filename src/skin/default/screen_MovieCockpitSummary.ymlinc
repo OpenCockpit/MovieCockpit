@@ -41,7 +41,7 @@ screen:
         halign: "right"
         position: "300,$screen_height-80"
         render: "Label"
-        size: "92,80"
+        size: "97,80"
         source: "parent.Service"
         transparent: "1"
         valign: "center"
