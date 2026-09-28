@@ -1,6 +1,5 @@
 - widget:
     alphatest: "blend"
-    backgroundColor: "backgroundMedium"
     position: "0,0"
     render: "COCCover"
     size: "630,375"

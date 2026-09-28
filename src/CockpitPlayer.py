@@ -104,8 +104,14 @@ class CockpitPlayer(
         logger.info("...")
         if self["player_icon"].instance:
             player_icon = "streamer.svg" if self.stream else "player.svg"
+            # Explicit width/height/scaletoFit are required to rasterize an
+            # SVG to a usable size - see CockpitPVRState.py's identical
+            # pattern for its own state icons ("Load SVG with proper scaling
+            # to fit the widget"). Without them LoadPixmap() has no target
+            # size for a vector image, and setPixmap() ends up with nothing
+            # visible (same bug fixed in TimeshiftCockpit's CockpitPlayer.py).
             self["player_icon"].instance.setPixmap(LoadPixmap(getSkinPath(
-                "images/" + player_icon), cached=True))
+                "images/" + player_icon), cached=True, width=60, height=60, scaletoFit=1))
         if not self.service_started:
             self.session.nav.playService(self.service)
 

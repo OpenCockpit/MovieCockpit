@@ -10,11 +10,11 @@ screen:
         size: "$screen_width,$screen_height"
         zPosition: "-10"
     - widget:
-        font: "FdLcD;50"
+        font: "FdLcD;55"
         halign: "center"
         position: "0,0"
         render: "Label"
-        size: "395,125"
+        size: "$screen_width,130"
         source: "parent.Service"
         transparent: "1"
         valign: "center"
@@ -28,7 +28,7 @@ screen:
         foregroundColor: "yellow"
         position: "0,140"
         render: "Progress"
-        size: "395,15"
+        size: "$screen_width,20"
         source: "parent.Service"
         transparent: "1"
         zPosition: "2"
@@ -42,7 +42,7 @@ screen:
         foregroundColor: "darkgrey"
         position: "0,140"
         render: "Progress"
-        size: "395,15"
+        size: "$screen_width,20"
         source: "parent.Service"
         transparent: "1"
         zPosition: "3"
@@ -56,7 +56,7 @@ screen:
         foregroundColor: "red"
         position: "0,140"
         render: "Progress"
-        size: "395,15"
+        size: "$screen_width,20"
         source: "parent.Service"
         transparent: "1"
         zPosition: "1"
@@ -64,29 +64,6 @@ screen:
           - convert:
               type: "COCRecordPosition"
               text: "Position"
-    - widget:
-        font: "FdLcD;60"
-        halign: "left"
-        position: "0,160"
-        render: "Label"
-        size: "230,80"
+    - xmlinc:
+        file: "screenpart_endtimeremaining.ymlinc"
         source: "parent.Service"
-        transparent: "1"
-        valign: "center"
-        children:
-          - convert:
-              type: "COCServicePosition"
-              text: "EndTime,ShowNoSeconds"
-    - widget:
-        font: "FdLcD;60"
-        halign: "right"
-        position: "240,160"
-        render: "Label"
-        size: "150,80"
-        source: "parent.Service"
-        transparent: "1"
-        valign: "center"
-        children:
-          - convert:
-              type: "COCServicePosition"
-              text: "Remaining,ShowNoSeconds"
