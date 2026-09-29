@@ -7,11 +7,10 @@ screen:
     - xmlinc:
         file: "screenpart_TitleBar.ymlinc"
     - widget:
+        backgroundColorSelected: "$backgroundColorSelected"
         enableWrapAround: "1"
         position: "20,100"
         render: "Listbox"
-        scrollbarBackgroundColor: "backgroundMedium"
-        scrollbarBorderColor: "backgroundLight"
         scrollbarMode: "showOnDemand"
         size: "1880,865"
         source: "list"
