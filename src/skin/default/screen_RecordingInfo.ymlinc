@@ -21,7 +21,7 @@ screen:
               cell:
                 itemHeight: 40
                 fonts:
-                  - "Regular;30"
+                  - "$FR_medium"
                 fields:
                   - text:
                       position: "5,0"

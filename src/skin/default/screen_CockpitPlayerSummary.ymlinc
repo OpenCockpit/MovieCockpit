@@ -3,14 +3,11 @@ screen:
   position: "fill"
   resolution: "396,240"
   children:
-    - ePixmap:
-        alphatest: "on"
-        pixmap: "~/../images/display_bg.png"
-        position: "0,0"
-        size: "$screen_width,$screen_height"
-        zPosition: "-10"
+    - xmlinc:
+        file: "screenpart_LCDBackground.ymlinc"
+        imagepath: "~/../images"
     - widget:
-        font: "FdLcD;55"
+        font: "$F_big"
         halign: "center"
         position: "0,0"
         render: "Label"
@@ -24,8 +21,9 @@ screen:
               text: "Name"
     - widget:
         alphatest: "blend"
-        borderWidth: "1"
-        foregroundColor: "yellow"
+        borderColor: "FdLcdAmber"
+        borderWidth: "2"
+        foregroundColor: "FdLcdAmber"
         position: "0,140"
         render: "Progress"
         size: "$screen_width,20"
@@ -38,7 +36,8 @@ screen:
               text: "Position"
     - widget:
         alphatest: "blend"
-        borderWidth: "1"
+        borderColor: "FdLcdAmber"
+        borderWidth: "2"
         foregroundColor: "darkgrey"
         position: "0,140"
         render: "Progress"
@@ -52,8 +51,9 @@ screen:
               text: "Position"
     - widget:
         alphatest: "blend"
-        borderWidth: "1"
-        foregroundColor: "red"
+        borderColor: "FdLcdAmber"
+        borderWidth: "2"
+        foregroundColor: "FdLcdRed"
         position: "0,140"
         render: "Progress"
         size: "$screen_width,20"

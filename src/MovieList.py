@@ -238,6 +238,8 @@ class MovieList(List, Sorting, ServiceCenter):
         path = self.getCurrentPath()
         logger.debug("path: %s", path)
         logger.debug("selection_list: %s", self.selection_list)
+        if not path:  # empty list, nothing to select
+            return
         if path in self.selection_list and path not in self.lock_list:
             self.unselectPath(path)
         else:

@@ -1,5 +1,5 @@
 - widget:
-    font: "FdLcD;60"
+    font: "$F_bigger"
     halign: "left"
     position: "0,$screen_height-70"
     render: "Label"
@@ -12,7 +12,7 @@
           type: "COCServicePosition"
           text: "EndTime,ShowNoSeconds"
 - widget:
-    font: "FdLcD;60"
+    font: "$F_bigger"
     halign: "right"
     position: "200,$screen_height-70"
     render: "Label"

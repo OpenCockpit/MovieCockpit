@@ -6,7 +6,6 @@ from Components.Button import Button
 from Components.Label import Label
 from Components.config import config
 from Components.ActionMap import HelpableActionMap
-from Components.Sources.StaticText import StaticText
 from Tools.BoundFunction import boundFunction
 from Plugins.SystemPlugins.MountCockpit.MountCockpit import MountCockpit
 from .Version import ID
@@ -28,7 +27,8 @@ class Actions():
 
     def __init__(self, csel):
         self.csel = csel
-        self.csel["key_menu"] = StaticText(_("Setup"))
+        self.csel["key_menu"] = Button("Menu")
+        self.csel["key_info"] = Button("Info")
         self.csel["key_red"] = Button()
         self.csel["key_green"] = Button()
         self.csel["key_yellow"] = Button()

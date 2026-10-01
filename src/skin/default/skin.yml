@@ -3,6 +3,8 @@ skin:
     - xmlinc:
         file: "screenpart_globals.ymlinc"
     - xmlinc:
+        file: "display_globals.ymlinc"
+    - xmlinc:
         file: "screen_MovieCockpit.ymlinc"
     - xmlinc:
         file: "screen_MovieCockpitSummary.ymlinc"

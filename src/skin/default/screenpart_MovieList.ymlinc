@@ -13,9 +13,8 @@
           cell:
             itemHeight: 45
             fonts:
-              - "Regular;32"
-              - "Regular;30"
-              - "Regular;28"
+              - "$FR_medium"
+              - "$FR_small"
             fields:
               - icon:
                   position: "5,5"
@@ -30,7 +29,7 @@
               - text:
                   position: "120,0"
                   size: "e-490,45"
-                  font: "Regular;30"
+                  font: "$FR_medium"
                   flags: RT_HALIGN_LEFT|RT_VALIGN_CENTER
                   value: 20
                   color: {call: MultiContentTemplateColor, args: [25]}
@@ -65,7 +64,7 @@
               - text:
                   position: "e-250,0"
                   size: "230,45"
-                  font: "Regular;28"
+                  font: "$FR_small"
                   flags: RT_HALIGN_RIGHT|RT_VALIGN_CENTER
                   value: 21
                   color: {call: MultiContentTemplateColor, args: [25]}

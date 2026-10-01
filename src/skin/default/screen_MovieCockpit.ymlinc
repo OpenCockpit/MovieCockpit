@@ -58,7 +58,7 @@ screen:
         foregroundColor: "grey"
         halign: "center"
         name: "level"
-        position: "0,1025"
+        position: "0,$screen_height-55"
         size: "96,55"
         transparent: "1"
         valign: "center"
