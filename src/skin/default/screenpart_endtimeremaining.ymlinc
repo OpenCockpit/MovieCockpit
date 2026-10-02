@@ -16,7 +16,7 @@
     halign: "right"
     position: "200,$screen_height-70"
     render: "Label"
-    size: "$screen_width-200,70"
+    size: "$screen_width-4-200,70"
     source: "$source"
     transparent: "1"
     valign: "center"

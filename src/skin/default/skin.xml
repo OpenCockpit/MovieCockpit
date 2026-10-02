@@ -79,13 +79,13 @@
 	</screen>
 	<screen name="MovieCockpitSummary" position="fill" resolution="396,240">
 		<ePixmap alphatest="on" pixmap="~/../images/display_bg.png" position="0,0" size="396,240" zPosition="-10"/>
-		<widget font="FdLcD;45" halign="center" position="0,0" render="Label" size="396,170" source="parent.Service" transparent="1" valign="center" zPosition="2">
+		<widget font="FdLcD;45" halign="center" position="0,0" render="Label" size="392,170" source="parent.Service" transparent="1" valign="center" zPosition="2">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget font="FdLcD;60" halign="left" position="0,170" render="Label" size="200,70" source="parent.Service" transparent="1" valign="center">
 			<convert type="COCMovieInfo">FileSize</convert>
 		</widget>
-		<widget font="FdLcD;60" halign="right" position="200,170" render="Label" size="196,70" source="parent.Service" transparent="1" valign="center">
+		<widget font="FdLcD;60" halign="right" position="200,170" render="Label" size="192,70" source="parent.Service" transparent="1" valign="center">
 			<convert type="COCMovieInfo">MovieDuration</convert>
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
@@ -194,22 +194,22 @@
 	</screen>
 	<screen name="CockpitPlayerSummary" position="fill" resolution="396,240">
 		<ePixmap alphatest="on" pixmap="~/../images/display_bg.png" position="0,0" size="396,240" zPosition="-10"/>
-		<widget font="FdLcD;55" halign="center" position="0,0" render="Label" size="396,130" source="parent.Service" transparent="1" valign="center">
+		<widget font="FdLcD;55" halign="center" position="0,0" render="Label" size="392,130" source="parent.Service" transparent="1" valign="center">
 			<convert type="COCEventName">Name</convert>
 		</widget>
-		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="FdLcdAmber" position="0,140" render="Progress" size="396,20" source="parent.Service" transparent="1" zPosition="2">
+		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="FdLcdAmber" position="0,140" render="Progress" size="392,20" source="parent.Service" transparent="1" zPosition="2">
 			<convert type="COCServicePosition">Position</convert>
 		</widget>
-		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="darkgrey" position="0,140" render="Progress" size="396,20" source="parent.Service" transparent="1" zPosition="3">
+		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="darkgrey" position="0,140" render="Progress" size="392,20" source="parent.Service" transparent="1" zPosition="3">
 			<convert type="COCBeforeTSPosition">Position</convert>
 		</widget>
-		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="FdLcdRed" position="0,140" render="Progress" size="396,20" source="parent.Service" transparent="1" zPosition="1">
+		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="FdLcdRed" position="0,140" render="Progress" size="392,20" source="parent.Service" transparent="1" zPosition="1">
 			<convert type="COCRecordPosition">Position</convert>
 		</widget>
 		<widget font="FdLcD;60" halign="left" position="0,170" render="Label" size="200,70" source="parent.Service" transparent="1" valign="center">
 			<convert type="COCServicePosition">EndTime,ShowNoSeconds</convert>
 		</widget>
-		<widget font="FdLcD;60" halign="right" position="200,170" render="Label" size="196,70" source="parent.Service" transparent="1" valign="center">
+		<widget font="FdLcD;60" halign="right" position="200,170" render="Label" size="192,70" source="parent.Service" transparent="1" valign="center">
 			<convert type="COCServicePosition">Remaining,ShowNoSeconds</convert>
 		</widget>
 	</screen>
