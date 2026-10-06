@@ -666,6 +666,24 @@ msgstr ""
 msgid "Enable archive"
 msgstr ""
 
+msgid "Select directory for cache database file."
+msgstr ""
+
+msgid "Select percentage for videos that are considered being watched."
+msgstr ""
+
+msgid "Select percentage for videos that are considered finished."
+msgstr ""
+
+msgid "Select the sort mode."
+msgstr ""
+
+msgid "Select whether a no cover available cover should be displayed when no cover is available."
+msgstr ""
+
+msgid "Select whether to show mount points or not."
+msgstr ""
+
 msgid "Infobar/Play"
 msgstr ""
 

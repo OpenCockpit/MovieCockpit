@@ -6,7 +6,7 @@
 		<item text="Automatic cleanup of timers list" description="Select whether completed recording timers should be deleted automatically.">config.plugins.moviecockpit.timer_autoclean</item>
 		<item text="Resume video at last position" description="Select whether video should be resumed at last stop position.">config.plugins.moviecockpit.movie_resume_at_last_pos</item>
 		<item text="Video start at" description="Select at which position video is started at.">config.plugins.moviecockpit.movie_start_position</item>
-		<item text="Default sort mode" description="Select the start mode to be used at startup.">config.plugins.moviecockpit.list_sort</item>
+		<item text="Default sort mode" description="Select the sort mode.">config.plugins.moviecockpit.list_sort</item>
 		<item text="Show directories information" description="Select which information should be displayed for directories.">config.plugins.moviecockpit.directories_info</item>
 		<item text="Show mount points" description="Select whether to show mount points or not.">config.plugins.moviecockpit.list_show_mount_points</item>
 		<item text="Watching in progress percent" description="Select percentage for videos that are considered being watched.">config.plugins.moviecockpit.movie_watching_percent</item>

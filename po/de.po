@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MovieCockpit\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-08 17:57+0100\n"
+"POT-Creation-Date: 2026-10-05 23:44+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: xcentaurix\n"
 "Language-Team: \n"
@@ -11,37 +11,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.5\n"
 "X-Loco-Source-Locale: en-US\n"
 "X-Loco-Project-Id: 47158\n"
 "X-Loco-Api-Version: 1.0.19 20180501-1\n"
 "X-Poedit-Basepath: ../src\n"
-"X-Generator: Poedit 2.3\n"
-"X-Generator: Poedit 3.0.1\n"
-"X-Poedit-Basepath: ../src\n"
-"X-Generator: Poedit 3.0.1\n"
-"X-Loco-Source-Locale: en-US\n"
-"X-Loco-Project-Id: 47158\n"
-"X-Loco-Api-Version: 1.0.19 20180501-1\n"
-"X-Poedit-Basepath: ../src\n"
-"X-Generator: Poedit 2.3\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: skin\n"
-
-msgid "Exit"
-msgstr "Beenden"
-
-msgid "Select function"
-msgstr "Funktion"
-
-msgid "Cancel"
-msgstr "Abbrechen"
-
-msgid "Open setup"
-msgstr "Einstellungen"
 
 msgid "Home"
 msgstr "Home"
@@ -88,29 +64,11 @@ msgstr "Einstellungen"
 msgid "About"
 msgstr "Über"
 
-msgid "Select plugin"
+msgid "Please select a function"
+msgstr "Wähle Funktion"
+
+msgid "Please select a plugin"
 msgstr "Wähle Plugin"
-
-msgid "Infobar/Play"
-msgstr "Infobar/Play"
-
-msgid "Play/Pause"
-msgstr "Play/Pause"
-
-msgid "Stop playback"
-msgstr "Stoppe Wiedergabe"
-
-msgid "Skip forward"
-msgstr "Springe vorwärts"
-
-msgid "Skip backward"
-msgstr "Springe zurück"
-
-msgid "EPG Info"
-msgstr "EPG-Info"
-
-msgid "Do you want to resume playback at position: %d:%02d:%02d?"
-msgstr "Soll die Wiedergabe an Position: %d:%02d:%02d fortgesetzt werden?"
 
 msgid "DD.MM.YYYY"
 msgstr "TT.MM.JJJJ"
@@ -214,216 +172,10 @@ msgstr "erste Sprungmarke"
 msgid "event start"
 msgstr "Sendungsanfang"
 
-msgid "GENERAL"
-msgstr "ALLGEMEIN"
-
-msgid "Show bookmark content on start"
-msgstr "Zeige beim Plugin-Start den Inhalt der Lesezeichen an"
-
-msgid "Select whether bookmark content is to be displayed at plugin start or the last directory."
-msgstr ""
-"Soll beim Start des Plugins immer der Inhalt der Lesezeichen angezeigt werden?\n"
-"Ansonsten wird das zuletzt angezeigte Verzeichnis geladen."
-
-msgid "Automatic cleanup of timers list"
-msgstr "Lösche beendete Timer automatisch"
-
-msgid "Select whether completed recording timers should be deleted automatically."
-msgstr "Sollen beendete Aufnahme-Timer automatisch gelöscht werden?"
-
-msgid "PLAYBACK"
-msgstr "WIEDERGABE"
-
-msgid "Resume video at last position"
-msgstr "Starte Film an letzter Stopp-Marke"
-
-msgid "Select whether video should be resumed at last stop position."
-msgstr "Soll der Film an der letzten Stopp-Marke gestartet werden?"
-
-msgid "Video start at"
-msgstr "Starte den Film an"
-
-msgid "Select at which position video is started at."
-msgstr "An welcher Position soll der Film gestartet werden: Filmanfang, erste Sprungmarke oder Sendungsanfang?"
-
-msgid "DISPLAY"
-msgstr "ANZEIGE"
-
-msgid "Default sort mode"
-msgstr "Standardsortierung"
-
-msgid "Select the start mode to be used at startup."
-msgstr "Welche Sortierreihenfolge für die Filmliste soll beim Start verwendet werden?"
-
-msgid "Show directories information"
-msgstr "Zeige Verzeichnis-Informationen an"
-
-msgid "Select which information should be displayed for directories."
-msgstr "Soll bei Verzeichnissen die Anzahl Filme, der belegte Speicherplatz oder beides angezeigt werden?"
-
-msgid "Show mount points"
-msgstr "Zeige Einhängepunkte an"
-
-msgid "Select whether to show mount_points or not."
-msgstr "Sollen die Einhängepunkte für Filme statt Datum/Zeit angezeigt werden?"
-
-msgid "Watching in progress percent"
-msgstr "Film gilt als angespielt ab (%)"
-
-msgid "Select percentage for videos that areconsidered being watched."
-msgstr ""
-"Ab wieviel Prozent soll der Film-Fortschritt als angespielt gelten?\n"
-"Dieser Wert bestimmt die Anzeige des Film-Icons."
-
-msgid "Finished watching percent"
-msgstr "Film gilt als gesehen ab (%)"
-
-msgid "Select percentage for videos that areconsidered finished."
-msgstr ""
-"Ab wieviel Prozent soll der Film-Fortschritt als gesehen gelten?\n"
-"Dieser Wert bestimmt die Anzeige des Film-Icons."
-
-msgid "Default color for video"
-msgstr "Standardfarbe für Film"
-
-msgid "Select the color for video."
-msgstr "Welche Standardfarbe soll für einen Film verwendet werden?"
-
-msgid "Default color for highlighted video"
-msgstr "Standardfarbe für ausgewählten Film"
-
-msgid "Select the color for videos that are highlighted."
-msgstr "Welche Standardfarbe soll für ausgewählte Filme verwendet werden?"
-
-msgid "Default color for recording"
-msgstr "Standardfarbe für laufende Aufnahme"
-
-msgid "Select the color for recording."
-msgstr "Welche Standardfarbe soll für Aufnahme verwendet werden?"
-
-msgid "Default color for highlighted recording"
-msgstr "Standardfarbe für ausgewählte laufende Aufnahme"
-
-msgid "Select the color for highlighted recording."
-msgstr "Welche Standardfarbe soll für markierte laufende Aufnahmen verwendet werden?"
-
-msgid "Default color for selected video"
-msgstr "Standardfarbe für markierten Film"
-
-msgid "Select the color for selected video."
-msgstr "Welche Standardfarbe soll für einen markierten Film verwendet werden?"
-
-msgid "Default color for highlighted selected video"
-msgstr "Standardfarbe für ausgewählten markierten Film"
-
-msgid "Select the color for selected and highlighted video."
-msgstr "Welche Standardfarbe soll für einen markierten ausgewählten Film verwendet werden?"
-
-msgid "RECORDING COVERS"
-msgstr "AUFNAHME COVER"
-
-msgid "Download cover automatically for recording"
-msgstr "Automatisches Herunterladen des Covers bei Aufnahme"
-
-msgid "Select whether a cover should be automatically downloaded when recording a movie."
-msgstr "Soll bei einer Aufnahme automatisch ein Cover heruntergeladen werden?"
-
-msgid "Cover source"
-msgstr "Cover Quelle"
-
-msgid "Select the cover source."
-msgstr "Welche Quelle soll für die Cover-Suche verwendet werden? Automatisch durchsucht alle Quellen, bis ein Cover gefunden ist."
-
-msgid "Show fallback cover"
-msgstr "Zeige Standard-Cover an"
-
-msgid "Select whether a \"no cover available\" cover should be displayed when no cover is available."
-msgstr "Soll ein Standard-Cover angezeigt werden, wenn kein Film-Cover vorhanden ist?"
-
-msgid "TRASHCAN"
-msgstr "PAPIERKORB"
-
-msgid "Show trashcan directory"
-msgstr "Zeige Papierkorbverzeichnis an"
-
-msgid "Select whether the trashcan should be displayed in the video list."
-msgstr ""
-"Soll das Papierkorbverzeichnis in der Filmliste angezeigt werden?\n"
-"Der Papierkorb kann in jedem Fall über das Menü aufgerufen werden, auch wenn er ausgeblendet ist."
-
-msgid "Show trashcan information"
-msgstr "Zeige Papierkorbinformationen an"
-
-msgid "Select the trashcan information to be shown."
-msgstr "Soll beim Papierkorb die Anzahl der Filme, der belegte Speicherplatz oder beides angezeigt werden?"
-
-msgid "Enable auto trashcan cleanup"
-msgstr "Aktiviere automatische Papierkorbleerung"
-
-msgid "Select whether the trashcan should be cleaned automatically."
-msgstr "Sollen Dateien im Papierkorb nach einer eingestellten Verweildauer automatisch gelöscht werden?"
-
-msgid "File retention period in trashcan"
-msgstr "Aufbewahrungsdauer im Papierkorb (in Tagen)"
-
-msgid "Select how many days the files should be kept in the trashcan before they are cleaned automatically."
-msgstr "Wieviele Tage sollen Dateien im Papierkorb bleiben, bis sie automatisch gelöscht werden?"
-
-msgid "LANGUAGE"
-msgstr "SPRACHE"
-
-msgid "Preferred EPG language"
-msgstr "Bevorzugte EPG-Sprache"
-
-msgid "Select the preferred EPG language."
-msgstr "Welche bevorzugte EPG-Sprache soll verwendet werden?"
-
-msgid "ARCHIVE"
-msgstr "ARCHIVIERUNG"
-
-msgid "Enable"
-msgstr "Aktiviere Archivierung"
-
-msgid "Select whether archiving should be activated."
-msgstr "Soll Archivierung aktiviert werden?"
-
-msgid "Source"
-msgstr "Quelle"
-
-msgid "Select the source bookmark for archiving."
-msgstr "Welche Quelle soll für die Archivierung verwendet werden?"
-
-msgid "Target"
-msgstr "Ziel"
-
-msgid "Select the target bookmark for archiving."
-msgstr "Welches Ziel soll für die Archivierung verwendet werden?"
-
-msgid "CACHE"
-msgstr "CACHE"
-
-msgid "Cache directory"
-msgstr "Cache-Verzeichnis"
-
-msgid "Select directory for cache database file."
-msgstr "Auswahl des Verzeichnisses für die Cache Datenbank"
-
-msgid "DEBUG"
-msgstr "DEBUG"
-
-msgid "Log level"
-msgstr "Log Stufe"
-
-msgid "Select debug log level."
-msgstr "Welche Stufe soll für das Debug Log verwendet werden?"
-
 msgid "No event info available"
 msgstr "Keine Sendungsinformation verfügbar"
 
 msgid ".Trash"
-msgstr "Papierkorb"
-
-msgid "trashcan"
 msgstr "Papierkorb"
 
 msgid "Videos"
@@ -486,6 +238,9 @@ msgstr "Farbtaste blau"
 msgid "Play"
 msgstr "Wiedergabe"
 
+msgid "Exit"
+msgstr "Beenden"
+
 msgid "Next list content"
 msgstr "Nächste Listenanzeige"
 
@@ -546,9 +301,6 @@ msgstr "Sortierung"
 msgid "Sort order"
 msgstr "Sortierreihenfolge"
 
-msgid "List type"
-msgstr "Listenlayout"
-
 msgid "Reset progress"
 msgstr "Filmanfang"
 
@@ -557,6 +309,9 @@ msgstr "Datum/Mount"
 
 msgid "Timer list"
 msgstr "Timerliste"
+
+msgid "Open setup"
+msgstr "Einstellungen"
 
 msgid "Restore"
 msgstr "Wiederherstellen"
@@ -576,26 +331,179 @@ msgstr "hoch"
 msgid "directory"
 msgstr "Verzeichnis"
 
-msgid "min"
-msgstr "Min"
+msgid "Cancel"
+msgstr "Abbrechen"
 
 msgid "Manage recordings"
 msgstr "Verwalten von Aufnahmen und Filmen"
 
-msgid "List style: default"
-msgstr "Listenstil: Standard"
+msgid "Archive source"
+msgstr "Archivierungs-Quelle"
 
-msgid "List style: compact with description"
-msgstr "Listenstil: Kompakt mit Beschreibung"
+msgid "Archive target"
+msgstr "Archivierungs-Ziel"
 
-msgid "List style: compact"
-msgstr "Listenstil: Kompakt"
+msgid "Automatic cleanup of timers list"
+msgstr "Automatisches Löschen der Timerliste"
 
-msgid "List style: compact single line"
-msgstr "Listenstil: Kompakt in einer Zeile"
+msgid "Cache directory"
+msgstr "Cache-Verzeichnis"
 
-msgid "List style: minimal"
-msgstr "Listenstil: Minimal"
+msgid "Cover source"
+msgstr "Cover-Quelle"
+
+msgid "Default color for highlighted recording"
+msgstr "Standard Farbe für markierte Aufnahme"
+
+msgid "Default color for highlighted selected video"
+msgstr "Standard Farbe für markierten ausgewählten Film"
+
+msgid "Default color for highlighted video"
+msgstr "Standard Farbe für markierten Film"
+
+msgid "Default color for recording"
+msgstr "Standard Farbe für Aufnahme"
+
+msgid "Default color for selected video"
+msgstr "Standard Farbe für ausgewälten Film"
+
+msgid "Default color for video"
+msgstr "Standard Farbe für Film"
+
+msgid "Default sort mode"
+msgstr "Standard Sortierung"
+
+msgid "Download cover automatically for recording"
+msgstr "Cover automatisch für Aufnahme herunterladen"
+
+msgid "Enable archive"
+msgstr "Archivierung aktivieren"
+
+msgid "Enable auto trashcan cleanup"
+msgstr "Automatisches Löschen des Papierkorbs aktivieren"
+
+msgid "File retention period in trashcan"
+msgstr "Aufbewahrungsdauer im Papierkorb"
+
+msgid "Finished watching percent"
+msgstr "Prozent für gesehenen Film"
+
+msgid "Log level"
+msgstr "Log-Stufe"
+
+msgid "Preferred EPG language"
+msgstr "Bevorzugte EPG-Sprache"
+
+msgid "Resume video at last position"
+msgstr "Setze Film-Playback an letzter Position fort"
+
+msgid "Show bookmark content on start"
+msgstr "Zeige den Inhalt der Bookmarks beim Start an"
+
+msgid "Show directories information"
+msgstr "Zeige Verzeichnis-Informationen an"
+
+msgid "Show fallback cover"
+msgstr "Zeige Standard-Cover an"
+
+msgid "Show mount points"
+msgstr "Zeige Mountpoints an"
+
+msgid "Show trashcan directory"
+msgstr "Zeige Papierkorb-Verzeichnis an"
+
+msgid "Show trashcan information"
+msgstr "Zeige Papierkorb-Informationen an"
+
+msgid "Video start at"
+msgstr "Starte Fim an Position"
+
+msgid "Watching in progress percent"
+msgstr "Prozent für Filme, deren Playback begonnen wurde"
+
+msgid "Select whether video should be resumed at last stop position."
+msgstr "Soll der Film an der letzten Stopp-Marke gestartet werden?"
+
+msgid "Select the color for video."
+msgstr "Welche Standardfarbe soll für einen Film verwendet werden?"
+
+msgid "Select the color for videos that are highlighted."
+msgstr "Welche Standardfarbe soll für ausgewählte Filme verwendet werden?"
+
+msgid "Select the color for recording."
+msgstr "Welche Standardfarbe soll für Aufnahme verwendet werden?"
+
+msgid "Select the preferred EPG language."
+msgstr "Welche bevorzugte EPG-Sprache soll verwendet werden?"
+
+msgid "Select whether archiving should be activated."
+msgstr "Soll Archivierung aktiviert werden?"
+
+msgid "Select the source bookmark for archiving."
+msgstr "Welche Quelle soll für die Archivierung verwendet werden?"
+
+msgid "Select the target bookmark for archiving."
+msgstr "Welches Ziel soll für die Archivierung verwendet werden?"
+
+msgid "Select directory for cache database file."
+msgstr "Auswahl des Verzeichnisses für die Cache Datenbank"
+
+msgid "Select debug log level."
+msgstr "Welche Stufe soll für das Debug Log verwendet werden?"
+
+msgid "Select at which position video is started at."
+msgstr "An welcher Position soll der Film gestartet werden?"
+
+msgid "Select how many days the files should be kept in the trashcan before they are cleaned automatically."
+msgstr "Wieviele Tage sollen die Filme im Papierkorb vor dem Löschen aufbewahrt werden?"
+
+msgid "Select percentage for videos that are considered being watched."
+msgstr "Ab wieviel Prozent soll ein Film als teilweise gesehen markiert werden?"
+
+msgid "Select percentage for videos that are considered finished."
+msgstr "Ab wieviel Prozent soll ein Film als gesehen markiert werden?"
+
+msgid "Select the color for highlighted recording."
+msgstr "Wähle eine Farbe für eine markierte Aufnahme."
+
+msgid "Select the color for selected and highlighted video."
+msgstr "Wähel eine Farbe für einen ausgewählten und markierten Film."
+
+msgid "Select the color for selected video."
+msgstr "Wähle eine Farbe für einen ausgewählten Film."
+
+msgid "Select the cover source."
+msgstr "Wähle das Cover-Verzeichnis."
+
+msgid "Select the sort mode."
+msgstr "Wähle die Sortierung."
+
+msgid "Select the trashcan information to be shown."
+msgstr "Sollen Papierkorb-Informationen angezeigt werden?"
+
+msgid "Select whether a cover should be automatically downloaded when recording a movie."
+msgstr "Soll ein Film-Cover automatisch während der Aufnahme heruntergeladen werden?"
+
+msgid "Select whether a no cover available cover should be displayed when no cover is available."
+msgstr "Soll ein Standard-Cover angezeigt werden, wenn kein Film-Cover gefunden wurde?"
+
+msgid "Select whether bookmark content is to be displayed at plugin start or the last directory."
+msgstr "Wähle ob die Favoriten-Verzeichnisse beim Start angezeigt werden sollen oder das letzte Verzeichnis."
+
+msgid "Select whether completed recording timers should be deleted automatically."
+msgstr "Sollen ausgeführte Timer automatisch gelöscht werden?"
+
+msgid "Select whether the trashcan should be cleaned automatically."
+msgstr "Soll der Papierkorb automatisch gelöscht werden?"
+
+msgid "Select whether the trashcan should be displayed in the video list."
+msgstr "Soll der Papierkorb in der Filmliste angezeigt werden?"
+
+msgid "Select whether to show mount points or not."
+msgstr "Sollen Mountpoints angezeigt werden?"
+
+msgid "Select which information should be displayed for directories."
+msgstr "Welche Informationen sollen für Verzeichnisse angezeigt werden?"
 
 msgid "Plugin"
 msgstr "Plugin"
@@ -612,28 +520,26 @@ msgstr "Lizenz"
 msgid "End"
 msgstr "Ende"
 
-msgid "Save"
-msgstr "Speichern"
+msgid "Infobar/Play"
+msgstr "Infobar/Play"
 
-msgid "Defaults"
-msgstr "Standard"
+msgid "Play/Pause"
+msgstr "Play/Pause"
 
-msgid "Really close without saving settings?"
-msgstr "Fortfahren ohne Speichern der Einstellungen?"
+msgid "Stop playback"
+msgstr "Stoppe Playback"
 
-msgid "Loading default settings will overwrite all settings, really load them?"
-msgstr ""
-"Das Laden der Standardeinstellungen überschreibt alle aktuellen Einstellungen.\n"
-"Sollen die Standardeinstellungen wirklich geladen werden?"
+msgid "Skip forward"
+msgstr "Springe vorwärts"
 
-msgid "Some changes require a GUI restart"
-msgstr "Einige Änderungen erfordern einen Neustart der GUI"
+msgid "Skip backward"
+msgstr "Springe zurück"
 
-msgid "Restart GUI now?"
-msgstr "Soll die GUI jetzt neu gestartet werden?"
+msgid "EPG Info"
+msgstr "EPG Information"
 
-msgid "Path does not exist"
-msgstr "Verzeichnis existiert nicht"
+msgid "Do you want to resume playback at position: %d:%02d:%02d?"
+msgstr "Soll Playback an Position %d:%02d:%02d fortgesetzt werden?"
 
 msgid "File operation(s)"
 msgstr "Dateioperationen"
@@ -643,6 +549,9 @@ msgstr "Verbleibende Dateien"
 
 msgid "Cancelling, please wait"
 msgstr "Breche ab, bitte warten"
+
+msgid "Close"
+msgstr "Schliessen"
 
 msgid "Cancelled"
 msgstr "Abgebrochen"
@@ -677,9 +586,6 @@ msgstr "Kopieren"
 msgid "FSTrim"
 msgstr "FSTrimmen"
 
-msgid "Close"
-msgstr "Schliessen"
-
 msgid "Hide"
 msgstr "Ausblenden"
 
@@ -691,12 +597,3 @@ msgstr "von"
 
 msgid "automatic"
 msgstr "automatisch"
-
-msgid "Archive source"
-msgstr ""
-
-msgid "Archive target"
-msgstr ""
-
-msgid "Enable archive"
-msgstr ""
