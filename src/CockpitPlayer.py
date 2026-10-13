@@ -172,9 +172,6 @@ class CockpitPlayer(
         if self.showMovieInfoEPGPtr:
             self.showMovieInfoEPGPtr()
 
-    def showPVRStatePic(self, show):
-        self.show_state_pic = show
-
     def leavePlayer(self):
         logger.info("last: %s", self.getPosition())
         self.updateCutList(self.service.getPath(), last=self.getPosition())
