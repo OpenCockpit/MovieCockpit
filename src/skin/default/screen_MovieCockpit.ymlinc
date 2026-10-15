@@ -54,7 +54,7 @@ screen:
         file: "screenpart_MovieDetails.ymlinc"
         position: "1260,135"
     - widget:
-        font: "$FR_medium"
+        font: "$FB_big"
         foregroundColor: "grey"
         halign: "center"
         name: "level"
