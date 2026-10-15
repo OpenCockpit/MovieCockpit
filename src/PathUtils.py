@@ -48,7 +48,13 @@ def getMoveToTrashcanTarget(plugin, path):
 
 
 def getMoveFromTrashcanTarget(path):
+    """The folder a trashcan entry goes back to: <bookmark>/.Trash/<sub dir>/<name> -> <bookmark>/<sub dir>."""
     logger.info("path: %s", path)
-    target_dir = os.path.dirname(path.replace("/trashcan", ""))
+    trashcan = "/.Trash/"
+    if trashcan in path:
+        bookmark, sub_path = path.split(trashcan, 1)
+        target_dir = os.path.dirname(os.path.join(bookmark, sub_path))
+    else:
+        target_dir = os.path.dirname(path.replace("/trashcan", ""))  # trashcan of older versions
     logger.debug("target_dir: %s", target_dir)
     return target_dir

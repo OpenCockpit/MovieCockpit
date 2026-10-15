@@ -130,7 +130,10 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         self.loading.stop()
         if not self.movie_list.file_list:
             logger.debug("file_list is empty")
-            if config.plugins.moviecockpit.list_start_home.value:
+            # first load after the plugin was opened: start at home, or - if the user wants the last directory - only
+            # when there is none or it is not reachable any more
+            if (config.plugins.moviecockpit.list_start_home.value or not self.return_dir
+                    or not MountCockpit.getInstance().getMountPoint(ID, self.return_dir)):
                 self.return_dir = MountCockpit.getInstance().getHomeDir(ID)
                 self.return_path = ""
         logger.debug("return_dir: %s, return_path: %s",
@@ -573,7 +576,7 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         file_ops_list = []
         selection_list = self.getSelectionList()
         for path in selection_list:
-            if not path.endswith("..") and not isRecording(path):
+            if not path.endswith("..") and not path.endswith(".Trash") and not isRecording(path):
                 target_dir = getMoveFromTrashcanTarget(path)
                 file_ops_list.append((FILE_OP_MOVE, path, target_dir))
         self.execFileOps(file_ops_list)

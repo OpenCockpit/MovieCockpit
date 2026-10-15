@@ -129,7 +129,7 @@ class Actions():
             [                                                                           # level 2
                 [_("Reload cache"), csel.reloadCache],                                  # red
                 None,                                                                   # green (removed list type toggle)
-                [_("Archive"), csel.archiveFiles],                                      # yellow
+                None,                                                                   # yellow (archive, if enabled, see below)
                 [_("Bookmarks"), csel.openBookmarks]                                    # blue
             ],
             [                                                                           # level 3

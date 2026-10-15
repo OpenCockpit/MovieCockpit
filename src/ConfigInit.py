@@ -95,7 +95,7 @@ config.plugins.moviecockpit.fake_entry = NoSave(ConfigNothing())
 config.plugins.moviecockpit.timer_autoclean = ConfigYesNo(
     default=False)
 config.plugins.moviecockpit.cover_auto_download = ConfigYesNo(
-    default=False)
+    default=True)  # covers were always downloaded before this setting was honoured
 config.plugins.moviecockpit.cover_fallback = ConfigYesNo(default=True)
 config.plugins.moviecockpit.cover_source = ConfigSelection(
     default="tvs_id", choices=choices_cover_source)
