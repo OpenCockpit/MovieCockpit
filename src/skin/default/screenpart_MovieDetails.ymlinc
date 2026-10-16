@@ -6,7 +6,7 @@
     source: "Service"
     transparent: "1"
 - widget:
-    font: "$FB_medium"
+    font: "$header_font"
     position: "0,380"
     render: "Label"
     size: "630,80"
@@ -19,7 +19,7 @@
           type: "COCEventName"
           text: "Name"
 - widget:
-    font: "$FB_medium"
+    font: "$event_font"
     position: "0,460"
     render: "Label"
     size: "280,40"
@@ -35,7 +35,7 @@
           type: "ClockToText"
           text: "InMinutes"
 - widget:
-    font: "$FB_medium"
+    font: "$event_font"
     noWrap: "1"
     position: "0,500"
     render: "Label"
@@ -48,7 +48,7 @@
           type: "COCEventName"
           text: "Description"
 - widget:
-    font: "$FR_small"
+    font: "$label_font"
     options: "movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100"
     position: "0,500"
     render: "COCRunningText"

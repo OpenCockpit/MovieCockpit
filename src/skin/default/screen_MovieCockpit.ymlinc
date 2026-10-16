@@ -14,7 +14,7 @@ screen:
         size: "38,38"
         transparent: "1"
     - widget:
-        font: "$FR_verysmall"
+        font: "$caption_font"
         halign: "left"
         name: "sort_mode"
         position: "80,80"
@@ -29,7 +29,7 @@ screen:
         size: "38,38"
         transparent: "1"
     - widget:
-        font: "$FR_verysmall"
+        font: "$caption_font"
         halign: "left"
         position: "650,80"
         render: "Label"
@@ -54,8 +54,8 @@ screen:
         file: "screenpart_MovieDetails.ymlinc"
         position: "1260,135"
     - widget:
-        font: "$FB_big"
-        foregroundColor: "grey"
+        font: "$header_font"
+        foregroundColor: "md_on_surface_variant"
         halign: "center"
         name: "level"
         position: "0,$screen_height-55"

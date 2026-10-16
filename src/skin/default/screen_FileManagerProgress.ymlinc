@@ -6,14 +6,14 @@ screen:
     - xmlinc:
         file: "screenpart_TitleBar.ymlinc"
     - widget:
-        font: "$FR_medium"
+        font: "$list_font"
         halign: "left"
         name: "operation"
         position: "20,75"
         size: "1160,43"
         transparent: "1"
     - widget:
-        font: "$FR_medium"
+        font: "$list_font"
         halign: "left"
         name: "name"
         position: "20,136"
@@ -25,14 +25,14 @@ screen:
         size: "1160,25"
         transparent: "1"
     - widget:
-        font: "$FR_medium"
+        font: "$list_font"
         halign: "left"
         name: "status"
         position: "20,240"
         size: "1160,43"
         transparent: "1"
     - widget:
-        font: "$FR_medium"
+        font: "$list_font"
         halign: "left"
         position: "20,301"
         render: "Label"

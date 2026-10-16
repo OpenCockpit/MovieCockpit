@@ -1,23 +1,84 @@
 <?xml version="1.0" ?>
 <skin>
 	<colors>
-		<color name="backgroundDark" value="#101010"/>
-		<color name="backgroundMedium" value="#1a1a1a"/>
-		<color name="backgroundLight" value="#303030"/>
-		<color name="separator" value="#404040"/>
-		<color name="white" value="#ffffff"/>
-		<color name="black" value="#000000"/>
-		<color name="transparent" value="#ff000000"/>
-		<color name="gray" value="#aaaaaa"/>
-		<color name="green" value="#3c9f2a"/>
-		<color name="yellow" value="#e0c31e"/>
-		<color name="red" value="#e0331e"/>
-		<color name="cyan" value="#57ffff"/>
-		<color name="blue" value="#1e4ab5"/>
+		<color name="md_surface" value="#00121212"/>
+		<color name="md_surface_solid" value="#00121212"/>
+		<color name="md_surface_container_lowest" value="#000e0e0e"/>
+		<color name="md_surface_container_low" value="#001d1d1d"/>
+		<color name="md_surface_container" value="#00232323"/>
+		<color name="md_surface_container_high" value="#002c2c2c"/>
+		<color name="md_surface_container_highest" value="#00363636"/>
+		<color name="md_scrim" value="#7f000000"/>
+		<color name="md_surface_overlay_soft" value="#18121212"/>
+		<color name="md_surface_overlay" value="#2d121212"/>
+		<color name="md_surface_overlay_strong" value="#fa121212"/>
+		<color name="md_outline" value="#00919191"/>
+		<color name="md_outline_variant" value="#00424242"/>
+		<color name="md_on_surface" value="#00e3e3e3"/>
+		<color name="md_on_surface_variant" value="#00c4c4c4"/>
+		<color name="md_primary" value="#00a8c7fa"/>
+		<color name="md_primary_container" value="#000842a0"/>
+		<color name="md_primary_container_translucent" value="#250842a0"/>
+		<color name="md_primary_container_soft" value="#080842a0"/>
+		<color name="md_on_primary_container" value="#00d3e3fd"/>
+		<color name="md_secondary" value="#00bdc7dc"/>
+		<color name="md_secondary_container" value="#003f4759"/>
+		<color name="md_on_secondary_container" value="#00d9e3f8"/>
+		<color name="md_tertiary" value="#007fd6c8"/>
+		<color name="md_success" value="#0081c995"/>
+		<color name="md_success_container" value="#000f5223"/>
+		<color name="md_warning" value="#00ffb74d"/>
+		<color name="md_warning_container" value="#006b3f00"/>
+		<color name="md_error" value="#00f28b82"/>
+		<color name="md_error_container" value="#008c1d18"/>
+		<color name="md_key_red" value="#00f28b82"/>
+		<color name="md_key_green" value="#0081c995"/>
+		<color name="md_key_yellow" value="#00fdd663"/>
+		<color name="md_key_blue" value="#008ab4f8"/>
+		<color name="md_shadow" value="#00000000"/>
+		<color name="md_transparent" value="#ff000000"/>
 	</colors>
 	<fonts>
-		<font filename="/usr/share/enigma2/FontCockpit/fonts/DejaVuSans.ttf" name="Regular" scale="89"/>
+		<font filename="fonts/DejaVuSans.ttf" name="Regular" scale="89"/>
 		<font filename="Roboto-Bold.ttf" name="Bold" scale="71"/>
+		<font filename="fonts/BNR.otf" name="ExtraF_3" scale="100"/>
+		<font filename="fonts/Bignoodletitling.ttf" name="CAID" scale="100"/>
+		<font filename="lcd.ttf" name="LCD" scale="100"/>
+		<font filename="tuxtxt.ttf" name="Console" scale="100"/>
+		<font filename="andale.ttf" name="Fixed" scale="100"/>
+		<font filename="DejaVuSans.ttf" name="DejaVuSans" scale="100"/>
+		<alias font="Regular" height="38" name="ChoiceList" size="28"/>
+		<alias font="Regular" height="38" name="TextNormal" size="28"/>
+		<alias font="Regular" height="25" name="ChoiceBoxDescription" size="22"/>
+		<alias font="Regular" height="38" name="FileList" size="28"/>
+		<alias font="Regular" height="38" name="FileListMulti" size="28"/>
+		<alias font="Regular" height="76" name="PluginBrowser0" size="32"/>
+		<alias font="Regular" name="PluginBrowser1" size="22"/>
+		<alias font="Regular" height="45" name="ServiceInfo" size="30"/>
+		<alias font="Regular" height="45" name="SelectionList" size="30"/>
+		<alias font="Regular" height="30" name="ImsSelectionList" size="28"/>
+		<alias font="Regular" height="38" name="PartnerBoxEntryList0" size="28"/>
+		<alias font="Regular" name="PartnerBoxEntryList1" size="28"/>
+		<alias font="Regular" height="114" name="PartnerBoxE2TimerMenu0" size="32"/>
+		<alias font="Regular" name="PartnerBoxE2TimerMenu1" size="28"/>
+		<alias font="Regular" height="45" name="PartnerBoxBouquetList0" size="32"/>
+		<alias font="Regular" name="PartnerBoxBouquetList1" size="28"/>
+		<alias font="Regular" height="114" name="PartnerBoxChannelList0" size="32"/>
+		<alias font="Regular" name="PartnerBoxChannelList1" size="28"/>
+		<alias font="Regular" height="38" name="PartnerBoxChannelEPGList0" size="32"/>
+		<alias font="Regular" name="PartnerBoxChannelEPGList1" size="24"/>
+		<alias font="DejaVuSans" height="68" name="VirtualKeyBoard" size="42"/>
+		<alias font="Regular" height="45" name="HelpMenuList" size="30"/>
+		<alias font="Regular" height="75" name="HelpMenuListExt0" size="32"/>
+		<alias font="Regular" name="HelpMenuListExt1" size="28"/>
+		<alias font="Regular" height="45" name="Dreamexplorer" size="30"/>
+		<alias font="Regular" height="38" name="PlayList" size="28"/>
+		<alias font="Regular" height="25" name="AutotimerList" size="22"/>
+		<alias font="Regular" name="AutotimerListExt0" size="28"/>
+		<alias font="Regular" height="95" name="AutotimerListExt1" size="22"/>
+		<alias font="Fixed" height="45" name="FcZipArchiver" size="26"/>
+		<alias font="Regular" name="AutomaticVolumeAdjustment0" size="28"/>
+		<alias font="Regular" name="AutomaticVolumeAdjustment1" size="28"/>
 	</fonts>
 	<colors>
 		<color name="FdLcdTitleForeground" value="#7fffff"/>
@@ -29,10 +90,10 @@
 		<font filename="nmsbd.ttf" name="FdLcD" scale="100"/>
 		<font filename="OpenSans-Regular.ttf" name="FdLcDLight" scale="100"/>
 	</fonts>
-	<screen backgroundColor="backgroundMedium" flags="wfNoBorder" name="MovieCockpit" position="center,center" resolution="1920,1080" size="1920,1080" transparent="0">
-		<eLabel backgroundColor="backgroundDark" position="0,0" size="1920,55"/>
-		<widget font="Bold;38" position="10,0" render="Label" size="1900,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="separator" position="0,54" size="1920,2"/>
+	<screen backgroundColor="md_surface" flags="wfNoBorder" name="MovieCockpit" position="center,center" resolution="1920,1080" size="1920,1080" transparent="0">
+		<eLabel backgroundColor="md_surface_container_lowest" position="0,0" size="1920,55"/>
+		<widget font="Bold;36" position="10,0" render="Label" size="1900,55" source="Title" transparent="1" valign="center" zPosition="1"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1920,2"/>
 		<ePixmap alphatest="blend" pixmap="~/../images/sort.svg" position="30,80" scale="scale" size="38,38" transparent="1"/>
 		<widget font="Regular;20" halign="left" name="sort_mode" position="80,80" size="510,38" transparent="1" valign="center"/>
 		<ePixmap alphatest="blend" pixmap="~/../images/hardisk.svg" position="600,80" scale="scale" size="38,38" transparent="1"/>
@@ -40,46 +101,46 @@
 			<convert type="COCDiskSpaceInfo">SpaceInfo</convert>
 		</widget>
 		<widget alphatest="blend" name="pic_loading" position="559,421" size="100,100" zPosition="3"/>
-		<widget backgroundColorSelected="blue" enableWrapAround="1" position="30,135" render="Listbox" scrollbarMode="showAlways" size="1200,855" source="list" transparent="1">
-			<convert type="COCTemplatedMultiContentEx">
+		<widget backgroundColorSelected="md_primary_container" enableWrapAround="1" itemCornerRadiusSelected="8" position="30,135" render="Listbox" scrollbarMode="showAlways" size="1200,855" source="list" transparent="1">
+			<convert type="TemplatedMultiContentEx">
 			{
 				"template": [
 					MultiContentEntryPixmapAlphaBlend(pos=(5,5), size=(35,35), png=23, flags=BT_SCALE),
 					MultiContentEntryPixmapAlphaBlend(pos=(50,5), size=(55,35), png=24, flags=BT_SCALE),
 					MultiContentEntryText(pos=(120,0), size=(e-490,45), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=20, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
-					MultiContentEntryProgress(pos=(e-355,15), size=(90,14), percent=-22, borderWidth=1, foreColor="gray", foreColorSelected="white", backColor="backgroundLight"),
-					MultiContentEntryProgress(pos=(e-355,15), size=(90,14), percent=-27, borderWidth=1, foreColor="red", foreColorSelected="red", backColor="backgroundLight"),
-					MultiContentEntryProgress(pos=(e-355,15), size=(90,14), percent=-28, borderWidth=1, foreColor="yellow", foreColorSelected="yellow", backColor="backgroundLight"),
+					MultiContentEntryProgress(pos=(e-355,15), size=(90,14), percent=-22, borderWidth=1, foreColor="md_on_surface_variant", foreColorSelected="md_on_surface", backColor="md_surface_container_high"),
+					MultiContentEntryProgress(pos=(e-355,15), size=(90,14), percent=-27, borderWidth=1, foreColor="md_error", foreColorSelected="md_error", backColor="md_surface_container_high"),
+					MultiContentEntryProgress(pos=(e-355,15), size=(90,14), percent=-28, borderWidth=1, foreColor="md_key_yellow", foreColorSelected="md_key_yellow", backColor="md_surface_container_high"),
 					MultiContentEntryText(pos=(e-250,0), size=(230,45), font=1, flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text=21, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
 				],
-				"fonts": [parseFont("Regular;32"), parseFont("Regular;26")],
+				"fonts": [parseFont("Regular;30"), parseFont("Regular;26")],
 				"itemHeight": 45
 			}
 			</convert>
 		</widget>
 		<widget alphatest="blend" position="1260,135" render="COCCover" size="630,375" source="Service" transparent="1"/>
-		<widget font="Bold;32" position="1260,515" render="Label" size="630,80" source="Service" transparent="1" valign="center" zPosition="2">
+		<widget font="Bold;36" position="1260,515" render="Label" size="630,80" source="Service" transparent="1" valign="center" zPosition="2">
 			<convert type="COCEventName">Name</convert>
 		</widget>
-		<widget font="Bold;32" position="1260,595" render="Label" size="280,40" source="Service" transparent="1" valign="center" zPosition="2">
+		<widget font="Bold;30" position="1260,595" render="Label" size="280,40" source="Service" transparent="1" valign="center" zPosition="2">
 			<convert type="ServiceTime">Duration</convert>
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
-		<widget font="Bold;32" noWrap="1" position="1260,635" render="Label" size="630,40" source="Service" transparent="1" valign="center">
+		<widget font="Bold;30" noWrap="1" position="1260,635" render="Label" size="630,40" source="Service" transparent="1" valign="center">
 			<convert type="COCEventName">Description</convert>
 		</widget>
 		<widget font="Regular;26" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="1260,635" render="COCRunningText" size="630,345" size2="630,290" source="Service" transparent="1">
 			<convert type="COCEventName">ShortAndExtendedDescription</convert>
 		</widget>
-		<widget font="Bold;38" foregroundColor="grey" halign="center" name="level" position="0,1025" size="96,55" transparent="1" valign="center" zPosition="2"/>
-		<eLabel backgroundColor="separator" position="0,1024" size="1920,2"/>
-		<eLabel backgroundColor="backgroundDark" position="0,1025" size="1920,55"/>
-		<widget conditional="key_red" font="Bold;38" foregroundColor="red" halign="center" name="key_red" noWrap="1" position="0,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Bold;38" foregroundColor="green" halign="center" name="key_green" noWrap="1" position="435,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Bold;38" foregroundColor="yellow" halign="center" name="key_yellow" noWrap="1" position="870,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Bold;38" foregroundColor="blue" halign="center" name="key_blue" noWrap="1" position="1305,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Bold;38" foregroundColor="white" halign="center" name="key_menu" noWrap="1" position="1740,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Bold;38" foregroundColor="white" halign="center" name="key_info" noWrap="1" position="1830,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<widget font="Bold;36" foregroundColor="md_on_surface_variant" halign="center" name="level" position="0,1025" size="96,55" transparent="1" valign="center" zPosition="2"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,1024" size="1920,2"/>
+		<eLabel backgroundColor="md_surface_container_lowest" position="0,1025" size="1920,55"/>
+		<widget conditional="key_red" font="Bold;36" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_green" font="Bold;36" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="435,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_yellow" font="Bold;36" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="870,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_blue" font="Bold;36" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="1305,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_menu" font="Bold;36" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1740,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_info" font="Bold;36" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1830,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
 	</screen>
 	<screen name="MovieCockpitSummary" position="fill" resolution="396,240">
 		<ePixmap alphatest="on" pixmap="~/../images/display_bg.png" position="0,0" size="396,240" zPosition="-10"/>
@@ -94,104 +155,104 @@
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
 	</screen>
-	<screen backgroundColor="backgroundMedium" flags="wfNoBorder" name="MovieInfoEPG" position="center,center" resolution="1920,1080" size="1200,820" transparent="0">
-		<eLabel backgroundColor="backgroundDark" position="0,0" size="1200,55"/>
-		<widget font="Bold;38" position="10,0" render="Label" size="1180,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="separator" position="0,54" size="1200,2"/>
-		<widget font="Regular;38" position="25,60" render="Label" size="1150,45" source="Service" transparent="1">
+	<screen backgroundColor="md_surface" flags="wfNoBorder" name="MovieInfoEPG" position="center,center" resolution="1920,1080" size="1200,820" transparent="0">
+		<eLabel backgroundColor="md_surface_container_lowest" position="0,0" size="1200,55"/>
+		<widget font="Bold;36" position="10,0" render="Label" size="1180,55" source="Title" transparent="1" valign="center" zPosition="1"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1200,2"/>
+		<widget font="Regular;36" position="25,60" render="Label" size="1150,45" source="Service" transparent="1">
 			<convert type="ServiceTime">Duration</convert>
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
-		<widget font="Regular;38" position="25,115" render="Label" size="1150,45" source="Service" transparent="1" valign="center">
+		<widget font="Regular;36" position="25,115" render="Label" size="1150,45" source="Service" transparent="1" valign="center">
 			<convert type="COCEventName">Description</convert>
 		</widget>
-		<widget font="Regular;32" foregroundColor="grey" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="25,135" render="COCRunningText" size="1150,602" size2="1150,542" source="Service" transparent="1">
+		<widget font="Regular;30" foregroundColor="md_on_surface_variant" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="25,135" render="COCRunningText" size="1150,602" size2="1150,542" source="Service" transparent="1">
 			<convert type="COCEventName">ShortAndExtendedDescription</convert>
 		</widget>
-		<eLabel backgroundColor="separator" position="0,764" size="1200,2"/>
-		<eLabel backgroundColor="backgroundDark" position="0,765" size="1200,55"/>
-		<widget conditional="key_red" font="Bold;38" foregroundColor="red" halign="center" name="key_red" noWrap="1" position="0,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Bold;38" foregroundColor="green" halign="center" name="key_green" noWrap="1" position="255,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Bold;38" foregroundColor="yellow" halign="center" name="key_yellow" noWrap="1" position="510,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Bold;38" foregroundColor="blue" halign="center" name="key_blue" noWrap="1" position="765,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Bold;38" foregroundColor="white" halign="center" name="key_menu" noWrap="1" position="1020,765" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Bold;38" foregroundColor="white" halign="center" name="key_info" noWrap="1" position="1110,765" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,764" size="1200,2"/>
+		<eLabel backgroundColor="md_surface_container_lowest" position="0,765" size="1200,55"/>
+		<widget conditional="key_red" font="Bold;36" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_green" font="Bold;36" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="255,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_yellow" font="Bold;36" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="510,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_blue" font="Bold;36" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="765,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_menu" font="Bold;36" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1020,765" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_info" font="Bold;36" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1110,765" size="90,55" transparent="1" valign="center" zPosition="2"/>
 	</screen>
-	<screen backgroundColor="backgroundMedium" flags="wfNoBorder" name="RecordingInfo" position="center,center" resolution="1920,1080" size="1920,1080" transparent="0">
-		<eLabel backgroundColor="backgroundDark" position="0,0" size="1920,55"/>
-		<widget font="Bold;38" position="10,0" render="Label" size="1900,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="separator" position="0,54" size="1920,2"/>
-		<widget backgroundColorSelected="blue" enableWrapAround="1" position="20,100" render="Listbox" scrollbarMode="showOnDemand" size="1880,865" source="list" transparent="1">
-			<convert type="TemplatedMultiContent">
+	<screen backgroundColor="md_surface" flags="wfNoBorder" name="RecordingInfo" position="center,center" resolution="1920,1080" size="1920,1080" transparent="0">
+		<eLabel backgroundColor="md_surface_container_lowest" position="0,0" size="1920,55"/>
+		<widget font="Bold;36" position="10,0" render="Label" size="1900,55" source="Title" transparent="1" valign="center" zPosition="1"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1920,2"/>
+		<widget backgroundColorSelected="md_primary_container" enableWrapAround="1" itemCornerRadiusSelected="8" position="20,100" render="Listbox" scrollbarMode="showOnDemand" size="1880,865" source="list" transparent="1">
+			<convert type="TemplatedMultiContentEx">
 			{
 				"template": [
 					MultiContentEntryText(pos=(5,0), size=(360,40), flags=RT_VALIGN_CENTER, text=0),
 					MultiContentEntryText(pos=(420,0), size=(1360,40), flags=RT_VALIGN_CENTER, text=1),
 				],
-				"fonts": [parseFont("Regular;32")],
+				"fonts": [parseFont("Regular;30")],
 				"itemHeight": 40
 			}
 			</convert>
 		</widget>
-		<eLabel backgroundColor="separator" position="0,1024" size="1920,2"/>
-		<eLabel backgroundColor="backgroundDark" position="0,1025" size="1920,55"/>
-		<widget conditional="key_red" font="Bold;38" foregroundColor="red" halign="center" name="key_red" noWrap="1" position="0,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Bold;38" foregroundColor="green" halign="center" name="key_green" noWrap="1" position="435,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Bold;38" foregroundColor="yellow" halign="center" name="key_yellow" noWrap="1" position="870,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Bold;38" foregroundColor="blue" halign="center" name="key_blue" noWrap="1" position="1305,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Bold;38" foregroundColor="white" halign="center" name="key_menu" noWrap="1" position="1740,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Bold;38" foregroundColor="white" halign="center" name="key_info" noWrap="1" position="1830,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,1024" size="1920,2"/>
+		<eLabel backgroundColor="md_surface_container_lowest" position="0,1025" size="1920,55"/>
+		<widget conditional="key_red" font="Bold;36" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_green" font="Bold;36" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="435,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_yellow" font="Bold;36" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="870,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_blue" font="Bold;36" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="1305,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_menu" font="Bold;36" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1740,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_info" font="Bold;36" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1830,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
 	</screen>
-	<screen backgroundColor="backgroundMedium" flags="wfNoBorder" name="FileManagerProgress" position="center,center" resolution="1920,1080" size="1200,410">
-		<eLabel backgroundColor="backgroundDark" position="0,0" size="1200,55"/>
-		<widget font="Bold;38" position="10,0" render="Label" size="1180,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="separator" position="0,54" size="1200,2"/>
-		<widget font="Regular;32" halign="left" name="operation" position="20,75" size="1160,43" transparent="1"/>
-		<widget font="Regular;32" halign="left" name="name" position="20,136" size="1160,43" transparent="1"/>
+	<screen backgroundColor="md_surface" flags="wfNoBorder" name="FileManagerProgress" position="center,center" resolution="1920,1080" size="1200,410">
+		<eLabel backgroundColor="md_surface_container_lowest" position="0,0" size="1200,55"/>
+		<widget font="Bold;36" position="10,0" render="Label" size="1180,55" source="Title" transparent="1" valign="center" zPosition="1"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1200,2"/>
+		<widget font="Regular;30" halign="left" name="operation" position="20,75" size="1160,43" transparent="1"/>
+		<widget font="Regular;30" halign="left" name="name" position="20,136" size="1160,43" transparent="1"/>
 		<widget name="slider1" position="20,197" size="1160,25" transparent="1"/>
-		<widget font="Regular;32" halign="left" name="status" position="20,240" size="1160,43" transparent="1"/>
-		<widget font="Regular;32" halign="left" position="20,301" render="Label" size="1160,35" source="DiskSpace" transparent="1">
+		<widget font="Regular;30" halign="left" name="status" position="20,240" size="1160,43" transparent="1"/>
+		<widget font="Regular;30" halign="left" position="20,301" render="Label" size="1160,35" source="DiskSpace" transparent="1">
 			<convert type="COCDiskSpaceInfo">SpaceInfo</convert>
 		</widget>
-		<eLabel backgroundColor="separator" position="0,354" size="1200,2"/>
-		<eLabel backgroundColor="backgroundDark" position="0,355" size="1200,55"/>
-		<widget conditional="key_red" font="Bold;38" foregroundColor="red" halign="center" name="key_red" noWrap="1" position="0,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Bold;38" foregroundColor="green" halign="center" name="key_green" noWrap="1" position="255,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Bold;38" foregroundColor="yellow" halign="center" name="key_yellow" noWrap="1" position="510,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Bold;38" foregroundColor="blue" halign="center" name="key_blue" noWrap="1" position="765,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Bold;38" foregroundColor="white" halign="center" name="key_menu" noWrap="1" position="1020,355" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Bold;38" foregroundColor="white" halign="center" name="key_info" noWrap="1" position="1110,355" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,354" size="1200,2"/>
+		<eLabel backgroundColor="md_surface_container_lowest" position="0,355" size="1200,55"/>
+		<widget conditional="key_red" font="Bold;36" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_green" font="Bold;36" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="255,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_yellow" font="Bold;36" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="510,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_blue" font="Bold;36" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="765,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_menu" font="Bold;36" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1020,355" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_info" font="Bold;36" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1110,355" size="90,55" transparent="1" valign="center" zPosition="2"/>
 	</screen>
-	<screen backgroundColor="transparent" flags="wfNoBorder" name="CockpitPlayer" position="center,center" resolution="1920,1080" size="1920,1080">
+	<screen backgroundColor="md_transparent" flags="wfNoBorder" name="CockpitPlayer" position="center,center" resolution="1920,1080" size="1920,1080">
 		<ePixmap alphatest="blend" pixmap="~/../images/player_bg_gradient.png" position="0,860" size="1920,220" zPosition="-1"/>
-		<widget font="Regular;32" halign="right" position="960,1010" render="Label" size="225,50" source="Service" transparent="1" valign="center">
+		<widget font="Regular;30" halign="right" position="960,1010" render="Label" size="225,50" source="Service" transparent="1" valign="center">
 			<convert type="COCServicePosition">Position,Negate</convert>
 		</widget>
-		<widget font="Regular;38" halign="center" position="860,1010" render="Label" size="200,50" source="Service" transparent="1" valign="center">
+		<widget font="Regular;36" halign="center" position="860,1010" render="Label" size="200,50" source="Service" transparent="1" valign="center">
 			<convert type="COCMovieInfo">MovieDuration</convert>
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
-		<widget font="Regular;32" halign="left" position="735,1010" render="Label" size="225,50" source="Service" transparent="1" valign="center">
+		<widget font="Regular;30" halign="left" position="735,1010" render="Label" size="225,50" source="Service" transparent="1" valign="center">
 			<convert type="COCServicePosition">Remaining</convert>
 		</widget>
 		<widget alphatest="blend" name="player_icon" position="30,900" size="60,60" zPosition="2"/>
 		<widget font="Regular;44" noWrap="1" position="105,900" render="Label" size="1600,60" source="Service" transparent="1" valign="center">
 			<convert type="COCEventName">Name</convert>
 		</widget>
-		<widget font="Bold;44" halign="center" position="1730,900" render="Label" size="160,60" source="Service" transparent="1" valign="center">
+		<widget font="Bold;42" halign="center" position="1730,900" render="Label" size="160,60" source="Service" transparent="1" valign="center">
 			<convert type="COCServicePosition">EndTime,ShowNoSeconds</convert>
 		</widget>
-		<eLabel backgroundColor="backgroundLight" position="30,980" size="1860,10" zPosition="0"/>
-		<widget alphatest="blend" foregroundColor="yellow" position="30,980" render="Progress" size="1860,10" source="Service" transparent="1" zPosition="2">
+		<eLabel backgroundColor="md_surface_container_high" position="30,980" size="1860,10" zPosition="0"/>
+		<widget alphatest="blend" foregroundColor="md_key_yellow" position="30,980" render="Progress" size="1860,10" source="Service" transparent="1" zPosition="2">
 			<convert type="COCServicePosition">Position</convert>
 		</widget>
-		<widget alphatest="blend" foregroundColor="darkgrey" position="30,980" render="Progress" size="1860,10" source="Service" transparent="1" zPosition="3">
+		<widget alphatest="blend" foregroundColor="md_outline" position="30,980" render="Progress" size="1860,10" source="Service" transparent="1" zPosition="3">
 			<convert type="COCBeforeTSPosition">Position</convert>
 		</widget>
-		<widget alphatest="blend" foregroundColor="red" position="30,980" render="Progress" size="1860,10" source="Service" transparent="1" zPosition="1">
+		<widget alphatest="blend" foregroundColor="md_error" position="30,980" render="Progress" size="1860,10" source="Service" transparent="1" zPosition="1">
 			<convert type="COCRecordPosition">Position</convert>
 		</widget>
-		<widget font="Regular;32" halign="left" position="30,1010" render="Label" size="300,45" source="session.CurrentService" transparent="1" valign="center" zPosition="2">
+		<widget font="Regular;30" halign="left" position="30,1010" render="Label" size="300,45" source="session.CurrentService" transparent="1" valign="center" zPosition="2">
 			<convert type="COCExtraInfo">ResolutionString</convert>
 		</widget>
 		<widget addon="COCServiceInfoBar" alignment="right" audioChannelsIconPath="/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images" audioCodecIconPath="/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images" autoresizeMode="condensed" connection="session" elements="videoRes,audioChannels,audioCodec,videoCodec,gamma" pixmaps="IS_HD:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_hd.png,IS_4K:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_4k.png,IS_SD:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_sd.png,IS_HDR:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_hdr.png,IS_HDR10:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_hdr10.png,IS_HLG:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_hlg.png,icon_a-law:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_a-law.png,icon_aac:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_aac.png,icon_aac-eld:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_aac-eld.png,icon_aac-lc:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_aac-lc.png,icon_aac-ld:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_aac-ld.png,icon_alac:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_alac.png,icon_amr:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_amr.png,icon_amr-wb:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_amr-wb.png,icon_ape:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_ape.png,icon_dolby-ac4:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dolby-ac4.png,icon_dolby-atmos:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dolby-atmos.png,icon_dolby-digital:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dolby-digital.png,icon_dolby-digital-plus:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dolby-digital-plus.png,icon_dolby-truehd:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dolby-truehd.png,icon_dsd:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dsd.png,icon_dts:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts.png,icon_dts-96-24:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts-96-24.png,icon_dts-es:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts-es.png,icon_dts-express:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts-express.png,icon_dts-hd:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts-hd.png,icon_dts-hd-hra:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts-hd-hra.png,icon_dts-hd-ma:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts-hd-ma.png,icon_dts-x:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts-x.png,icon_dts-x-imax:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts-x-imax.png,icon_dts-x-pro:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_dts-x-pro.png,icon_flac:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_flac.png,icon_he-aac:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_he-aac.png,icon_he-aac-v2:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_he-aac-v2.png,icon_lpcm:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_lpcm.png,icon_mlp:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_mlp.png,icon_mp2:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_mp2.png,icon_mp3:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_mp3.png,icon_mpeg-layer-i:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_mpeg-layer-i.png,icon_mpeg1-layer-ii:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_mpeg1-layer-ii.png,icon_mu-law:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_mu-law.png,icon_opus:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_opus.png,icon_pcm:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_pcm.png,icon_realaudio:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_realaudio.png,icon_realaudio-14-4:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_realaudio-14-4.png,icon_realaudio-28-8:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_realaudio-28-8.png,icon_speex:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_speex.png,icon_tta:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_tta.png,icon_vorbis:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_vorbis.png,icon_wavpack:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_wavpack.png,icon_wma:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_wma.png,icon_wma-lossless:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_wma-lossless.png,icon_wma-pro:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_wma-pro.png,icon_xhe-aac:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_xhe-aac.png,icon_avc:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_avc.png,icon_avs:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_avs.png,icon_avs2:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_avs2.png,icon_divx:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_divx.png,icon_h263:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_h263.png,icon_hevc:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_hevc.png,icon_mpeg1:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_mpeg1.png,icon_mpeg2:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_mpeg2.png,icon_mpeg4:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_mpeg4.png,icon_spark:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_spark.png,icon_vc1:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_vc1.png,icon_vc1-sm:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_vc1-sm.png,icon_vp6:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_vp6.png,icon_vp8:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_vp8.png,icon_vp9:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_vp9.png,icon_xvid:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_xvid.png,icon_1-0:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_1-0.png,icon_2-0:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_2-0.png,icon_5-1:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_5-1.png,icon_7-1:/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images/icon_7-1.png" position="1390,1010" size="500,45" spacing="7" transparent="1" videoCodecIconPath="/usr/lib/enigma2/python/Plugins/SystemPlugins/ComponentsCockpit/skin/images" zPosition="110"/>
@@ -204,7 +265,7 @@
 		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="FdLcdAmber" position="0,140" render="Progress" size="392,20" source="parent.Service" transparent="1" zPosition="2">
 			<convert type="COCServicePosition">Position</convert>
 		</widget>
-		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="darkgrey" position="0,140" render="Progress" size="392,20" source="parent.Service" transparent="1" zPosition="3">
+		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="md_outline" position="0,140" render="Progress" size="392,20" source="parent.Service" transparent="1" zPosition="3">
 			<convert type="COCBeforeTSPosition">Position</convert>
 		</widget>
 		<widget alphatest="blend" borderColor="FdLcdAmber" borderWidth="2" foregroundColor="FdLcdRed" position="0,140" render="Progress" size="392,20" source="parent.Service" transparent="1" zPosition="1">
@@ -217,11 +278,11 @@
 			<convert type="COCServicePosition">Remaining,ShowNoSeconds</convert>
 		</widget>
 	</screen>
-	<screen backgroundColor="transparent" flags="wfNoBorder" name="ScreenPVRState" position="center,center" resolution="1920,1080" size="100,160" zPosition="1000">
+	<screen backgroundColor="md_transparent" flags="wfNoBorder" name="ScreenPVRState" position="center,center" resolution="1920,1080" size="100,160" zPosition="1000">
 		<widget alphatest="blend" name="state_pic" position="0,0" size="100,100"/>
-		<widget font="Regular;38" halign="center" name="state" position="0,110" size="100,54" transparent="1" valign="center"/>
+		<widget font="Regular;36" halign="center" name="state" position="0,110" size="100,54" transparent="1" valign="center"/>
 	</screen>
-	<screen backgroundColor="transparent" flags="wfNoBorder" name="BufferingProgress" position="center,center" resolution="1920,1080" size="100,100">
+	<screen backgroundColor="md_transparent" flags="wfNoBorder" name="BufferingProgress" position="center,center" resolution="1920,1080" size="100,100">
 		<widget alphatest="off" name="pic" position="center,center" size="100,100" transparent="0"/>
 	</screen>
 </skin>
