@@ -52,7 +52,8 @@ class ServiceInfo():
     def getInfo(self, _service=None, info_type=None):
         logger.debug("info_type: %s", info_type)
         if info_type == iServiceInformation.sTimeCreate:
-            return self.info.getEventStartTime()
+            # the EPG event's start; for a recording without event data the time the recording started
+            return self.info.getEventStartTime() or self.info.getRecordingStartTime()
         return None
 
     def getInfoObject(self, _service=None, info_type=None):

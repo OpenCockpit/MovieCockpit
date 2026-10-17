@@ -7,12 +7,70 @@ screen:
     - xmlinc:
         file: "screenpart_TitleBar.ymlinc"
     - widget:
-        font: "$md_headline_small"
+        font: "$md_title_large"
         position: "25,60"
         render: "Label"
-        size: "1150,45"
+        size: "250,45"
         source: "Service"
         transparent: "1"
+        valign: "center"
+        children:
+          - convert:
+              type: "ServiceTime"
+              text: "StartTime"
+          - convert:
+              type: "ClockToText"
+              text: "ShortDate"
+    - widget:
+        font: "$md_title_large"
+        halign: "right"
+        position: "485,60"
+        render: "Label"
+        size: "100,45"
+        source: "Service"
+        transparent: "1"
+        valign: "center"
+        children:
+          - convert:
+              type: "ServiceTime"
+              text: "StartTime"
+          - convert:
+              type: "ClockToText"
+              text: "Default"
+    - widget:
+        font: "$md_title_large"
+        halign: "center"
+        position: "585,60"
+        render: "FixedLabel"
+        size: "30,45"
+        source: "Service"
+        text: "-"
+        transparent: "1"
+        valign: "center"
+    - widget:
+        font: "$md_title_large"
+        position: "615,60"
+        render: "Label"
+        size: "110,45"
+        source: "Service"
+        transparent: "1"
+        valign: "center"
+        children:
+          - convert:
+              type: "ServiceTime"
+              text: "EndTime"
+          - convert:
+              type: "ClockToText"
+              text: "Default"
+    - widget:
+        font: "$md_title_large"
+        halign: "right"
+        position: "925,60"
+        render: "Label"
+        size: "250,45"
+        source: "Service"
+        transparent: "1"
+        valign: "center"
         children:
           - convert:
               type: "ServiceTime"
@@ -21,7 +79,7 @@ screen:
               type: "ClockToText"
               text: "InMinutes"
     - widget:
-        font: "$md_headline_small"
+        font: "$md_title_large"
         position: "25,115"
         render: "Label"
         size: "1150,45"
