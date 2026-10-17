@@ -3,7 +3,7 @@
 
 
 import os
-from Components.config import config, ConfigSet, ConfigDirectory, ConfigNumber, ConfigSelection, ConfigSelectionNumber, ConfigYesNo, ConfigSubsection, ConfigNothing, NoSave
+from Components.config import config, ConfigSet, ConfigDirectory, ConfigNumber, ConfigSelection, ConfigSelectionNumber, ConfigYesNo, ConfigSubsection
 from Components.Language import language
 from .Debug import logger
 from .__init__ import _
@@ -54,28 +54,6 @@ sort_modes = {
 choices_sort = [(k, v[1]) for k, v in list(sort_modes.items())]
 
 
-choices_color_recording = [
-    ("#ff1616", _("red")),
-    ("#ff3838", _("light red")),
-    ("#8B0000", _("dark red"))
-]
-
-
-choices_color_selection = [
-    ("#ffffff", _("white")),
-    ("#cccccc", _("light grey")),
-    ("#bababa", _("grey")),
-    ("#666666", _("dark grey")),
-    ("#000000", _("black"))
-]
-
-
-choices_color_mark = [
-    ("#cccc00", _("dark yellow")),
-    ("#ffff00", _("yellow"))
-] + choices_color_selection
-
-
 def initBookmarks():
     logger.info("...")
     bookmarks = []
@@ -91,7 +69,6 @@ logger.debug("lang: %s", lang)
 lang_choices = LanguageSelection().getLangChoices(lang)
 if not hasattr(config.plugins, "moviecockpit"):
     config.plugins.moviecockpit = ConfigSubsection()
-config.plugins.moviecockpit.fake_entry = NoSave(ConfigNothing())
 config.plugins.moviecockpit.timer_autoclean = ConfigYesNo(
     default=False)
 config.plugins.moviecockpit.cover_auto_download = ConfigYesNo(
@@ -125,18 +102,6 @@ config.plugins.moviecockpit.trashcan_info = ConfigSelection(
 config.plugins.moviecockpit.list_content = ConfigNumber(default=1)
 config.plugins.moviecockpit.directories_info = ConfigSelection(
     default="CS", choices=choices_dir_info)
-config.plugins.moviecockpit.color = ConfigSelection(
-    default="#bababa", choices=choices_color_selection)
-config.plugins.moviecockpit.color_sel = ConfigSelection(
-    default="#ffffff", choices=choices_color_selection)
-config.plugins.moviecockpit.recording_color = ConfigSelection(
-    default="#ff1616", choices=choices_color_recording)
-config.plugins.moviecockpit.recording_color_sel = ConfigSelection(
-    default="#ff3838", choices=choices_color_recording)
-config.plugins.moviecockpit.selection_color = ConfigSelection(
-    default="#cccc00", choices=choices_color_mark)
-config.plugins.moviecockpit.selection_color_sel = ConfigSelection(
-    default="#ffff00", choices=choices_color_mark)
 config.plugins.moviecockpit.list_sort = ConfigSelection(
     default="0", choices=choices_sort)
 config.plugins.moviecockpit.archive_enable = ConfigYesNo(default=False)
@@ -146,7 +111,6 @@ config.plugins.moviecockpit.archive_target_dir = ConfigDirectory(
     default="/media/hdd/movie")
 config.plugins.moviecockpit.database_directory = ConfigDirectory(
     default="/etc/enigma2")
-config.plugins.moviecockpit.piconspath = ConfigDirectory(default="/usr/share/enigma2/picon")
 
 config.plugins.moviecockpit.bookmarks = ConfigSet([], [])
 if not config.plugins.moviecockpit.bookmarks.value:

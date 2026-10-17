@@ -64,17 +64,10 @@ class MovieList(List, Sorting, ServiceCenter):
         self.list_content = config.plugins.moviecockpit.list_content.value
         self.setListContent()
 
-        self.color = parseColor(config.plugins.moviecockpit.color.value).argb()
-        self.color_sel = parseColor(
-            config.plugins.moviecockpit.color_sel.value).argb()
-        self.recording_color = parseColor(
-            config.plugins.moviecockpit.recording_color.value).argb()
-        self.recording_color_sel = parseColor(
-            config.plugins.moviecockpit.recording_color_sel.value).argb()
-        self.selection_color = parseColor(
-            config.plugins.moviecockpit.selection_color.value).argb()
-        self.selection_color_sel = parseColor(
-            config.plugins.moviecockpit.selection_color_sel.value).argb()
+        # Normal rows leave the colors unset, so the list's own (skin) colors apply. Only these two states need to
+        # stand out, and their colors are the skin's - there are no user settings for them.
+        self.recording_color = parseColor("md_error").argb()
+        self.selection_color = parseColor("md_key_yellow").argb()
 
         self.pic_back = LoadPixmap(getSkinPath(
             "images/back.svg"), cached=True)
@@ -488,15 +481,11 @@ class MovieList(List, Sorting, ServiceCenter):
             return pixmap
 
         def getColor(path, _file_type, is_recording):
-            color = self.color
-            color_sel = self.color_sel
             if path in self.selection_list or path in self.lock_list:
-                color = self.selection_color
-                color_sel = self.selection_color_sel
-            elif is_recording:
-                color = self.recording_color
-                color_sel = self.recording_color_sel
-            return color, color_sel
+                return self.selection_color, self.selection_color
+            if is_recording:
+                return self.recording_color, self.recording_color
+            return None, None
 
         def splitProgressByCategory(path, is_recording, progress):
             """The progress bar's fore color, unlike text color, can't be bound

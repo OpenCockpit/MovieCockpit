@@ -11,7 +11,7 @@ screen:
         size: "1920,220"
         zPosition: "-1"
     - widget:
-        font: "$list_font"
+        font: "$md_body_large"
         halign: "right"
         position: "$screen_width/2,1010"
         render: "Label"
@@ -24,7 +24,7 @@ screen:
               type: "COCServicePosition"
               text: "Position,Negate"
     - widget:
-        font: "$subtitle_font"
+        font: "$md_headline_small"
         halign: "center"
         position: "$screen_width/2-100,1010"
         render: "Label"
@@ -40,7 +40,7 @@ screen:
               type: "ClockToText"
               text: "InMinutes"
     - widget:
-        font: "$list_font"
+        font: "$md_body_large"
         halign: "left"
         position: "$screen_width/2-225,1010"
         render: "Label"
@@ -59,7 +59,7 @@ screen:
         size: "60,60"
         zPosition: "2"
     - widget:
-        font: "$display_font"
+        font: "$md_headline_large"
         noWrap: "1"
         position: "105,900"
         render: "Label"
@@ -72,7 +72,7 @@ screen:
               type: "COCEventName"
               text: "Name"
     - widget:
-        font: "$title_single_font"
+        font: "$md_headline_large_emphasized"
         halign: "center"
         position: "1730,900"
         render: "Label"
@@ -134,7 +134,7 @@ screen:
         position: "30,1010"
         size: "300,45"
         zPosition: "2"
-        font: "$list_font"
+        font: "$md_body_large"
         transparent: "1"
         valign: "center"
         halign: "left"

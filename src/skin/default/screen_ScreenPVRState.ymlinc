@@ -11,7 +11,7 @@ screen:
         position: "0,0"
         size: "100,100"
     - widget:
-        font: "$subtitle_font"
+        font: "$md_headline_small"
         halign: "center"
         name: "state"
         position: "0,110"

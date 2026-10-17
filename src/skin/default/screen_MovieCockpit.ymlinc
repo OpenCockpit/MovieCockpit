@@ -14,7 +14,7 @@ screen:
         size: "38,38"
         transparent: "1"
     - widget:
-        font: "$caption_font"
+        font: "$md_label_medium"
         halign: "left"
         name: "sort_mode"
         position: "80,80"
@@ -29,7 +29,7 @@ screen:
         size: "38,38"
         transparent: "1"
     - widget:
-        font: "$caption_font"
+        font: "$md_label_medium"
         halign: "left"
         position: "650,80"
         render: "Label"
@@ -54,7 +54,7 @@ screen:
         file: "screenpart_MovieDetails.ymlinc"
         position: "1260,135"
     - widget:
-        font: "$header_font"
+        font: "$md_headline_small_emphasized"
         foregroundColor: "md_on_surface_variant"
         halign: "center"
         name: "level"

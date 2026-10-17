@@ -9,6 +9,7 @@ screen:
     - widget:
         backgroundColorSelected: "$backgroundColorSelected"
         enableWrapAround: "1"
+        foregroundColorSelected: "$foregroundColorSelected"
         itemCornerRadiusSelected: "$radius_item"
         position: "20,100"
         render: "Listbox"
@@ -22,7 +23,7 @@ screen:
               cell:
                 itemHeight: 40
                 fonts:
-                  - "$list_font"
+                  - "$md_body_large"
                 fields:
                   - text:
                       position: "5,0"

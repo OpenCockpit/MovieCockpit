@@ -7,7 +7,7 @@ screen:
     - xmlinc:
         file: "screenpart_TitleBar.ymlinc"
     - widget:
-        font: "$subtitle_font"
+        font: "$md_headline_small"
         position: "25,60"
         render: "Label"
         size: "1150,45"
@@ -21,7 +21,7 @@ screen:
               type: "ClockToText"
               text: "InMinutes"
     - widget:
-        font: "$subtitle_font"
+        font: "$md_headline_small"
         position: "25,115"
         render: "Label"
         size: "1150,45"
@@ -33,7 +33,7 @@ screen:
               type: "COCEventName"
               text: "Description"
     - widget:
-        font: "$list_font"
+        font: "$md_body_large"
         foregroundColor: "md_on_surface_variant"
         options: "movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100"
         position: "25,135"
