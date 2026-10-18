@@ -1,7 +1,7 @@
 screen:
   name: "MovieInfoEPG"
   position: "center,center"
-  size: "1200,820"
+  size: "1416,858"
   transparent: "0"
   children:
     - xmlinc:
@@ -24,7 +24,7 @@ screen:
     - widget:
         font: "$md_title_large"
         halign: "right"
-        position: "485,60"
+        position: "593,60"
         render: "Label"
         size: "100,45"
         source: "Service"
@@ -40,7 +40,7 @@ screen:
     - widget:
         font: "$md_title_large"
         halign: "center"
-        position: "585,60"
+        position: "693,60"
         render: "FixedLabel"
         size: "30,45"
         source: "Service"
@@ -49,7 +49,7 @@ screen:
         valign: "center"
     - widget:
         font: "$md_title_large"
-        position: "615,60"
+        position: "723,60"
         render: "Label"
         size: "110,45"
         source: "Service"
@@ -65,7 +65,7 @@ screen:
     - widget:
         font: "$md_title_large"
         halign: "right"
-        position: "925,60"
+        position: "1141,60"
         render: "Label"
         size: "250,45"
         source: "Service"
@@ -82,7 +82,7 @@ screen:
         font: "$md_title_large"
         position: "25,115"
         render: "Label"
-        size: "1150,45"
+        size: "1366,45"
         source: "Service"
         transparent: "1"
         valign: "center"
@@ -96,8 +96,8 @@ screen:
         options: "movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100"
         position: "25,135"
         render: "COCRunningText"
-        size: "1150,602"
-        size2: "1150,542"
+        size: "1366,640"
+        size2: "1366,580"
         source: "Service"
         transparent: "1"
         children:

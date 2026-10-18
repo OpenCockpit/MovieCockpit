@@ -117,66 +117,66 @@
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
 	</screen>
-	<screen backgroundColor="md_surface" flags="wfNoBorder" name="MovieInfoEPG" position="center,center" resolution="1920,1080" size="1200,820" transparent="0">
-		<eLabel backgroundColor="md_surface_container_high" position="0,0" size="1200,55"/>
-		<widget font="Bold;42" foregroundColor="md_primary" position="10,0" render="Label" size="1180,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1200,2"/>
+	<screen backgroundColor="md_surface" flags="wfNoBorder" name="MovieInfoEPG" position="center,center" resolution="1920,1080" size="1416,858" transparent="0">
+		<eLabel backgroundColor="md_surface_container_high" position="0,0" size="1416,55"/>
+		<widget font="Bold;42" foregroundColor="md_primary" position="10,0" render="Label" size="1396,55" source="Title" transparent="1" valign="center" zPosition="1"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1416,2"/>
 		<widget font="Regular;34" position="25,60" render="Label" size="250,45" source="Service" transparent="1" valign="center">
 			<convert type="ServiceTime">StartTime</convert>
 			<convert type="ClockToText">ShortDate</convert>
 		</widget>
-		<widget font="Regular;34" halign="right" position="485,60" render="Label" size="100,45" source="Service" transparent="1" valign="center">
+		<widget font="Regular;34" halign="right" position="593,60" render="Label" size="100,45" source="Service" transparent="1" valign="center">
 			<convert type="ServiceTime">StartTime</convert>
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget font="Regular;34" halign="center" position="585,60" render="FixedLabel" size="30,45" source="Service" text="-" transparent="1" valign="center"/>
-		<widget font="Regular;34" position="615,60" render="Label" size="110,45" source="Service" transparent="1" valign="center">
+		<widget font="Regular;34" halign="center" position="693,60" render="FixedLabel" size="30,45" source="Service" text="-" transparent="1" valign="center"/>
+		<widget font="Regular;34" position="723,60" render="Label" size="110,45" source="Service" transparent="1" valign="center">
 			<convert type="ServiceTime">EndTime</convert>
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget font="Regular;34" halign="right" position="925,60" render="Label" size="250,45" source="Service" transparent="1" valign="center">
+		<widget font="Regular;34" halign="right" position="1141,60" render="Label" size="250,45" source="Service" transparent="1" valign="center">
 			<convert type="ServiceTime">Duration</convert>
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
-		<widget font="Regular;34" position="25,115" render="Label" size="1150,45" source="Service" transparent="1" valign="center">
+		<widget font="Regular;34" position="25,115" render="Label" size="1366,45" source="Service" transparent="1" valign="center">
 			<convert type="COCEventName">Description</convert>
 		</widget>
-		<widget font="Regular;30" foregroundColor="md_on_surface_variant" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="25,135" render="COCRunningText" size="1150,602" size2="1150,542" source="Service" transparent="1">
+		<widget font="Regular;30" foregroundColor="md_on_surface_variant" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="25,135" render="COCRunningText" size="1366,640" size2="1366,580" source="Service" transparent="1">
 			<convert type="COCEventName">ShortAndExtendedDescription</convert>
 		</widget>
-		<eLabel backgroundColor="md_outline_variant" position="0,764" size="1200,2"/>
-		<eLabel backgroundColor="md_surface_container_high" position="0,765" size="1200,55"/>
-		<widget conditional="key_red" font="Regular;26" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Regular;26" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="255,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Regular;26" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="510,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Regular;26" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="765,765" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1020,765" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1110,765" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,802" size="1416,2"/>
+		<eLabel backgroundColor="md_surface_container_high" position="0,803" size="1416,55"/>
+		<widget conditional="key_red" font="Regular;26" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_green" font="Regular;26" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="309,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_yellow" font="Regular;26" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="618,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_blue" font="Regular;26" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="927,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_menu" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1236,803" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_info" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1326,803" size="90,55" transparent="1" valign="center" zPosition="2"/>
 	</screen>
-	<screen backgroundColor="md_surface" flags="wfNoBorder" name="RecordingInfo" position="center,center" resolution="1920,1080" size="1920,1080" transparent="0">
-		<eLabel backgroundColor="md_surface_container_high" position="0,0" size="1920,55"/>
-		<widget font="Bold;42" foregroundColor="md_primary" position="10,0" render="Label" size="1900,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1920,2"/>
-		<widget backgroundColorSelected="md_surface_container_high" enableWrapAround="1" foregroundColorSelected="md_primary" itemCornerRadiusSelected="8" position="20,100" render="Listbox" scrollbarMode="showOnDemand" size="1880,865" source="list" transparent="1">
+	<screen backgroundColor="md_surface" flags="wfNoBorder" name="RecordingInfo" position="center,center" resolution="1920,1080" size="1416,858" transparent="0">
+		<eLabel backgroundColor="md_surface_container_high" position="0,0" size="1416,55"/>
+		<widget font="Bold;42" foregroundColor="md_primary" position="10,0" render="Label" size="1396,55" source="Title" transparent="1" valign="center" zPosition="1"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1416,2"/>
+		<widget backgroundColorSelected="md_surface_container_high" enableWrapAround="1" foregroundColorSelected="md_primary" itemCornerRadiusSelected="8" position="20,70" render="Listbox" scrollbarMode="showOnDemand" size="1376,720" source="list" transparent="1">
 			<convert type="COCTemplatedMultiContentEx">
 			{
 				"template": [
 					MultiContentEntryText(pos=(5,0), size=(360,45), flags=RT_VALIGN_CENTER, text=0),
-					MultiContentEntryText(pos=(420,0), size=(1360,45), flags=RT_VALIGN_CENTER, text=1),
+					MultiContentEntryText(pos=(420,0), size=(930,45), flags=RT_VALIGN_CENTER, text=1),
 				],
 				"fonts": [parseFont("Regular;30")],
 				"itemHeight": 45
 			}
 			</convert>
 		</widget>
-		<eLabel backgroundColor="md_outline_variant" position="0,1024" size="1920,2"/>
-		<eLabel backgroundColor="md_surface_container_high" position="0,1025" size="1920,55"/>
-		<widget conditional="key_red" font="Regular;26" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Regular;26" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="435,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Regular;26" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="870,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Regular;26" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="1305,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1740,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1830,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<eLabel backgroundColor="md_outline_variant" position="0,802" size="1416,2"/>
+		<eLabel backgroundColor="md_surface_container_high" position="0,803" size="1416,55"/>
+		<widget conditional="key_red" font="Regular;26" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_green" font="Regular;26" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="309,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_yellow" font="Regular;26" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="618,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_blue" font="Regular;26" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="927,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_menu" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1236,803" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<widget conditional="key_info" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1326,803" size="90,55" transparent="1" valign="center" zPosition="2"/>
 	</screen>
 	<screen backgroundColor="md_surface" flags="wfNoBorder" name="FileManagerProgress" position="center,center" resolution="1920,1080" size="1200,410">
 		<eLabel backgroundColor="md_surface_container_high" position="0,0" size="1200,55"/>

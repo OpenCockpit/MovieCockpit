@@ -1,7 +1,7 @@
 screen:
   name: "RecordingInfo"
   position: "center,center"
-  size: "1920,1080"
+  size: "1416,858"
   transparent: "0"
   children:
     - xmlinc:
@@ -11,10 +11,10 @@ screen:
         enableWrapAround: "1"
         foregroundColorSelected: "$foregroundColorSelected"
         itemCornerRadiusSelected: "$radius_item"
-        position: "20,100"
+        position: "20,70"
         render: "Listbox"
         scrollbarMode: "showOnDemand"
-        size: "1880,865"
+        size: "1376,720"
         source: "list"
         transparent: "1"
         children:
@@ -32,7 +32,7 @@ screen:
                       value: 0
                   - text:
                       position: "420,0"
-                      size: "1360,45"
+                      size: "930,45"
                       flags: RT_VALIGN_CENTER
                       value: 1
     - xmlinc:
