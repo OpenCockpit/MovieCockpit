@@ -1,11 +1,12 @@
 screen:
+  backgroundColor: "md_transparent"
   name: "MovieCockpit"
-  position: "center,center"
-  size: "1920,1080"
-  transparent: "0"
+  position: "fill"
+  resolution: "1920,1080"
   children:
     - xmlinc:
-        file: "screenpart_TitleBar.ymlinc"
+        file: "screenpart_Window_Full.ymlinc"
+        position: "center"
     - ePixmap:
         alphatest: "blend"
         pixmap: "~/../images/sort.svg"
@@ -58,10 +59,8 @@ screen:
         foregroundColor: "md_on_surface_variant"
         halign: "center"
         name: "level"
-        position: "0,$screen_height-55"
-        size: "96,55"
+        position: "1636,1020"
+        size: "100,36"
         transparent: "1"
         valign: "center"
-        zPosition: "2"
-    - xmlinc:
-        file: "screenpart_Footer.ymlinc"
+        zPosition: "20"

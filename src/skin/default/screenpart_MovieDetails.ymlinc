@@ -1,5 +1,6 @@
 - widget:
     alphatest: "blend"
+    cornerRadius: "$radius_cover"
     position: "0,0"
     render: "COCCover"
     size: "630,375"

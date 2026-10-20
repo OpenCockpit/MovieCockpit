@@ -52,18 +52,25 @@
 		<font filename="nmsbd.ttf" name="FdLcD" scale="100"/>
 		<font filename="OpenSans-Regular.ttf" name="FdLcDLight" scale="100"/>
 	</fonts>
-	<screen backgroundColor="md_surface" flags="wfNoBorder" name="MovieCockpit" position="center,center" resolution="1920,1080" size="1920,1080" transparent="0">
-		<eLabel backgroundColor="md_surface_container_high" position="0,0" size="1920,55"/>
-		<widget font="Bold;42" foregroundColor="md_primary" position="10,0" render="Label" size="1900,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1920,2"/>
-		<ePixmap alphatest="blend" pixmap="~/../images/sort.svg" position="30,80" scale="scale" size="38,38" transparent="1"/>
-		<widget font="Regular;20" halign="left" name="sort_mode" position="80,80" size="510,38" transparent="1" valign="center"/>
-		<ePixmap alphatest="blend" pixmap="~/../images/hardisk.svg" position="600,80" scale="scale" size="38,38" transparent="1"/>
-		<widget font="Regular;20" halign="left" position="650,80" render="Label" size="580,38" source="DiskSpace" transparent="1" valign="center">
+	<screen backgroundColor="md_transparent" flags="wfNoBorder" name="MovieCockpit" position="fill" resolution="1920,1080">
+		<eLabel backgroundColor="md_surface_container_high" cornerRadius="16" position="4,4" size="1912,1071" zPosition="-11"/>
+		<eLabel backgroundColor="md_surface" cornerRadius="14" position="6,76" size="1908,927" zPosition="-10"/>
+		<eLabel backgroundColor="md_surface_container_high" position="28,4" size="1864,2" zPosition="-7"/>
+		<eLabel backgroundColor="md_surface_container_high" position="4,28" size="2,982" zPosition="-7"/>
+		<eLabel backgroundColor="md_surface_container_high" position="1914,28" size="2,982" zPosition="-7"/>
+		<widget addon="ScreenHeader" backgroundColor="md_surface_container_high" connection="Image,Title,ScreenPath" pathFont="Bold;18" pathForegroundColor="md_primary" position="24,7" size="1700,66" titleFont="Bold;28" titleForegroundColor="md_primary" titleSingleFont="Bold;42" transparent="1"/>
+		<widget backgroundColor="md_shadow" font="Bold;42" foregroundColor="md_on_surface" halign="right" position="1754,4" render="Label" size="120,70" source="global.CurrentTime" transparent="1" valign="center" zPosition="20">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget actionButtonsPos="farRight" addon="ScreenButtonsBar" backgroundColor="md_surface_container_high" connection="key_red,key_green,key_yellow,key_blue,key_play,key_previous,key_left,key_info,key_help,key_pvr,key_menu,key_text,VKeyIcon,key_next,key_right,key_0" font="Regular;26" layoutStyle="fluid" pixmaps="key_red:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_red.png,key_green:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_green.png,key_yellow:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_yellow.png,key_blue:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_blue.png,key_play:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_play.png,key_info:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_info.png,key_help:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_help.png,key_pvr:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_pvr.png,key_menu:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_menu.png,key_text:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_text.png,VKeyIcon:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_text.png,key_previous:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_prev.png,key_next:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_next.png,key_left:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_left.png,key_right:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_right.png,key_0:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_0.png" position="24,1024" size="1872,36" spacingActionColorGroups="60" spacingColor="120" spacingPixmapText="10" zPosition="10"/>
+		<ePixmap alphatest="blend" pixmap="~/../images/sort.svg" position="34,84" scale="scale" size="38,38" transparent="1"/>
+		<widget font="Regular;20" halign="left" name="sort_mode" position="84,84" size="510,38" transparent="1" valign="center"/>
+		<ePixmap alphatest="blend" pixmap="~/../images/hardisk.svg" position="604,84" scale="scale" size="38,38" transparent="1"/>
+		<widget font="Regular;20" halign="left" position="654,84" render="Label" size="580,38" source="DiskSpace" transparent="1" valign="center">
 			<convert type="COCDiskSpaceInfo">SpaceInfo</convert>
 		</widget>
-		<widget alphatest="blend" name="pic_loading" position="559,421" size="100,100" zPosition="3"/>
-		<widget backgroundColorSelected="md_surface_container_high" enableWrapAround="1" foregroundColorSelected="md_primary" itemCornerRadiusSelected="8" position="30,135" render="Listbox" scrollbarMode="showAlways" size="1200,855" source="list" transparent="1">
+		<widget alphatest="blend" name="pic_loading" position="563,425" size="100,100" zPosition="3"/>
+		<widget backgroundColorSelected="md_surface_container_high" enableWrapAround="1" foregroundColorSelected="md_primary" itemCornerRadiusSelected="6" position="34,139" render="Listbox" scrollbarMode="showAlways" size="1200,855" source="list" transparent="1">
 			<convert type="COCTemplatedMultiContentEx">
 			{
 				"template": [
@@ -80,29 +87,21 @@
 			}
 			</convert>
 		</widget>
-		<widget alphatest="blend" position="1260,135" render="COCCover" size="630,375" source="Service" transparent="1"/>
-		<widget font="Bold;36" position="1260,515" render="Label" size="630,80" source="Service" transparent="1" valign="center" zPosition="2">
+		<widget alphatest="blend" cornerRadius="12" position="1264,139" render="COCCover" size="630,375" source="Service" transparent="1"/>
+		<widget font="Bold;36" position="1264,519" render="Label" size="630,80" source="Service" transparent="1" valign="center" zPosition="2">
 			<convert type="COCEventName">Name</convert>
 		</widget>
-		<widget font="Bold;30" position="1260,595" render="Label" size="280,40" source="Service" transparent="1" valign="center" zPosition="2">
+		<widget font="Bold;30" position="1264,599" render="Label" size="280,40" source="Service" transparent="1" valign="center" zPosition="2">
 			<convert type="ServiceTime">Duration</convert>
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
-		<widget font="Bold;30" noWrap="1" position="1260,635" render="Label" size="630,40" source="Service" transparent="1" valign="center">
+		<widget font="Bold;30" noWrap="1" position="1264,639" render="Label" size="630,40" source="Service" transparent="1" valign="center">
 			<convert type="COCEventName">Description</convert>
 		</widget>
-		<widget font="Regular;26" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="1260,635" render="COCRunningText" size="630,345" size2="630,290" source="Service" transparent="1">
+		<widget font="Regular;26" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="1264,639" render="COCRunningText" size="630,345" size2="630,290" source="Service" transparent="1">
 			<convert type="COCEventName">ShortAndExtendedDescription</convert>
 		</widget>
-		<widget font="Bold;36" foregroundColor="md_on_surface_variant" halign="center" name="level" position="0,1025" size="96,55" transparent="1" valign="center" zPosition="2"/>
-		<eLabel backgroundColor="md_outline_variant" position="0,1024" size="1920,2"/>
-		<eLabel backgroundColor="md_surface_container_high" position="0,1025" size="1920,55"/>
-		<widget conditional="key_red" font="Regular;26" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Regular;26" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="435,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Regular;26" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="870,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Regular;26" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="1305,1025" size="435,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1740,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1830,1025" size="90,55" transparent="1" valign="center" zPosition="2"/>
+		<widget font="Bold;36" foregroundColor="md_on_surface_variant" halign="center" name="level" position="1640,1024" size="100,36" transparent="1" valign="center" zPosition="20"/>
 	</screen>
 	<screen name="MovieCockpitSummary" position="fill" resolution="396,240">
 		<ePixmap alphatest="on" pixmap="~/../images/display_bg.png" position="0,0" size="396,240" zPosition="-10"/>
@@ -117,47 +116,49 @@
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
 	</screen>
-	<screen backgroundColor="md_surface" flags="wfNoBorder" name="MovieInfoEPG" position="center,center" resolution="1920,1080" size="1416,858" transparent="0">
-		<eLabel backgroundColor="md_surface_container_high" position="0,0" size="1416,55"/>
-		<widget font="Bold;42" foregroundColor="md_primary" position="10,0" render="Label" size="1396,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1416,2"/>
-		<widget font="Regular;34" position="25,60" render="Label" size="250,45" source="Service" transparent="1" valign="center">
+	<screen backgroundColor="md_transparent" flags="wfNoBorder" name="MovieInfoEPG" position="fill" resolution="1920,1080">
+		<eLabel backgroundColor="md_surface_container_high" cornerRadius="16" position="252,111" size="1416,838" zPosition="-11"/>
+		<eLabel backgroundColor="md_surface" cornerRadius="14" position="254,173" size="1412,714" zPosition="-10"/>
+		<widget actionButtonsPos="farRight" addon="ScreenButtonsBar" backgroundColor="md_surface_container_high" connection="key_red,key_green,key_yellow,key_blue,key_play,key_previous,key_left,key_info,key_help,key_pvr,key_menu,key_text,VKeyIcon,key_next,key_right,key_0" font="Regular;26" layoutStyle="fluid" pixmaps="key_red:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_red.png,key_green:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_green.png,key_yellow:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_yellow.png,key_blue:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_blue.png,key_play:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_play.png,key_info:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_info.png,key_help:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_help.png,key_pvr:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_pvr.png,key_menu:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_menu.png,key_text:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_text.png,VKeyIcon:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_text.png,key_previous:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_prev.png,key_next:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_next.png,key_left:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_left.png,key_right:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_right.png,key_0:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_0.png" position="272,901" size="1376,36" spacingActionColorGroups="60" spacingColor="120" spacingPixmapText="10" zPosition="10"/>
+		<widget backgroundColor="md_surface_container_low" font="Bold;36" foregroundColor="md_on_surface" halign="right" position="1230,113" render="Label" size="420,64" source="global.CurrentTime" transparent="1" valign="center" zPosition="20">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel backgroundColor="md_surface_container_high" position="272,114" size="1156,60" zPosition="19"/>
+		<widget addon="ScreenHeader" backgroundColor="md_surface_container_high" connection="Image,Title,ScreenPath" pathFont="Bold;18" pathForegroundColor="md_primary" position="272,113" size="1156,60" titleFont="Bold;28" titleForegroundColor="md_primary" titleSingleFont="Bold;42" transparent="1" zPosition="20"/>
+		<widget font="Regular;34" position="277,183" render="Label" size="250,45" source="Service" transparent="1" valign="center">
 			<convert type="ServiceTime">StartTime</convert>
 			<convert type="ClockToText">ShortDate</convert>
 		</widget>
-		<widget font="Regular;34" halign="right" position="593,60" render="Label" size="100,45" source="Service" transparent="1" valign="center">
+		<widget font="Regular;34" halign="right" position="845,183" render="Label" size="100,45" source="Service" transparent="1" valign="center">
 			<convert type="ServiceTime">StartTime</convert>
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget font="Regular;34" halign="center" position="693,60" render="FixedLabel" size="30,45" source="Service" text="-" transparent="1" valign="center"/>
-		<widget font="Regular;34" position="723,60" render="Label" size="110,45" source="Service" transparent="1" valign="center">
+		<widget font="Regular;34" halign="center" position="945,183" render="FixedLabel" size="30,45" source="Service" text="-" transparent="1" valign="center"/>
+		<widget font="Regular;34" position="975,183" render="Label" size="110,45" source="Service" transparent="1" valign="center">
 			<convert type="ServiceTime">EndTime</convert>
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget font="Regular;34" halign="right" position="1141,60" render="Label" size="250,45" source="Service" transparent="1" valign="center">
+		<widget font="Regular;34" halign="right" position="1393,183" render="Label" size="250,45" source="Service" transparent="1" valign="center">
 			<convert type="ServiceTime">Duration</convert>
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
-		<widget font="Regular;34" position="25,115" render="Label" size="1366,45" source="Service" transparent="1" valign="center">
+		<widget font="Regular;34" position="277,236" render="Label" size="1366,45" source="Service" transparent="1" valign="center">
 			<convert type="COCEventName">Description</convert>
 		</widget>
-		<widget font="Regular;30" foregroundColor="md_on_surface_variant" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="25,135" render="COCRunningText" size="1366,640" size2="1366,580" source="Service" transparent="1">
+		<widget font="Regular;30" foregroundColor="md_on_surface_variant" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="277,281" render="COCRunningText" size="1366,595" size2="1366,535" source="Service" transparent="1">
 			<convert type="COCEventName">ShortAndExtendedDescription</convert>
 		</widget>
-		<eLabel backgroundColor="md_outline_variant" position="0,802" size="1416,2"/>
-		<eLabel backgroundColor="md_surface_container_high" position="0,803" size="1416,55"/>
-		<widget conditional="key_red" font="Regular;26" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Regular;26" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="309,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Regular;26" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="618,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Regular;26" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="927,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1236,803" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1326,803" size="90,55" transparent="1" valign="center" zPosition="2"/>
 	</screen>
-	<screen backgroundColor="md_surface" flags="wfNoBorder" name="RecordingInfo" position="center,center" resolution="1920,1080" size="1416,858" transparent="0">
-		<eLabel backgroundColor="md_surface_container_high" position="0,0" size="1416,55"/>
-		<widget font="Bold;42" foregroundColor="md_primary" position="10,0" render="Label" size="1396,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1416,2"/>
-		<widget backgroundColorSelected="md_surface_container_high" enableWrapAround="1" foregroundColorSelected="md_primary" itemCornerRadiusSelected="8" position="20,70" render="Listbox" scrollbarMode="showOnDemand" size="1376,720" source="list" transparent="1">
+	<screen backgroundColor="md_transparent" flags="wfNoBorder" name="RecordingInfo" position="fill" resolution="1920,1080">
+		<eLabel backgroundColor="md_surface_container_high" cornerRadius="16" position="252,111" size="1416,838" zPosition="-11"/>
+		<eLabel backgroundColor="md_surface" cornerRadius="14" position="254,173" size="1412,714" zPosition="-10"/>
+		<widget actionButtonsPos="farRight" addon="ScreenButtonsBar" backgroundColor="md_surface_container_high" connection="key_red,key_green,key_yellow,key_blue,key_play,key_previous,key_left,key_info,key_help,key_pvr,key_menu,key_text,VKeyIcon,key_next,key_right,key_0" font="Regular;26" layoutStyle="fluid" pixmaps="key_red:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_red.png,key_green:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_green.png,key_yellow:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_yellow.png,key_blue:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_blue.png,key_play:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_play.png,key_info:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_info.png,key_help:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_help.png,key_pvr:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_pvr.png,key_menu:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_menu.png,key_text:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_text.png,VKeyIcon:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_text.png,key_previous:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_prev.png,key_next:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_next.png,key_left:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_left.png,key_right:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_right.png,key_0:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_0.png" position="272,901" size="1376,36" spacingActionColorGroups="60" spacingColor="120" spacingPixmapText="10" zPosition="10"/>
+		<widget backgroundColor="md_surface_container_low" font="Bold;36" foregroundColor="md_on_surface" halign="right" position="1230,113" render="Label" size="420,64" source="global.CurrentTime" transparent="1" valign="center" zPosition="20">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel backgroundColor="md_surface_container_high" position="272,114" size="1156,60" zPosition="19"/>
+		<widget addon="ScreenHeader" backgroundColor="md_surface_container_high" connection="Image,Title,ScreenPath" pathFont="Bold;18" pathForegroundColor="md_primary" position="272,113" size="1156,60" titleFont="Bold;28" titleForegroundColor="md_primary" titleSingleFont="Bold;42" transparent="1" zPosition="20"/>
+		<widget backgroundColorSelected="md_surface_container_high" enableWrapAround="1" foregroundColorSelected="md_primary" itemCornerRadiusSelected="6" position="266,183" render="Listbox" scrollbarMode="showOnDemand" size="1388,675" source="list" transparent="1">
 			<convert type="COCTemplatedMultiContentEx">
 			{
 				"template": [
@@ -169,34 +170,23 @@
 			}
 			</convert>
 		</widget>
-		<eLabel backgroundColor="md_outline_variant" position="0,802" size="1416,2"/>
-		<eLabel backgroundColor="md_surface_container_high" position="0,803" size="1416,55"/>
-		<widget conditional="key_red" font="Regular;26" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Regular;26" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="309,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Regular;26" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="618,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Regular;26" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="927,803" size="309,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1236,803" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1326,803" size="90,55" transparent="1" valign="center" zPosition="2"/>
 	</screen>
-	<screen backgroundColor="md_surface" flags="wfNoBorder" name="FileManagerProgress" position="center,center" resolution="1920,1080" size="1200,410">
-		<eLabel backgroundColor="md_surface_container_high" position="0,0" size="1200,55"/>
-		<widget font="Bold;42" foregroundColor="md_primary" position="10,0" render="Label" size="1180,55" source="Title" transparent="1" valign="center" zPosition="1"/>
-		<eLabel backgroundColor="md_outline_variant" position="0,54" size="1200,2"/>
-		<widget font="Regular;30" halign="left" name="operation" position="20,75" size="1160,43" transparent="1"/>
-		<widget font="Regular;30" halign="left" name="name" position="20,136" size="1160,43" transparent="1"/>
-		<widget name="slider1" position="20,197" size="1160,25" transparent="1"/>
-		<widget font="Regular;30" halign="left" name="status" position="20,240" size="1160,43" transparent="1"/>
-		<widget font="Regular;30" halign="left" position="20,301" render="Label" size="1160,35" source="DiskSpace" transparent="1">
+	<screen backgroundColor="md_transparent" flags="wfNoBorder" name="FileManagerProgress" position="fill" resolution="1920,1080">
+		<eLabel backgroundColor="md_surface_container_high" cornerRadius="16" position="360,325" size="1200,410" zPosition="-11"/>
+		<eLabel backgroundColor="md_surface" cornerRadius="14" position="362,387" size="1196,286" zPosition="-10"/>
+		<widget actionButtonsPos="farRight" addon="ScreenButtonsBar" backgroundColor="md_surface_container_high" connection="key_red,key_green,key_yellow,key_blue,key_play,key_previous,key_left,key_info,key_help,key_pvr,key_menu,key_text,VKeyIcon,key_next,key_right,key_0" font="Regular;26" layoutStyle="fluid" pixmaps="key_red:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_red.png,key_green:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_green.png,key_yellow:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_yellow.png,key_blue:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_blue.png,key_play:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_play.png,key_info:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_info.png,key_help:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_help.png,key_pvr:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_pvr.png,key_menu:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_menu.png,key_text:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_text.png,VKeyIcon:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_text.png,key_previous:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_prev.png,key_next:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_next.png,key_left:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_left.png,key_right:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_right.png,key_0:/usr/lib/enigma2/python/Plugins/Extensions/MovieCockpit/skin/images/buttons/key_0.png" position="380,687" size="1160,36" spacingActionColorGroups="60" spacingColor="120" spacingPixmapText="10" zPosition="10"/>
+		<widget backgroundColor="md_surface_container_low" font="Bold;36" foregroundColor="md_on_surface" halign="right" position="1122,327" render="Label" size="420,64" source="global.CurrentTime" transparent="1" valign="center" zPosition="20">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel backgroundColor="md_surface_container_high" position="380,328" size="940,60" zPosition="19"/>
+		<widget addon="ScreenHeader" backgroundColor="md_surface_container_high" connection="Image,Title,ScreenPath" pathFont="Bold;18" pathForegroundColor="md_primary" position="380,327" size="940,60" titleFont="Bold;28" titleForegroundColor="md_primary" titleSingleFont="Bold;42" transparent="1" zPosition="20"/>
+		<widget font="Regular;30" halign="left" name="operation" position="380,400" size="1160,43" transparent="1"/>
+		<widget font="Regular;30" halign="left" name="name" position="380,461" size="1160,43" transparent="1"/>
+		<widget name="slider1" position="380,522" size="1160,25" transparent="1"/>
+		<widget font="Regular;30" halign="left" name="status" position="380,565" size="1160,43" transparent="1"/>
+		<widget font="Regular;30" halign="left" position="380,626" render="Label" size="1160,35" source="DiskSpace" transparent="1">
 			<convert type="COCDiskSpaceInfo">SpaceInfo</convert>
 		</widget>
-		<eLabel backgroundColor="md_outline_variant" position="0,354" size="1200,2"/>
-		<eLabel backgroundColor="md_surface_container_high" position="0,355" size="1200,55"/>
-		<widget conditional="key_red" font="Regular;26" foregroundColor="md_key_red" halign="center" name="key_red" noWrap="1" position="0,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_green" font="Regular;26" foregroundColor="md_key_green" halign="center" name="key_green" noWrap="1" position="255,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_yellow" font="Regular;26" foregroundColor="md_key_yellow" halign="center" name="key_yellow" noWrap="1" position="510,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_blue" font="Regular;26" foregroundColor="md_key_blue" halign="center" name="key_blue" noWrap="1" position="765,355" size="255,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_menu" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_menu" noWrap="1" position="1020,355" size="90,55" transparent="1" valign="center" zPosition="2"/>
-		<widget conditional="key_info" font="Regular;26" foregroundColor="md_on_surface" halign="center" name="key_info" noWrap="1" position="1110,355" size="90,55" transparent="1" valign="center" zPosition="2"/>
 	</screen>
 	<screen backgroundColor="md_transparent" flags="wfNoBorder" name="CockpitPlayer" position="center,center" resolution="1920,1080" size="1920,1080">
 		<ePixmap alphatest="blend" pixmap="~/../images/player_bg_gradient.png" position="0,860" size="1920,220" zPosition="-1"/>

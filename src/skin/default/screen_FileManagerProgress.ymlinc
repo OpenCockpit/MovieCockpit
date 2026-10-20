@@ -1,10 +1,14 @@
 screen:
+  backgroundColor: "md_transparent"
   name: "FileManagerProgress"
-  position: "center,center"
-  size: "1200,410"
+  position: "fill"
+  resolution: "1920,1080"
   children:
     - xmlinc:
-        file: "screenpart_TitleBar.ymlinc"
+        file: "screenpart_Window_Dialog.ymlinc"
+        position: "360,325"
+        dialog_height: "430"
+        dialog_width: "1200"
     - widget:
         font: "$md_body_large"
         halign: "left"
@@ -43,5 +47,3 @@ screen:
           - convert:
               type: "COCDiskSpaceInfo"
               text: "SpaceInfo"
-    - xmlinc:
-        file: "screenpart_Footer.ymlinc"

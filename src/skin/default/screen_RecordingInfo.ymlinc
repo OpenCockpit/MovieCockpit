@@ -1,20 +1,21 @@
 screen:
+  backgroundColor: "md_transparent"
   name: "RecordingInfo"
-  position: "center,center"
-  size: "1416,858"
-  transparent: "0"
+  position: "fill"
+  resolution: "1920,1080"
   children:
     - xmlinc:
-        file: "screenpart_TitleBar.ymlinc"
+        file: "screenpart_Window_Wide.ymlinc"
+        position: "252,111"
     - widget:
         backgroundColorSelected: "$backgroundColorSelected"
         enableWrapAround: "1"
         foregroundColorSelected: "$foregroundColorSelected"
         itemCornerRadiusSelected: "$radius_item"
-        position: "20,70"
+        position: "14,72"
         render: "Listbox"
         scrollbarMode: "showOnDemand"
-        size: "1376,720"
+        size: "1388,675"
         source: "list"
         transparent: "1"
         children:
@@ -35,5 +36,3 @@ screen:
                       size: "930,45"
                       flags: RT_VALIGN_CENTER
                       value: 1
-    - xmlinc:
-        file: "screenpart_Footer.ymlinc"

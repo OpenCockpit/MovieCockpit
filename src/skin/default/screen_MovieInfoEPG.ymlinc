@@ -1,14 +1,15 @@
 screen:
+  backgroundColor: "md_transparent"
   name: "MovieInfoEPG"
-  position: "center,center"
-  size: "1416,858"
-  transparent: "0"
+  position: "fill"
+  resolution: "1920,1080"
   children:
     - xmlinc:
-        file: "screenpart_TitleBar.ymlinc"
+        file: "screenpart_Window_Wide.ymlinc"
+        position: "252,111"
     - widget:
         font: "$md_title_large"
-        position: "25,60"
+        position: "25,72"
         render: "Label"
         size: "250,45"
         source: "Service"
@@ -24,7 +25,7 @@ screen:
     - widget:
         font: "$md_title_large"
         halign: "right"
-        position: "593,60"
+        position: "593,72"
         render: "Label"
         size: "100,45"
         source: "Service"
@@ -40,7 +41,7 @@ screen:
     - widget:
         font: "$md_title_large"
         halign: "center"
-        position: "693,60"
+        position: "693,72"
         render: "FixedLabel"
         size: "30,45"
         source: "Service"
@@ -49,7 +50,7 @@ screen:
         valign: "center"
     - widget:
         font: "$md_title_large"
-        position: "723,60"
+        position: "723,72"
         render: "Label"
         size: "110,45"
         source: "Service"
@@ -65,7 +66,7 @@ screen:
     - widget:
         font: "$md_title_large"
         halign: "right"
-        position: "1141,60"
+        position: "1141,72"
         render: "Label"
         size: "250,45"
         source: "Service"
@@ -80,7 +81,7 @@ screen:
               text: "InMinutes"
     - widget:
         font: "$md_title_large"
-        position: "25,115"
+        position: "25,125"
         render: "Label"
         size: "1366,45"
         source: "Service"
@@ -94,15 +95,13 @@ screen:
         font: "$md_body_large"
         foregroundColor: "md_on_surface_variant"
         options: "movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100"
-        position: "25,135"
+        position: "25,170"
         render: "COCRunningText"
-        size: "1366,640"
-        size2: "1366,580"
+        size: "1366,595"
+        size2: "1366,535"
         source: "Service"
         transparent: "1"
         children:
           - convert:
               type: "COCEventName"
               text: "ShortAndExtendedDescription"
-    - xmlinc:
-        file: "screenpart_Footer.ymlinc"
