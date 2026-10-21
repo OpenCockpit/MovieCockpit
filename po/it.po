@@ -654,6 +654,39 @@ msgstr "Stile elenco: compatto riga singola"
 msgid "List style: minimal"
 msgstr "Stile elenco: minimale"
 
+msgid "Create series directory"
+msgstr "Creare directory serie"
+
+msgid "Move to series directory"
+msgstr "Spostare nella directory serie"
+
+msgid "Delete cover"
+msgstr "Eliminare cover"
+
+msgid "Please select a function"
+msgstr "Selezionare una funzione"
+
+msgid "Please select a plugin"
+msgstr "Selezionare un plugin"
+
+msgid ".Trash"
+msgstr "Cestino"
+
+msgid "Enter directory name:"
+msgstr "Inserire il nome della directory:"
+
+msgid "Next list content"
+msgstr "Contenuto lista successivo"
+
+msgid "Previous list content"
+msgstr "Contenuto lista precedente"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Download"
+msgstr "Download"
+
 msgid "Archive source"
 msgstr ""
 
