@@ -40,7 +40,7 @@ screen:
         halign: "left"
         position: "20,301"
         render: "Label"
-        size: "1160,35"
+        size: "1160,38"
         source: "DiskSpace"
         transparent: "1"
         children:
