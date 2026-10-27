@@ -11,8 +11,6 @@ from .FileManagerUtils import FILE_OP_DELETE, FILE_OP_LOAD, file_op_msg
 from .Debug import logger
 from .__init__ import _
 from .Version import ID
-from .SkinUtils import getSkinPath
-from .FileUtils import readFile
 
 
 FILE_OP_MGR_TIMER_DELAY = 1000
@@ -20,11 +18,11 @@ CACHE_LOAD_TIMER_DELAY = 500
 
 
 class FileManagerProgress(FileProgress):
-    skin = readFile(getSkinPath("FileManagerProgress.xml"))
 
     def __init__(self, session, file_op=FILE_OP_DELETE):
         logger.debug("...")
         self.file_op = file_op
+        self.skinName = "FileManagerProgress"
         FileProgress.__init__(self, session)
         self.setTitle(_("File operation(s)") + " ...")
         self["DiskSpace"] = COCDiskSpace(self)

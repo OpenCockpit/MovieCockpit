@@ -37,6 +37,6 @@ class CutList():
     def writeCutList(self, path, cut_list):
         logger.info("path: %s, cut_list: %s", path, cut_list)
         data = packCutList(cut_list)
-        writeFile(path + ".cuts", data)
+        writeFile(path + ".cuts", data, "wb")  # packed cuts are bytes
         data = pickle.dumps(cut_list)
         FileManager.getInstance(ID).update(path, cuts=data)
