@@ -6,14 +6,14 @@
     position: "0,0"
     render: "Listbox"
     scrollbarMode: "showAlways"
-    size: "1200,855"
+    size: "1200,19*$list_item_height"
     source: "list"
     transparent: "1"
     children:
       - convert:
           type: "COCTemplatedMultiContentEx"
           cell:
-            itemHeight: 45
+            itemHeight: $list_item_height
             fonts:
               - "$md_body_large"
               - "$md_body_small"

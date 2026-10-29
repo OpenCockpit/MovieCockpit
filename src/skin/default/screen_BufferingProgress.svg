@@ -1,9 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="140" height="168" viewBox="0 0 140 168">
 <metadata id="xml2svg-source">{&quot;fragment&quot;: true, &quot;screens&quot;: [{&quot;tag&quot;: &quot;screen&quot;, &quot;attrs&quot;: {&quot;name&quot;: &quot;BufferingProgress&quot;, &quot;backgroundColor&quot;: &quot;md_transparent&quot;, &quot;position&quot;: &quot;center,center&quot;, &quot;size&quot;: &quot;100,100&quot;, &quot;flags&quot;: &quot;wfNoBorder&quot;, &quot;resolution&quot;: &quot;1920,1080&quot;}, &quot;children&quot;: [{&quot;tag&quot;: &quot;widget&quot;, &quot;attrs&quot;: {&quot;alphatest&quot;: &quot;off&quot;, &quot;name&quot;: &quot;pic&quot;, &quot;position&quot;: &quot;center,center&quot;, &quot;size&quot;: &quot;100,100&quot;, &quot;transparent&quot;: &quot;0&quot;}, &quot;children&quot;: null, &quot;text&quot;: null}], &quot;text&quot;: null}]}</metadata>
 <rect x="0" y="0" width="140" height="168" fill="#f4f4f4"/>
-<text x="20" y="38" font-family="sans-serif" font-size="16" font-weight="bold" fill="#111111">BufferingProgress (100x100)</text>
+<text x="20" y="38" font-family="sans-serif" font-size="16" font-weight="bold" fill="#111111">BufferingProgress (100x100) <tspan font-family="monospace" font-size="12" font-weight="normal" fill="#555555">ids = line in screen_BufferingProgress.ymlinc</tspan></text>
 <g data-screen="0" transform="translate(20,48)">
 <rect x="0" y="0" width="100" height="100" fill="#ffffff" stroke="#999999" stroke-width="1"/>
-<g><rect data-ref="0:0" x="0" y="0" width="100" height="100" fill="#4e79a7" fill-opacity="0.45" stroke="#000000" stroke-opacity="0.6" stroke-width="1"><title>&lt;widget&gt; alphatest=&quot;off&quot; name=&quot;pic&quot; position=&quot;center,center&quot; size=&quot;100,100&quot; transparent=&quot;0&quot;</title></rect><text x="4" y="14" font-family="monospace" font-size="12" fill="#000000">pic</text></g>
+<rect data-ref="0:0" data-src="screen_BufferingProgress.ymlinc:7" x="0" y="0" width="100" height="100" fill="#4e79a7" fill-opacity="0.45" stroke="#000000" stroke-opacity="0.6" stroke-width="1"><title>screen_BufferingProgress.ymlinc:7
+&lt;widget&gt; alphatest=&quot;off&quot; name=&quot;pic&quot; position=&quot;center,center&quot; size=&quot;100,100&quot; transparent=&quot;0&quot;</title></rect>
+<g pointer-events="none" font-family="monospace" font-size="12" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-opacity="0.85" stroke-linejoin="round" paint-order="stroke">
+<text x="4" y="14"><tspan font-weight="bold">#7</tspan> pic</text>
+</g>
 </g>
 </svg>

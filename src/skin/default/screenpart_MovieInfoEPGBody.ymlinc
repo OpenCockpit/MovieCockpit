@@ -1,0 +1,98 @@
+- widget:
+    font: "$md_title_large"
+    position: "0,0"
+    render: "Label"
+    size: "250,45"
+    source: "Service"
+    transparent: "1"
+    valign: "center"
+    children:
+      - convert:
+          type: "ServiceTime"
+          text: "StartTime"
+      - convert:
+          type: "ClockToText"
+          text: "ShortDate"
+- widget:
+    font: "$md_title_large"
+    halign: "right"
+    position: "568,0"
+    render: "Label"
+    size: "100,45"
+    source: "Service"
+    transparent: "1"
+    valign: "center"
+    children:
+      - convert:
+          type: "ServiceTime"
+          text: "StartTime"
+      - convert:
+          type: "ClockToText"
+          text: "Default"
+- widget:
+    font: "$md_title_large"
+    halign: "center"
+    position: "668,0"
+    render: "FixedLabel"
+    size: "30,45"
+    source: "Service"
+    text: "-"
+    transparent: "1"
+    valign: "center"
+- widget:
+    font: "$md_title_large"
+    position: "698,0"
+    render: "Label"
+    size: "110,45"
+    source: "Service"
+    transparent: "1"
+    valign: "center"
+    children:
+      - convert:
+          type: "ServiceTime"
+          text: "EndTime"
+      - convert:
+          type: "ClockToText"
+          text: "Default"
+- widget:
+    font: "$md_title_large"
+    halign: "right"
+    position: "$width-250,0"
+    render: "Label"
+    size: "250,45"
+    source: "Service"
+    transparent: "1"
+    valign: "center"
+    children:
+      - convert:
+          type: "ServiceTime"
+          text: "Duration"
+      - convert:
+          type: "ClockToText"
+          text: "InMinutes"
+- widget:
+    font: "$md_title_large"
+    position: "0,53"
+    render: "Label"
+    size: "$width,45"
+    source: "Service"
+    transparent: "1"
+    valign: "center"
+    children:
+      - convert:
+          type: "COCEventName"
+          text: "Description"
+- widget:
+    font: "$md_body_large"
+    foregroundColor: "md_on_surface_variant"
+    options: "movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100"
+    position: "0,98"
+    render: "COCRunningText"
+    size: "$width,$height-98"
+    size2: "1366,535"
+    source: "Service"
+    transparent: "1"
+    children:
+      - convert:
+          type: "COCEventName"
+          text: "ShortAndExtendedDescription"

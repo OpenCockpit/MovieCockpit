@@ -1,0 +1,47 @@
+- ePixmap:
+    alphatest: "blend"
+    pixmap: "~/../images/sort.svg"
+    position: "0,-10"
+    scale: "scale"
+    size: "38,38"
+    transparent: "1"
+- widget:
+    font: "$md_label_medium"
+    halign: "left"
+    name: "sort_mode"
+    position: "50,-10"
+    size: "510,38"
+    transparent: "1"
+    valign: "center"
+- ePixmap:
+    alphatest: "blend"
+    pixmap: "~/../images/hardisk.svg"
+    position: "570,-10"
+    scale: "scale"
+    size: "38,38"
+    transparent: "1"
+- widget:
+    font: "$md_label_medium"
+    halign: "left"
+    position: "620,-10"
+    render: "Label"
+    size: "580,38"
+    source: "DiskSpace"
+    transparent: "1"
+    valign: "center"
+    children:
+      - convert:
+          type: "COCDiskSpaceInfo"
+          text: "SpaceInfo"
+- widget:
+    alphatest: "blend"
+    name: "pic_loading"
+    position: "529,341"
+    size: "100,100"
+    zPosition: "3"
+- xmlinc:
+    file: "screenpart_MovieList.ymlinc"
+    position: "0,40"
+- xmlinc:
+    file: "screenpart_MovieDetails.ymlinc"
+    position: "$width-630,40"

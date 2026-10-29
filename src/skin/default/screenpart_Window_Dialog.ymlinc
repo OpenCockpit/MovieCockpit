@@ -1,8 +1,0 @@
-screen:
-  frame: "true"
-  name: "Window_Dialog"
-  children:
-    - xmlinc:
-        file: "screenpart_WindowChrome.ymlinc"
-        position: "0,0"
-        size: "$dialog_width,$dialog_height"
