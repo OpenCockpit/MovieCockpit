@@ -68,6 +68,10 @@ class MovieList(List, Sorting, ServiceCenter):
         # stand out, and their colors are the skin's - there are no user settings for them.
         self.recording_color = parseColor("md_error").argb()
         self.selection_color = parseColor("md_key_yellow").argb()
+        # The selected row is light grey (the inverse selection of the Material style), where those light colors can
+        # hardly be seen: it gets dark ones of the same meaning.
+        self.recording_color_sel = parseColor("md_inverse_error").argb()
+        self.selection_color_sel = parseColor("md_inverse_warning").argb()
 
         self.pic_back = LoadPixmap(getSkinPath(
             "images/back.svg"), cached=True)
@@ -482,9 +486,9 @@ class MovieList(List, Sorting, ServiceCenter):
 
         def getColor(path, _file_type, is_recording):
             if path in self.selection_list or path in self.lock_list:
-                return self.selection_color, self.selection_color
+                return self.selection_color, self.selection_color_sel
             if is_recording:
-                return self.recording_color, self.recording_color
+                return self.recording_color, self.recording_color_sel
             return None, None
 
         def splitProgressByCategory(path, is_recording, progress):

@@ -39,9 +39,19 @@
     position: "529,341"
     size: "100,100"
     zPosition: "3"
+- eLabel:
+    backgroundColor: "md_outline_variant"
+    position: "$width-630-15,40"
+    size: "1,$height-40"
+    zPosition: "-5"
 - xmlinc:
     file: "screenpart_MovieList.ymlinc"
     position: "0,40"
+- xmlinc:
+    file: "screenpart_Pager.ymlinc"
+    position: "0,$height-25"
+    size: "1200,25"
+    connection: "list"
 - xmlinc:
     file: "screenpart_MovieDetails.ymlinc"
     position: "$width-630,40"

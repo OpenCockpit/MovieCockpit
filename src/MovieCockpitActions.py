@@ -3,6 +3,7 @@
 
 
 from Components.Button import Button
+from Components.Sources.StaticText import StaticText
 from Components.Label import Label
 from Components.config import config
 from Components.ActionMap import HelpableActionMap
@@ -27,8 +28,9 @@ class Actions():
 
     def __init__(self, csel):
         self.csel = csel
-        self.csel["key_menu"] = Button("Menu")
-        self.csel["key_info"] = Button("Info")
+        # the buttons bar shows an action key only if its source has a true boolean: StaticText with text, not Button
+        self.csel["key_menu"] = StaticText(_("MENU"))
+        self.csel["key_info"] = StaticText(_("INFO"))
         self.csel["key_red"] = Button()
         self.csel["key_green"] = Button()
         self.csel["key_yellow"] = Button()

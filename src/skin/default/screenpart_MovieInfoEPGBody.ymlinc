@@ -16,7 +16,7 @@
 - widget:
     font: "$md_title_large"
     halign: "right"
-    position: "568,0"
+    position: "721,0"
     render: "Label"
     size: "100,45"
     source: "Service"
@@ -32,7 +32,7 @@
 - widget:
     font: "$md_title_large"
     halign: "center"
-    position: "668,0"
+    position: "821,0"
     render: "FixedLabel"
     size: "30,45"
     source: "Service"
@@ -41,7 +41,7 @@
     valign: "center"
 - widget:
     font: "$md_title_large"
-    position: "698,0"
+    position: "851,0"
     render: "Label"
     size: "110,45"
     source: "Service"
@@ -89,7 +89,7 @@
     position: "0,98"
     render: "COCRunningText"
     size: "$width,$height-98"
-    size2: "1366,535"
+    size2: "1672,661"
     source: "Service"
     transparent: "1"
     children:

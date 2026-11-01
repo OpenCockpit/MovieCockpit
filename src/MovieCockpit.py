@@ -101,7 +101,7 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         self.delay_timer = eTimer()
         self.delay_timer.callback.append(self.updateInfoDelayed)
         self.reload_list_timer = eTimer()
-        self.reload_list_timer.callback.append(self.reloadMovieList)
+        self.reload_list_timer.callback.append(self.loadList)
 
         self.tmdb_plugin = getPlugin(WHERE_TMDB_MOVIELIST)
         self.mediathek_plugin = getPlugin(WHERE_MEDIATHEK_SEARCH)
@@ -128,6 +128,9 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         logger.info("return_dir: %s, return_path: %s",
                     self.return_dir, self.return_path)
         self.loading.stop()
+        if self.movie_list is None:
+            logger.debug("screen already closed, skipping reload")
+            return
         if not self.movie_list.file_list:
             logger.debug("file_list is empty")
             # first load after the plugin was opened: start at home, or - if the user wants the last directory - only
@@ -141,6 +144,7 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         self.movie_list.loadList(self.return_dir, self.return_path)
         self.setTrashcanActions(self, self.movie_list.getCurrentDir())
         self.updateInfo()
+        return
 
     def onDialogHide(self):
         logger.info("self.return_path: %s", self.return_path)
@@ -700,12 +704,6 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
                 MessageBox.TYPE_ERROR,
                 10
             )
-
-    def reloadMovieList(self):
-        if self.movie_list is None:
-            logger.debug("screen already closed, skipping reload")
-            return
-        self.movie_list.loadList(self.movie_list.load_dir, self.return_path)
 
     def showFileManagerProgress(self):
         self.session.open(FileManagerProgress)

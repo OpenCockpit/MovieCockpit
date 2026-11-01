@@ -5,67 +5,67 @@
     itemCornerRadiusSelected: "$radius_item"
     position: "0,0"
     render: "Listbox"
-    scrollbarMode: "showAlways"
-    size: "1200,19*$list_item_height"
+    scrollbarMode: "showNever"
+    size: "1200,16*52"
     source: "list"
     transparent: "1"
     children:
       - convert:
           type: "COCTemplatedMultiContentEx"
           cell:
-            itemHeight: $list_item_height
+            itemHeight: 52
             fonts:
               - "$md_body_large"
               - "$md_body_small"
             fields:
               - icon:
-                  position: "5,5"
+                  position: "5,8"
                   size: "35,35"
                   flags: BT_SCALE
                   value: 23
               - icon:
-                  position: "50,5"
+                  position: "50,8"
                   size: "55,35"
                   flags: BT_SCALE
                   value: 24
               - text:
                   position: "120,0"
-                  size: "e-490,45"
+                  size: "e-490,52"
                   font: "$md_body_large"
                   flags: RT_HALIGN_LEFT|RT_VALIGN_CENTER
                   value: 20
                   color: {call: MultiContentTemplateColor, args: [25]}
                   color_sel: {call: MultiContentTemplateColor, args: [26]}
               - progress:
-                  position: "e-355,15"
+                  position: "e-355,19"
                   size: "90,14"
                   value: -22
                   borderWidth: 1
                   foreColor: "md_on_surface_variant"
-                  foreColorSelected: "md_on_surface"
+                  foreColorSelected: "md_inverse_on_surface"
                   backColor: "md_surface_container_high"
-                  backColorSelected: "md_surface_container_high"
+                  backColorSelected: "md_outline"
               - progress:
-                  position: "e-355,15"
+                  position: "e-355,19"
                   size: "90,14"
                   value: -27
                   borderWidth: 1
                   foreColor: "md_error"
-                  foreColorSelected: "md_error"
+                  foreColorSelected: "md_inverse_error"
                   backColor: "md_surface_container_high"
-                  backColorSelected: "md_surface_container_high"
+                  backColorSelected: "md_outline"
               - progress:
-                  position: "e-355,15"
+                  position: "e-355,19"
                   size: "90,14"
                   value: -28
                   borderWidth: 1
                   foreColor: "md_key_yellow"
-                  foreColorSelected: "md_key_yellow"
+                  foreColorSelected: "md_inverse_warning"
                   backColor: "md_surface_container_high"
-                  backColorSelected: "md_surface_container_high"
+                  backColorSelected: "md_outline"
               - text:
                   position: "e-250,0"
-                  size: "230,45"
+                  size: "230,52"
                   font: "$md_body_small"
                   flags: RT_HALIGN_RIGHT|RT_VALIGN_CENTER
                   value: 21
