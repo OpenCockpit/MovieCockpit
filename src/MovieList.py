@@ -73,26 +73,41 @@ class MovieList(List, Sorting, ServiceCenter):
         self.recording_color_sel = parseColor("md_inverse_error").argb()
         self.selection_color_sel = parseColor("md_inverse_warning").argb()
 
-        self.pic_back = LoadPixmap(getSkinPath(
-            "images/back.svg"), cached=True)
-        self.pic_directory = LoadPixmap(getSkinPath(
-            "images/dir.svg"), cached=True)
-        self.pic_link = LoadPixmap(getSkinPath(
-            "images/link.svg"), cached=True)
-        self.pic_movie_default = LoadPixmap(getSkinPath(
-            "images/movie_default.svg"), cached=True)
-        self.pic_movie_watching = LoadPixmap(getSkinPath(
-            "images/movie_watching.svg"), cached=True)
-        self.pic_movie_finished = LoadPixmap(getSkinPath(
-            "images/movie_finished.svg"), cached=True)
-        self.pic_movie_rec = LoadPixmap(getSkinPath(
-            "images/movie_rec.svg"), cached=True)
-        self.pic_bookmark = LoadPixmap(getSkinPath(
-            "images/bookmark.svg"), cached=True)
-        self.pic_trashcan = LoadPixmap(getSkinPath(
-            "images/trashcan.svg"), cached=True)
-        self.pic_movie_deleted = LoadPixmap(getSkinPath(
-            "images/deleted.svg"), cached=True)
+        # The icons are white, which can hardly be seen on the light selected row: that row gets the dark blue
+        # <name>_selected.svg of the menu icons.
+        self.pic_back = self.loadIcon(
+            "images/back.svg", "images/back_selected.svg")
+        self.pic_directory = self.loadIcon(
+            "images/dir.svg", "images/dir_selected.svg")
+        self.pic_link = self.loadIcon(
+            "images/link.svg", "images/link_selected.svg")
+        self.pic_movie_default = self.loadIcon(
+            "images/movie_default.svg", "images/movie_default_selected.svg")
+        self.pic_movie_watching = self.loadIcon(
+            "images/movie_watching.svg", "images/movie_watching_selected.svg")
+        self.pic_movie_finished = self.loadIcon(
+            "images/movie_finished.svg", "images/movie_finished_selected.svg")
+        self.pic_movie_rec = self.loadIcon(
+            "images/movie_rec.svg", "images/movie_rec_selected.svg")
+        self.pic_bookmark = self.loadIcon(
+            "images/bookmark.svg", "images/bookmark_selected.svg")
+        self.pic_trashcan = self.loadIcon(
+            "images/trashcan.svg", "images/trashcan_selected.svg")
+        self.pic_movie_deleted = self.loadIcon(
+            "images/deleted.svg", "images/deleted_selected.svg")
+        self.selected_path = None
+        self.selected_index = -1
+
+    @staticmethod
+    def loadIcon(file_name, selected_file_name):
+        """Returns the (normal, selected) pixmaps of an icon. The paths are literals at the call sites, as the build
+        installs only the images whose path it finds in the sources. The selected one falls back to the normal one."""
+        normal = LoadPixmap(getSkinPath(file_name), cached=True)
+        selected = None
+        selected_path = getSkinPath(selected_file_name)
+        if os.path.exists(selected_path):
+            selected = LoadPixmap(selected_path, cached=True)
+        return normal, selected or normal
 
     def setListContent(self):
         config.plugins.moviecockpit.list_content.value = self.list_content
@@ -288,6 +303,25 @@ class MovieList(List, Sorting, ServiceCenter):
         if i > -1:
             self.modifyEntry(i, self.buildRow(self.file_list[i]))
 
+    def setSelectedIndex(self, index):
+        # The list can't pick the icon by selection, so the rows of the old and the new selection are rebuilt.
+        old_index = self.selected_index
+        afile = self.file_list[index] if index is not None and 0 <= index < len(self.file_list) else None
+        self.selected_path = afile[FILE_IDX_PATH] if afile else None
+        self.selected_index = index if afile else -1
+        for i in (old_index, self.selected_index):
+            if 0 <= i < len(self.list):
+                self.invalidateEntry(i)
+
+    def selectionChanged(self, index):
+        self.setSelectedIndex(index)
+        List.selectionChanged(self, index)
+
+    def setConnectedGuiElement(self, guiElement):
+        # the initial selection is made before the list is connected, so selectionChanged isn't called for it
+        List.setConnectedGuiElement(self, guiElement)
+        self.setSelectedIndex(self.getIndex())
+
     def filterDirList(self, dir_list):
         logger.info("...")
         filtered_list = []
@@ -380,9 +414,16 @@ class MovieList(List, Sorting, ServiceCenter):
         sort_mode, sort_order = sort_modes[current_sort_mode][0]
         self.file_list = header_list + \
             self.sortList(file_list, sort_mode, sort_order)
+        # setting the list resets the selection to the first row before the index below is valid, so the rows are built
+        # unselected and the real selection of the list is marked afterwards
+        self.selected_path = None
+        self.selected_index = -1
         self.list = [self.buildRow(afile) for afile in self.file_list]
         self.file_list_index = self.createListIndex(load_dir, self.file_list)
+        self.selected_path = None
+        self.selected_index = -1
         self.moveToInitialSelection(selection_path)
+        self.setSelectedIndex(self.getIndex())
         self.load_dir = load_dir
 
     # list build function
@@ -482,7 +523,7 @@ class MovieList(List, Sorting, ServiceCenter):
                     pixmap = self.pic_trashcan
                 elif os.path.basename(path) == "..":
                     pixmap = self.pic_back
-            return pixmap
+            return pixmap[1 if path == self.selected_path else 0] if pixmap else None
 
         def getColor(path, _file_type, is_recording):
             if path in self.selection_list or path in self.lock_list:

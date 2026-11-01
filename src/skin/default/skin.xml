@@ -80,11 +80,11 @@
 				"template": [
 					MultiContentEntryPixmapAlphaBlend(pos=(5,8), size=(35,35), png=23, flags=BT_SCALE),
 					MultiContentEntryPixmapAlphaBlend(pos=(50,8), size=(55,35), png=24, flags=BT_SCALE),
-					MultiContentEntryText(pos=(120,0), size=(e-490,52), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=20, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
-					MultiContentEntryProgress(pos=(e-355,19), size=(90,14), percent=-22, borderWidth=1, foreColor="md_on_surface_variant", foreColorSelected="md_inverse_on_surface", backColor="md_surface_container_high"),
-					MultiContentEntryProgress(pos=(e-355,19), size=(90,14), percent=-27, borderWidth=1, foreColor="md_error", foreColorSelected="md_inverse_error", backColor="md_surface_container_high"),
-					MultiContentEntryProgress(pos=(e-355,19), size=(90,14), percent=-28, borderWidth=1, foreColor="md_key_yellow", foreColorSelected="md_inverse_warning", backColor="md_surface_container_high"),
-					MultiContentEntryText(pos=(e-250,0), size=(230,52), font=1, flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text=21, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
+					MultiContentEntryText(pos=(120,0), size=(e-450,52), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=20, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
+					MultiContentEntryProgress(pos=(e-315,19), size=(90,14), percent=-22, borderWidth=1, foreColor="md_on_surface_variant", foreColorSelected="md_inverse_on_surface", backColor="md_surface_container_high"),
+					MultiContentEntryProgress(pos=(e-315,19), size=(90,14), percent=-27, borderWidth=1, foreColor="md_error", foreColorSelected="md_inverse_error", backColor="md_surface_container_high"),
+					MultiContentEntryProgress(pos=(e-315,19), size=(90,14), percent=-28, borderWidth=1, foreColor="md_key_yellow", foreColorSelected="md_inverse_warning", backColor="md_surface_container_high"),
+					MultiContentEntryText(pos=(e-205,0), size=(185,52), font=1, flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text=21, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
 				],
 				"fonts": [parseFont("Roboto;30"), parseFont("Roboto;26")],
 				"itemHeight": 52
