@@ -31,6 +31,8 @@ class Actions():
         # the buttons bar shows an action key only if its source has a true boolean: StaticText with text, not Button
         self.csel["key_menu"] = StaticText(_("MENU"))
         self.csel["key_info"] = StaticText(_("INFO"))
+        self.csel["key_previous"] = StaticText(_("PREVIOUS"))
+        self.csel["key_next"] = StaticText(_("NEXT"))
         self.csel["key_red"] = Button()
         self.csel["key_green"] = Button()
         self.csel["key_yellow"] = Button()
@@ -42,7 +44,7 @@ class Actions():
     # color button management functions
 
     def setColorButtons(self):
-        self.csel["level"].setText(f"<{self.color_buttons_level + 1}>")
+        # self.csel["level"].setText(f"<{self.color_buttons_level + 1}>")
 
         red = self.color_buttons_matrix[self.color_buttons_level][KEY_RED]
         green = self.color_buttons_matrix[self.color_buttons_level][KEY_GREEN]

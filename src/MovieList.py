@@ -420,8 +420,10 @@ class MovieList(List, Sorting, ServiceCenter):
         self.selected_index = -1
         self.list = [self.buildRow(afile) for afile in self.file_list]
         self.file_list_index = self.createListIndex(load_dir, self.file_list)
+        transient_selected_index = self.selected_index
         self.selected_path = None
         self.selected_index = -1
+        self.invalidateEntry(transient_selected_index)
         self.moveToInitialSelection(selection_path)
         self.setSelectedIndex(self.getIndex())
         self.load_dir = load_dir

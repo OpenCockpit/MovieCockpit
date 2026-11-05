@@ -25,7 +25,7 @@ screen:
         halign: "left"
         position: "0,$screen_height-70"
         render: "Label"
-        size: "200,70"
+        size: "220,70"
         source: "parent.Service"
         transparent: "1"
         valign: "center"
@@ -36,9 +36,9 @@ screen:
     - widget:
         font: "$F_bigger"
         halign: "right"
-        position: "200,$screen_height-70"
+        position: "220,$screen_height-70"
         render: "Label"
-        size: "$screen_width-4-200,70"
+        size: "$screen_width-4-220,70"
         source: "parent.Service"
         transparent: "1"
         valign: "center"
@@ -46,6 +46,3 @@ screen:
           - convert:
               type: "COCMovieInfo"
               text: "MovieDuration"
-          - convert:
-              type: "ClockToText"
-              text: "InMinutes"
