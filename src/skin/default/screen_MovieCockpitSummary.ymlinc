@@ -1,0 +1,48 @@
+screen:
+  name: "MovieCockpitSummary"
+  position: "fill"
+  resolution: "396,240"
+  children:
+    - xmlinc:
+        file: "screenpart_LCDBackground.ymlinc"
+        imagepath: "~/../images"
+    - widget:
+        font: "$F_medium"
+        halign: "center"
+        position: "0,0"
+        render: "Label"
+        size: "$screen_width-4,$screen_height-70"
+        source: "parent.Service"
+        transparent: "1"
+        valign: "center"
+        zPosition: "2"
+        children:
+          - convert:
+              type: "ServiceName"
+              text: "Name"
+    - widget:
+        font: "$F_bigger"
+        halign: "left"
+        position: "0,$screen_height-70"
+        render: "Label"
+        size: "220,70"
+        source: "parent.Service"
+        transparent: "1"
+        valign: "center"
+        children:
+          - convert:
+              type: "COCMovieInfo"
+              text: "FileSize"
+    - widget:
+        font: "$F_bigger"
+        halign: "right"
+        position: "220,$screen_height-70"
+        render: "Label"
+        size: "$screen_width-4-220,70"
+        source: "parent.Service"
+        transparent: "1"
+        valign: "center"
+        children:
+          - convert:
+              type: "COCMovieInfo"
+              text: "MovieDuration"

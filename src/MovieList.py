@@ -1,0 +1,589 @@
+# Copyright (C) 2018-2026 by xcentaurix
+# License: GNU General Public License v3.0
+
+
+import os
+import pickle
+from time import time
+from datetime import datetime
+from Components.config import config
+from Components.Sources.List import List
+from Tools.LoadPixmap import LoadPixmap
+from Plugins.SystemPlugins.MountCockpit.MountCockpit import MountCockpit
+from Plugins.SystemPlugins.CacheCockpit.FileManager import FileManager
+from skin import parseColor
+from .Debug import logger
+from .Version import ID
+from .__init__ import _
+from .CutListUtils import ptsToSeconds, getCutListLast
+from .SkinUtils import getSkinPath
+from .FileManagerUtils import FILE_TYPE_FILE, FILE_TYPE_DIR, FILE_TYPE_LINK
+from .FileManagerUtils import FILE_IDX_TYPE, FILE_IDX_DIR, FILE_IDX_PATH, FILE_IDX_FILENAME, FILE_IDX_NAME, FILE_IDX_EVENT_START_TIME, FILE_IDX_LENGTH, FILE_IDX_SERVICE_REFERENCE, FILE_IDX_CUTS
+from .FileManagerUtils import file_op_msg
+from .ConfigInit import sort_modes
+from .Sorting import Sorting
+from .ServiceCenter import ServiceCenter
+from .ServiceUtils import getPicon
+from .RecordingUtils import isRecording, isDownloadRecording
+from .JobUtils import getPendingJob
+
+
+# Extended fields appended after the raw FILE_IDX_* tuple (0-19) for the "list" Source
+# consumed by the skin's TemplatedMultiContentEx convert block. Indices are duplicated
+# as literals in skin/default/skin.xml (a skin <convert> eval has no access to these
+# module constants) - keep both in sync when changing this layout.
+ROW_IDX_NAME = 20
+ROW_IDX_DATE_TEXT = 21
+ROW_IDX_PROGRESS = 22  # normal-category bar only - see splitProgressByCategory()
+ROW_IDX_FILE_ICON = 23
+ROW_IDX_PICON = 24
+ROW_IDX_COLOR = 25
+ROW_IDX_COLOR_SEL = 26
+ROW_IDX_PROGRESS_RECORDING = 27
+ROW_IDX_PROGRESS_MARKED = 28
+
+
+class MovieList(List, Sorting, ServiceCenter):
+
+    COMPONENT_ID = ""
+
+    def __init__(self):
+        logger.debug("...")
+        List.__init__(self, list=[], enableWrapAround=True)
+        Sorting.__init__(self)
+        ServiceCenter.__init__(self, self)
+        self.file_list = []
+        self.selection_list = []
+        self.lock_list = {}
+        self.file_list_index = {}
+        self.load_dir = ""
+
+        self.show_dirs = False
+        self.insert_dirs = False
+        self.recursive = False
+        self.list_content = config.plugins.moviecockpit.list_content.value
+        self.setListContent()
+
+        # Normal rows leave the colors unset, so the list's own (skin) colors apply. Only these two states need to
+        # stand out, and their colors are the skin's - there are no user settings for them.
+        self.recording_color = parseColor("md_error").argb()
+        self.selection_color = parseColor("md_key_yellow").argb()
+        # The selected row is light grey (the inverse selection of the Material style), where those light colors can
+        # hardly be seen: it gets dark ones of the same meaning.
+        self.recording_color_sel = parseColor("md_inverse_error").argb()
+        self.selection_color_sel = parseColor("md_inverse_warning").argb()
+
+        # The icons are white, which can hardly be seen on the light selected row: that row gets the dark blue
+        # <name>_selected.svg of the menu icons.
+        self.pic_back = self.loadIcon(
+            "images/back.svg", "images/back_selected.svg")
+        self.pic_directory = self.loadIcon(
+            "images/dir.svg", "images/dir_selected.svg")
+        self.pic_link = self.loadIcon(
+            "images/link.svg", "images/link_selected.svg")
+        self.pic_movie_default = self.loadIcon(
+            "images/movie_default.svg", "images/movie_default_selected.svg")
+        self.pic_movie_watching = self.loadIcon(
+            "images/movie_watching.svg", "images/movie_watching_selected.svg")
+        self.pic_movie_finished = self.loadIcon(
+            "images/movie_finished.svg", "images/movie_finished_selected.svg")
+        self.pic_movie_rec = self.loadIcon(
+            "images/movie_rec.svg", "images/movie_rec_selected.svg")
+        self.pic_bookmark = self.loadIcon(
+            "images/bookmark.svg", "images/bookmark_selected.svg")
+        self.pic_trashcan = self.loadIcon(
+            "images/trashcan.svg", "images/trashcan_selected.svg")
+        self.pic_movie_deleted = self.loadIcon(
+            "images/deleted.svg", "images/deleted_selected.svg")
+        self.selected_path = None
+        self.selected_index = -1
+
+    @staticmethod
+    def loadIcon(file_name, selected_file_name):
+        """Returns the (normal, selected) pixmaps of an icon. The paths are literals at the call sites, as the build
+        installs only the images whose path it finds in the sources. The selected one falls back to the normal one."""
+        normal = LoadPixmap(getSkinPath(file_name), cached=True)
+        selected = None
+        selected_path = getSkinPath(selected_file_name)
+        if os.path.exists(selected_path):
+            selected = LoadPixmap(selected_path, cached=True)
+        return normal, selected or normal
+
+    def setListContent(self):
+        config.plugins.moviecockpit.list_content.value = self.list_content
+        config.plugins.moviecockpit.list_content.save()
+        self.show_dirs = self.recursive = self.insert_dirs = False
+        if self.list_content == 0:
+            self.show_dirs = False
+            self.recursive = False
+            self.insert_dirs = False
+        elif self.list_content == 1:
+            self.show_dirs = True
+            self.recursive = False
+            self.insert_dirs = False
+        elif self.list_content == 2:
+            self.show_dirs = False
+            self.recursive = True
+            self.insert_dirs = False
+        elif self.list_content == 3:
+            self.show_dirs = False
+            self.recursive = False
+            self.insert_dirs = True
+        logger.debug("list_content: %s, show_dirs: %s, recursive: %s",
+                     self.list_content, self.show_dirs, self.recursive)
+
+    def nextListContent(self):
+        self.list_content = self.list_content + 1 if self.list_content < 3 else 0
+        self.setListContent()
+        self.loadList()
+
+    def previousListContent(self):
+        self.list_content = self.list_content - 1 if self.list_content else 3
+        self.setListContent()
+        self.loadList()
+
+    # move functions
+
+    def moveUp(self, n=1):
+        for _i in range(int(n)):
+            self.up()
+
+    def moveDown(self, n=1):
+        for _i in range(int(n)):
+            self.down()
+
+    def pageUp(self):
+        try:
+            instance = self.master.master.instance
+            instance.moveSelection(instance.pageUp)
+        except AttributeError:
+            pass
+
+    def pageDown(self):
+        try:
+            instance = self.master.master.instance
+            instance.moveSelection(instance.pageDown)
+        except AttributeError:
+            pass
+
+    def moveTop(self):
+        self.top()
+
+    def moveEnd(self):
+        self.bottom()
+
+    def moveToIndex(self, index):
+        self.index = index
+
+    def moveToPath(self, path):
+        index = self.getFileIndex(path)
+        self.moveToIndex(index)
+        return index
+
+    def moveBouquetPlus(self):
+        self.moveTop()
+
+    def moveBouquetMinus(self):
+        self.moveEnd()
+
+    def moveToInitialSelection(self, selection_path):
+        logger.info("selection_path: %s", selection_path)
+        index = self.moveToPath(selection_path)
+        if index < 0:
+            if self.list_content == 3:
+                if config.plugins.moviecockpit.trashcan_show.value:
+                    index = 1
+                else:
+                    index = 0
+                self.moveToIndex(index)
+            else:
+                while index < len(self.file_list) - 1:
+                    if self.file_list[index][FILE_IDX_TYPE] != FILE_TYPE_FILE:
+                        index += 1
+                    else:
+                        self.moveToIndex(index)
+                        break
+                else:
+                    afile = self.getCurrentSelection()
+                    if afile and afile[FILE_IDX_FILENAME] == ".." and len(self.file_list) > 1:
+                        self.moveToIndex(1)
+
+    # selection functions
+
+    def getSelectionList(self):
+        if not self.selection_list:
+            # if no selections were made, add the current cursor position
+            path = self.getCurrentPath()
+            if path and not path.endswith("..") and path not in self.lock_list:
+                self.selectPath(path)
+        selection_list = self.selection_list[:]
+        return selection_list
+
+    def selectPath(self, path):
+        logger.debug("path: %s", path)
+        if path and not path.endswith("..") and path not in self.selection_list:
+            self.selection_list.append(path)
+            index = self.getFileIndex(path)
+            if index > -1:
+                self.invalidateEntry(index)
+
+    def unselectPath(self, path):
+        logger.debug("path: %s", path)
+        if path in self.selection_list:
+            self.selection_list.remove(path)
+            index = self.getFileIndex(path)
+            if index > -1:
+                self.invalidateEntry(index)
+
+    def selectAll(self):
+        logger.debug("...")
+        for afile in self.file_list:
+            self.selectPath(afile[FILE_IDX_PATH])
+
+    def unselectAll(self):
+        logger.debug("...")
+        selection_list = self.selection_list[:]
+        for path in selection_list:
+            self.unselectPath(path)
+
+    def toggleSelection(self):
+        path = self.getCurrentPath()
+        logger.debug("path: %s", path)
+        logger.debug("selection_list: %s", self.selection_list)
+        if not path:  # empty list, nothing to select
+            return
+        if path in self.selection_list and path not in self.lock_list:
+            self.unselectPath(path)
+        else:
+            self.selectPath(path)
+        self.moveDown()
+
+    # list functions
+
+    def getCurrentPath(self):
+        path = ""
+        current_selection = self.getCurrentSelection()
+        if current_selection:
+            path = current_selection[FILE_IDX_PATH]
+        return path
+
+    def getCurrentDir(self):
+        directory = ""
+        current_selection = self.getCurrentSelection()
+        if current_selection:
+            directory = current_selection[FILE_IDX_DIR]
+        logger.debug("directory: %s", directory)
+        return directory
+
+    def getFile(self, path):
+        afile = []
+        if not path:
+            path = self.getCurrentPath()
+        index = self.getFileIndex(path)
+        if index > -1:
+            afile = self.file_list[index]
+        return afile
+
+    def getFileIndex(self, path):
+        logger.info("path: %s", path)
+        index = self.file_list_index.get(path, -1)
+        return index
+
+    def getCurrentSelection(self):
+        index = self.getIndex()
+        if index is not None and 0 <= index < len(self.file_list):
+            return self.file_list[index]
+        return None
+
+    def invalidateList(self):
+        self.lock_list = FileManager.getInstance(ID).getLockList()
+        self.updateList([self.buildRow(afile) for afile in self.file_list])
+
+    def invalidateEntry(self, i):
+        if i > -1:
+            self.modifyEntry(i, self.buildRow(self.file_list[i]))
+
+    def setSelectedIndex(self, index):
+        # The list can't pick the icon by selection, so the rows of the old and the new selection are rebuilt.
+        old_index = self.selected_index
+        afile = self.file_list[index] if index is not None and 0 <= index < len(self.file_list) else None
+        self.selected_path = afile[FILE_IDX_PATH] if afile else None
+        self.selected_index = index if afile else -1
+        for i in (old_index, self.selected_index):
+            if 0 <= i < len(self.list):
+                self.invalidateEntry(i)
+
+    def selectionChanged(self, index):
+        self.setSelectedIndex(index)
+        List.selectionChanged(self, index)
+
+    def setConnectedGuiElement(self, guiElement):
+        # the initial selection is made before the list is connected, so selectionChanged isn't called for it
+        List.setConnectedGuiElement(self, guiElement)
+        self.setSelectedIndex(self.getIndex())
+
+    def filterDirList(self, dir_list):
+        logger.info("...")
+        filtered_list = []
+        for adir in dir_list:
+            path = adir[FILE_IDX_PATH]
+            if self.list_content == 3 and not path.endswith("..") and ".Trash" not in path:
+                if FileManager.getInstance(ID).getCountSize(path)[0] == 0:
+                    logger.debug("skipping: %s", path)
+                    continue
+                if FileManager.getInstance(ID).getCountSize(path)[0] == 1:
+                    alist = FileManager.getInstance(ID).getFileList(path)
+                    if alist:
+                        filtered_list.append(alist[0])
+                        continue
+            filtered_list.append(adir)
+        return filtered_list
+
+    def sortList(self, file_list, sort_mode, sort_order):
+        logger.debug("sort_mode: %s, sort_order: %s", sort_mode, sort_order)
+
+        if sort_mode == "date":
+            if not sort_order:
+                file_list.sort(key=lambda x: (
+                    x[FILE_IDX_EVENT_START_TIME], x[FILE_IDX_NAME].lower()), reverse=True)
+            else:
+                file_list.sort(key=lambda x: (
+                    x[FILE_IDX_EVENT_START_TIME], x[FILE_IDX_NAME].lower()))
+
+        elif sort_mode == "alpha":
+            if not sort_order:
+                file_list.sort(key=lambda x: (
+                    x[FILE_IDX_NAME].lower(), -x[FILE_IDX_EVENT_START_TIME]))
+            else:
+                file_list.sort(key=lambda x: (
+                    x[FILE_IDX_NAME].lower(), x[FILE_IDX_EVENT_START_TIME]), reverse=True)
+
+        return file_list
+
+    def createListIndex(self, load_dir, file_list):
+        all_load_dirs = MountCockpit.getInstance(
+        ).getVirtualDirs(ID, [load_dir])
+        file_list_index = {}
+        for index, afile in enumerate(file_list):
+            if afile[FILE_IDX_TYPE] == FILE_TYPE_DIR:
+                for adir in all_load_dirs:
+                    file_list_index[os.path.join(
+                        adir, afile[FILE_IDX_FILENAME])] = index
+            else:
+                file_list_index[afile[FILE_IDX_PATH]] = index
+        return file_list_index
+
+    def loadList(self, load_dir=None, selection_path=None):
+        logger.info("load_dir: %s, selection_path: %s",
+                    load_dir, selection_path)
+        if load_dir is None:
+            load_dir = self.getCurrentDir()
+        if self.recursive and ".Trash" not in load_dir:
+            load_dir = MountCockpit.getInstance().getHomeDir(ID)
+        if selection_path is None:
+            selection_path = self.getCurrentPath()
+
+        logger.info("load_dir: %s, selection_path: %s",
+                    load_dir, selection_path)
+        self.lock_list = FileManager.getInstance(ID).getLockList()
+        self.selection_list = []
+        header_list = []
+        file_list = []
+        dir_list = []
+        if load_dir in MountCockpit.getInstance().getMountedBookmarks(ID):
+            if config.plugins.moviecockpit.trashcan_show.value:
+                trashcan_dir = os.path.join(load_dir, ".Trash")
+                trashcan_file = list(FileManager.getInstance(
+                    ID).newDirData(trashcan_dir, FILE_TYPE_DIR))
+                trashcan_file[FILE_IDX_NAME] = _(".Trash")
+                header_list.append(tuple(trashcan_file))
+        elif load_dir:
+            up_dir = os.path.join(load_dir, "..")
+            up = FileManager.getInstance(ID).newDirData(up_dir, FILE_TYPE_DIR)
+            header_list.append(up)
+        if self.show_dirs:  # or os.path.basename(load_dir) == ".Trash":
+            dir_list = FileManager.getInstance(ID).getDirList(load_dir)
+            header_list += self.sortList(dir_list, "alpha", False)
+        file_list = FileManager.getInstance(
+            ID).getFileList(load_dir, self.recursive)
+        if self.insert_dirs:
+            file_list += self.filterDirList(
+                FileManager.getInstance(ID).getDirList(load_dir))
+
+        current_sort_mode = self.getSortMode(load_dir)
+        sort_mode, sort_order = sort_modes[current_sort_mode][0]
+        self.file_list = header_list + \
+            self.sortList(file_list, sort_mode, sort_order)
+        # setting the list resets the selection to the first row before the index below is valid, so the rows are built
+        # unselected and the real selection of the list is marked afterwards
+        self.selected_path = None
+        self.selected_index = -1
+        self.list = [self.buildRow(afile) for afile in self.file_list]
+        self.file_list_index = self.createListIndex(load_dir, self.file_list)
+        transient_selected_index = self.selected_index
+        self.selected_path = None
+        self.selected_index = -1
+        self.invalidateEntry(transient_selected_index)
+        self.moveToInitialSelection(selection_path)
+        self.setSelectedIndex(self.getIndex())
+        self.load_dir = load_dir
+
+    # list build function
+
+    def buildRow(self, afile):
+
+        def getDateText(path, file_type, date):
+            logger.debug("path: %s, file_type: %s, date: %s",
+                         path, file_type, date)
+            count = 0
+            date_text = ""
+            if path in self.lock_list:
+                file_op = self.lock_list[path]
+                date_text = file_op_msg[file_op]
+            elif file_type in [FILE_TYPE_FILE]:
+                if config.plugins.moviecockpit.list_show_mount_points.value:
+                    words = path.split("/")
+                    if len(words) > 3 and words[1] == "media":
+                        date_text = words[2]
+                elif date:
+                    date_text = datetime.fromtimestamp(date).strftime(
+                        config.plugins.moviecockpit.movie_date_format.value)
+            else:
+                if os.path.basename(path) == ".Trash":
+                    info_value = config.plugins.moviecockpit.trashcan_info.value
+                else:
+                    info_value = config.plugins.moviecockpit.directories_info.value
+                if os.path.basename(path) == "..":
+                    date_text = _("up")
+                elif info_value == "D":
+                    if os.path.basename(path) == ".Trash":
+                        date_text = _(".Trash")
+                    else:
+                        date_text = _("directory")
+                else:
+                    count, size = FileManager.getInstance(
+                        ID).getCountSize(path)
+                    count_text = f"{count:d}"
+
+                    size /= (1024 * 1024 * 1024)  # GB
+                    size_text = f"{size:.0f} GB"
+                    if size >= 1024:
+                        size_text = f"{size / 1024:.1f} TB"
+
+                    if info_value == "C":
+                        date_text = f"({count_text})"
+                    elif info_value == "S":
+                        date_text = f"({size_text})"
+                    elif info_value == "CS":
+                        date_text = f"({count_text}/{size_text})"
+            logger.debug("count: %s, date_text: %s", count, date_text)
+            return date_text
+
+        def getProgress(is_recording, path, event_start_time, length, cuts):
+            logger.debug("path: %s", path)
+            progress = 0
+            try:
+                if isDownloadRecording(path):
+                    job = getPendingJob("MTC", path)
+                    progress = job.getProgress()
+                else:
+                    if is_recording:
+                        last = time() - event_start_time
+                    else:
+                        # get last position from cut file
+                        cut_list = pickle.loads(cuts) if cuts else []
+                        logger.debug("cut_list: %s", cut_list)
+                        last = ptsToSeconds(getCutListLast(cut_list))
+                        logger.debug("last: %s", last)
+
+                    if length > 0 and last > 0:
+                        last = min(last, length)
+                        progress = int(round(float(last) / float(length), 2) * 100)
+            except Exception as e:
+                logger.error("Error calculating progress for %s: %s", path, e)
+                progress = 0
+
+            logger.debug("progress: %s, path: %s, length: %s, is_recording: %s",
+                         progress, path, length, is_recording)
+            return progress
+
+        def getFileIcon(path, file_type, progress, is_recording):
+            pixmap = None
+            if file_type == FILE_TYPE_FILE:
+                pixmap = self.pic_movie_default
+                if is_recording:
+                    pixmap = self.pic_movie_rec
+                elif progress >= int(config.plugins.moviecockpit.movie_finished_percent.value):
+                    pixmap = self.pic_movie_finished
+                elif progress >= int(config.plugins.moviecockpit.movie_watching_percent.value):
+                    pixmap = self.pic_movie_watching
+            elif file_type == FILE_TYPE_LINK:
+                pixmap = self.pic_link
+            elif file_type == FILE_TYPE_DIR:
+                pixmap = self.pic_directory
+                if os.path.basename(path) == ".Trash":
+                    pixmap = self.pic_trashcan
+                elif os.path.basename(path) == "..":
+                    pixmap = self.pic_back
+            return pixmap[1 if path == self.selected_path else 0] if pixmap else None
+
+        def getColor(path, _file_type, is_recording):
+            if path in self.selection_list or path in self.lock_list:
+                return self.selection_color, self.selection_color_sel
+            if is_recording:
+                return self.recording_color, self.recording_color_sel
+            return None, None
+
+        def splitProgressByCategory(path, is_recording, progress):
+            """The progress bar's fore color, unlike text color, can't be bound
+            per-row from the data tuple - eListboxPythonMultiContent's C++ side
+            never resolves a "template color" sentinel for TYPE_PROGRESS - so a
+            single bar can't recolor itself per category the way the title text
+            does via getColor() above. Instead three statically-colored bars
+            share the same position in the skin; only the one matching this
+            row's category (same normal/recording/marked priority as getColor())
+            gets a real percent, the other two stay -1 and are skipped entirely."""
+            progress_normal = progress_recording = progress_marked = -1
+            if path in self.selection_list or path in self.lock_list:
+                progress_marked = progress
+            elif is_recording:
+                progress_recording = progress
+            else:
+                progress_normal = progress
+            return progress_normal, progress_recording, progress_marked
+
+        path = afile[FILE_IDX_PATH]
+        file_type = afile[FILE_IDX_TYPE]
+        event_start_time = afile[FILE_IDX_EVENT_START_TIME]
+        name = afile[FILE_IDX_NAME]
+        length = afile[FILE_IDX_LENGTH]
+        service_reference = afile[FILE_IDX_SERVICE_REFERENCE]
+        cuts = afile[FILE_IDX_CUTS]
+
+        is_recording = isRecording(path)
+        color, color_sel = getColor(path, file_type, is_recording)
+        progress = getProgress(is_recording, path, event_start_time,
+                               length, cuts) if file_type in [FILE_TYPE_FILE] else -1
+        progress_normal, progress_recording, progress_marked = splitProgressByCategory(
+            path, is_recording, progress)
+
+        # Get picon with error handling
+        picon = None
+        if file_type in [FILE_TYPE_FILE]:
+            try:
+                picon = getPicon(service_reference)
+            except Exception as e:
+                logger.error("Error getting picon for %s: %s", path, e)
+
+        name = _(name) if name == ".Trash" else name
+        date_text = getDateText(path, file_type, event_start_time)
+        file_icon = getFileIcon(path, file_type, progress, is_recording)
+
+        # progress stays -1 for non-file rows (dirs/links): the C++ listbox
+        # skips painting a MultiContentEntryProgress entirely when the
+        # resolved percent is negative, which is exactly how the bar is
+        # meant to disappear for anything that isn't a movie file - the same
+        # mechanism is what makes only one of the three per-category bars
+        # below (see splitProgressByCategory()) ever actually paint.
+        return afile + (name, date_text, progress_normal, file_icon, picon, color, color_sel,
+                        progress_recording, progress_marked)

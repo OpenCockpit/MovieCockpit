@@ -1,0 +1,12 @@
+- screen:
+    name: "BufferingProgress"
+    backgroundColor: "md_transparent" 
+    position: "center,center"
+    size: "100,100"
+    children:
+      - widget:
+          alphatest: "off"
+          name: "pic"
+          position: "center,center"
+          size: "100,100"
+          transparent: "0"
