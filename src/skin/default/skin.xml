@@ -92,7 +92,7 @@
 			}
 			</convert>
 		</widget>
-		<widget addon="Pager" backgroundColor="md_surface" conditional="list" connection="list" position="30,974" size="1200,25" transparent="1"/>
+		<widget addon="Pager" backgroundColor="md_surface" conditional="list" connection="list" maxPages="20" position="30,974" size="1200,25" transparent="1"/>
 		<widget alphatest="blend" cornerRadius="12" position="1260,130" render="COCCover" size="630,375" source="Service" transparent="1"/>
 		<widget font="RobotoMedium;36" position="1260,510" render="Label" size="630,80" source="Service" transparent="1" valign="center" zPosition="2">
 			<convert type="COCEventName">Name</convert>

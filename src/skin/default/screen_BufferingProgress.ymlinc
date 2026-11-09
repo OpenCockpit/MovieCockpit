@@ -1,6 +1,5 @@
 - screen:
     name: "BufferingProgress"
-    backgroundColor: "md_transparent" 
     position: "center,center"
     size: "100,100"
     children:
