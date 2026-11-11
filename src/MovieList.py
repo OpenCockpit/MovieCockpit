@@ -24,8 +24,7 @@ from .ConfigInit import sort_modes
 from .Sorting import Sorting
 from .ServiceCenter import ServiceCenter
 from .ServiceUtils import getPicon
-from .RecordingUtils import isRecording, isDownloadRecording
-from .JobUtils import getPendingJob
+from .RecordingUtils import getDownloadRecordingJob, isRecording
 
 
 # Extended fields appended after the raw FILE_IDX_* tuple (0-19) for the "list" Source
@@ -483,8 +482,7 @@ class MovieList(List, Sorting, ServiceCenter):
             logger.debug("path: %s", path)
             progress = 0
             try:
-                if isDownloadRecording(path):
-                    job = getPendingJob("MTC", path)
+                if job := getDownloadRecordingJob(path):
                     progress = job.getProgress()
                 else:
                     if is_recording:
