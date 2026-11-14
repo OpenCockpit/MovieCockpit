@@ -78,6 +78,7 @@ MDC_IDX_NAME = 8
 MDC_IDX_DATE = 9
 MDC_IDX_MEDIA = 10
 MDC_IDX_META = 11
+MDC_IDX_POSITION = 12   # place in the manual order of the folder (.mediacockpit_order), 0 = not in it
 
 # media types
 MDC_MEDIA_TYPE_UP = 0
