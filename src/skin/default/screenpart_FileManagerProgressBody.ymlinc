@@ -13,10 +13,13 @@
     size: "$width,43"
     transparent: "1"
 - widget:
+    backgroundColor: "md_surface_container"
+    cornerRadius: "$radius_bar_thick"
+    foregroundColor: "md_primary"
     name: "slider1"
     position: "0,122"
     size: "$width,25"
-    transparent: "1"
+    transparent: "0"
 - widget:
     font: "$md_body_large"
     halign: "left"

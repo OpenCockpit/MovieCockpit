@@ -86,6 +86,7 @@ MDC_MEDIA_TYPE_PLAYLIST = 2
 MDC_MEDIA_TYPE_PICTURE = 3
 MDC_MEDIA_TYPE_MOVIE = 4
 MDC_MEDIA_TYPE_MUSIC = 5
+MDC_MEDIA_TYPE_UNAVAILABLE = 6   # an entry of a playlist whose file cannot be found: shown, but nothing can be done with it
 MDC_MEDIA_TYPE_FILE = [MDC_MEDIA_TYPE_PICTURE, MDC_MEDIA_TYPE_MOVIE, MDC_MEDIA_TYPE_MUSIC]
 
 # covers indexes
