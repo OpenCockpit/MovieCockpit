@@ -7,7 +7,7 @@ from Components.Sources.COCDiskSpace import COCDiskSpace
 from Plugins.SystemPlugins.CacheCockpit.FileManager import FileManager
 from Plugins.SystemPlugins.MountCockpit.MountCockpit import MountCockpit
 from .FileProgress import FileProgress
-from .FileManagerUtils import FILE_OP_DELETE, FILE_OP_LOAD, file_op_msg
+from .FileManagerUtils import FILE_OP_DELETE, FILE_OP_LOAD, UNKNOWN_FILES, file_op_msg
 from .Debug import logger
 from .__init__ import _
 from .Version import ID
@@ -76,7 +76,8 @@ class FileManagerProgress(FileProgress):
     def doActivityTimer(self):
         logger.debug("...")
         self.total_files, self.file_name, self.file_op, self.file_progress = self.checkJobs()
-        self.msg = _("Remaining files") + f": {self.total_files}"
+        # not counted yet: the dots, not a number that is made up and then corrected
+        self.msg = _("Remaining files") + ": " + ("..." if self.total_files == UNKNOWN_FILES else str(self.total_files))
         if self.request_cancel:
             self["key_red"].setText("")
             self["key_blue"].setText("")

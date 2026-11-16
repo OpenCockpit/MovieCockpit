@@ -11,6 +11,7 @@ from Tools.BoundFunction import boundFunction
 from Plugins.SystemPlugins.MountCockpit.MountCockpit import MountCockpit
 from .Version import ID
 from .Debug import logger
+from .PathUtils import isInTrashcan
 from .__init__ import _
 
 
@@ -151,7 +152,7 @@ class Actions():
 
     def setTrashcanActions(self, csel, path):
         logger.debug("path: %s", path)
-        if path and ".Trash" in path:
+        if path and isInTrashcan(path):
             self.color_buttons_matrix[0][KEY_YELLOW] = [
                 _("Restore"), csel.restoreMovies]
             self.color_buttons_matrix[0][KEY_BLUE] = [_("Home"), boundFunction(

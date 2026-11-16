@@ -26,7 +26,7 @@ class FileProgress(Screen):
         self["key_green"] = Label(_("Close"))
         self["key_green"].setText("")
         self["key_yellow"] = Label("")
-        self["key_blue"] = Label(_("Hide"))
+        self["key_blue"] = Label(_("Continue in background"))
 
         self["actions"] = ActionMap(
             ["OkCancelActions", "ColorActions"],

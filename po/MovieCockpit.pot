@@ -339,6 +339,15 @@ msgstr ""
 msgid "Manage recordings"
 msgstr ""
 
+msgid "The file operation failed, the files are unchanged"
+msgstr ""
+
+msgid "A recording is running in it, nothing was changed"
+msgstr ""
+
+msgid "A folder cannot be moved or copied into itself"
+msgstr ""
+
 msgid "Archive source"
 msgstr ""
 
@@ -603,7 +612,7 @@ msgstr ""
 msgid "FSTrim"
 msgstr ""
 
-msgid "Hide"
+msgid "Continue in background"
 msgstr ""
 
 msgid "Processing"

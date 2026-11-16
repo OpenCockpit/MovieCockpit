@@ -7,6 +7,22 @@ from Plugins.SystemPlugins.MountCockpit.MountCockpit import MountCockpit
 from .Debug import logger
 
 
+TRASHCAN = ".Trash"
+
+
+def isInTrashcan(path):
+    """True for a trashcan and everything in it: a path with a folder that is called exactly .Trash. (".Trash" in path was also true for a folder
+    called Foo.Trashbar: it was then deleted for good instead of moved into the trashcan, and left out of the lists.)"""
+    return TRASHCAN in (path or "").split("/")
+
+
+def isInside(path, folder):
+    """path is folder itself or something below it (normalized: a slash at the end or a . does not matter). A folder must not be moved or copied
+    into itself or into a folder below it: mv refuses it, and cp -a would not end."""
+    path, folder = os.path.normpath(path), os.path.normpath(folder)
+    return path == folder or path.startswith(folder.rstrip("/") + "/")
+
+
 def getArchiveTarget(plugin, path, target_dir):
     logger.info("plugin: %s, path: %s, target_dir: %s", plugin, path, target_dir)
     src_bookmark = MountCockpit.getInstance().getBookmark(plugin, path)

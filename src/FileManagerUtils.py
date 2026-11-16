@@ -2,7 +2,11 @@
 # License: GNU General Public License v3.0
 
 
-from .__init__ import _
+try:
+    from .__init__ import _
+except ImportError:         # the standalone cache loader (no enigma2): the texts are not shown there
+    def _(text):
+        return text
 
 
 # file manager ops
@@ -12,6 +16,8 @@ FILE_OP_MOVE = 2
 FILE_OP_COPY = 3
 FILE_OP_LOAD = 4  # loadDatabaseCache
 FILE_OP_FSTRIM = 5  # execute fstrim command
+
+UNKNOWN_FILES = -1  # what a progress report says as long as the files of a load are not counted (a count would be made up)
 
 FILE_TASK = _("File Task")
 file_op_msg = {
@@ -27,6 +33,8 @@ file_op_msg = {
 FILE_OP_ERROR_NONE = 0
 FILE_OP_ERROR_NO_DISKSPACE = 1
 FILE_OP_ERROR_ABORT = 2
+FILE_OP_ERROR_RECORDING = 3     # a recording is running in what was to be moved, copied or deleted
+FILE_OP_ERROR_INTO_ITSELF = 4   # a folder was to be moved or copied into itself, or into a folder below it
 FILE_OP_ERROR = 100
 
 # database file
@@ -79,6 +87,8 @@ MDC_IDX_DATE = 9
 MDC_IDX_MEDIA = 10
 MDC_IDX_META = 11
 MDC_IDX_POSITION = 12   # place in the manual order of the folder (.mediacockpit_order), 0 = not in it
+MDC_IDX_FILESIZE = 13   # size and modification time of the file when its row was made (0: a row of an older version, or a folder): a reload
+MDC_IDX_FILEMTIME = 14  # reads again only the files where one of them is not the same any more
 
 # media types
 MDC_MEDIA_TYPE_UP = 0

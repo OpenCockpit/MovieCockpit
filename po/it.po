@@ -687,6 +687,15 @@ msgstr "Info"
 msgid "Download"
 msgstr "Download"
 
+msgid "The file operation failed, the files are unchanged"
+msgstr "L'operazione sui file non è riuscita, i file sono invariati"
+
+msgid "A recording is running in it, nothing was changed"
+msgstr "Al suo interno è in corso una registrazione, non è stato modificato nulla"
+
+msgid "A folder cannot be moved or copied into itself"
+msgstr "Una cartella non può essere spostata o copiata in se stessa"
+
 msgid "Infobar/Play"
 msgstr ""
 
@@ -706,4 +715,7 @@ msgid "None"
 msgstr ""
 
 msgid "FSTrim"
+msgstr ""
+
+msgid "Continue in background"
 msgstr ""

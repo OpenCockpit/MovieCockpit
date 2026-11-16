@@ -37,6 +37,9 @@ class CutList():
     def writeCutList(self, path, cut_list):
         logger.info("path: %s, cut_list: %s", path, cut_list)
         data = packCutList(cut_list)
-        writeFile(path + ".cuts", data, "wb")  # packed cuts are bytes
+        if not writeFile(path + ".cuts", data, "wb"):  # packed cuts are bytes
+            # the cache must say what the file says: with the cuts it could not write, the list showed marks that were gone after a reload
+            logger.error("the cuts of %s could not be written: the cache is not changed", path)
+            return
         data = pickle.dumps(cut_list)
         FileManager.getInstance(ID).update(path, cuts=data)

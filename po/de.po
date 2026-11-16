@@ -337,6 +337,15 @@ msgstr "Abbrechen"
 msgid "Manage recordings"
 msgstr "Verwalten von Aufnahmen und Filmen"
 
+msgid "The file operation failed, the files are unchanged"
+msgstr "Der Dateivorgang ist fehlgeschlagen, die Dateien sind unverändert"
+
+msgid "A recording is running in it, nothing was changed"
+msgstr "Darin läuft eine Aufnahme, es wurde nichts geändert"
+
+msgid "A folder cannot be moved or copied into itself"
+msgstr "Ein Ordner kann nicht in sich selbst verschoben oder kopiert werden"
+
 msgid "Archive source"
 msgstr "Archivierungs-Quelle"
 
@@ -592,8 +601,8 @@ msgstr "Kopieren"
 msgid "FSTrim"
 msgstr "FSTrimmen"
 
-msgid "Hide"
-msgstr "Ausblenden"
+msgid "Continue in background"
+msgstr "Im Hintergrund fortsetzen"
 
 msgid "Processing"
 msgstr "In Bearbeitung"

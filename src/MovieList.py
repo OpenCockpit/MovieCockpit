@@ -25,6 +25,7 @@ from .Sorting import Sorting
 from .ServiceCenter import ServiceCenter
 from .ServiceUtils import getPicon
 from .RecordingUtils import getDownloadRecordingJob, isRecording
+from .PathUtils import isInTrashcan
 
 
 # Extended fields appended after the raw FILE_IDX_* tuple (0-19) for the "list" Source
@@ -326,7 +327,7 @@ class MovieList(List, Sorting, ServiceCenter):
         filtered_list = []
         for adir in dir_list:
             path = adir[FILE_IDX_PATH]
-            if self.list_content == 3 and not path.endswith("..") and ".Trash" not in path:
+            if self.list_content == 3 and not path.endswith("..") and not isInTrashcan(path):
                 if FileManager.getInstance(ID).getCountSize(path)[0] == 0:
                     logger.debug("skipping: %s", path)
                     continue
@@ -377,7 +378,7 @@ class MovieList(List, Sorting, ServiceCenter):
                     load_dir, selection_path)
         if load_dir is None:
             load_dir = self.getCurrentDir()
-        if self.recursive and ".Trash" not in load_dir:
+        if self.recursive and not isInTrashcan(load_dir):
             load_dir = MountCockpit.getInstance().getHomeDir(ID)
         if selection_path is None:
             selection_path = self.getCurrentPath()

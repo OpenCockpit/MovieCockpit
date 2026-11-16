@@ -23,9 +23,9 @@ from .Debug import logger
 from .Version import ID
 from .__init__ import _
 from .CockpitContextMenu import CockpitContextMenu, MENU_FUNCTIONS, MENU_PLUGINS
-from .RecordingUtils import isRecording, stopRecording
+from .RecordingUtils import isRecording, isRecordingIn, getRecordingsBelow, stopRecording
 from .CutList import CutList
-from .FileManagerUtils import FILE_OP_DELETE, FILE_OP_MOVE, FILE_OP_COPY, FILE_OP_LOAD, FILE_OP_ERROR_NO_DISKSPACE
+from .FileManagerUtils import FILE_OP_DELETE, FILE_OP_MOVE, FILE_OP_COPY, FILE_OP_LOAD, FILE_OP_ERROR_NO_DISKSPACE, FILE_OP_ERROR, FILE_OP_ERROR_RECORDING, FILE_OP_ERROR_INTO_ITSELF
 from .FileManagerUtils import FILE_TYPE_DIR, FILE_TYPE_LINK, FILE_IDX_DIR, FILE_IDX_TYPE, FILE_IDX_PATH, FILE_IDX_EXT, FILE_IDX_NAME
 from .ServiceUtils import ALL_VIDEO, getService
 from .ConfigInit import sort_modes
@@ -38,7 +38,8 @@ from .FileManagerProgress import FileManagerProgress
 from .Loading import Loading
 from .RecordingInfo import RecordingInfo
 from .FileUtils import deleteFile, createDirectory, touchFile
-from .PathUtils import getMoveFromTrashcanTarget
+from .PathUtils import getMoveFromTrashcanTarget, isInTrashcan
+from .DelayTimer import DelayTimer
 from .PluginUtils import getPlugin, WHERE_MEDIATHEK_SEARCH, WHERE_TMDB_MOVIELIST
 
 
@@ -101,7 +102,11 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         self.delay_timer = eTimer()
         self.delay_timer.callback.append(self.updateInfoDelayed)
         self.reload_list_timer = eTimer()
-        self.reload_list_timer.callback.append(self.loadList)
+        self.reload_list_timer.callback.append(self.fileOpsFinished)
+        self.file_op_nospace = []   # what a file operation could not do, collected until the batch is over: one message, not one per file
+        self.file_op_failed = []
+        self.file_op_recording = []
+        self.file_op_itself = []
 
         self.tmdb_plugin = getPlugin(WHERE_TMDB_MOVIELIST)
         self.mediathek_plugin = getPlugin(WHERE_MEDIATHEK_SEARCH)
@@ -294,7 +299,7 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         if current_dir:
             title_dir = ""
             title += " - "
-            if ".Trash" in current_dir:
+            if isInTrashcan(current_dir):
                 title += _(".Trash")
             else:
                 title += _("Videos")
@@ -302,7 +307,7 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
             for bookmark in bookmarks:
                 if current_dir.startswith(bookmark):
                     title_dir = current_dir[len(bookmark) + 1:]
-                    if title_dir.startswith(".Trash"):
+                    if title_dir == ".Trash" or title_dir.startswith(".Trash/"):
                         title_dir = title_dir[len(".Trash") + 1:]
                     break
             if title_dir:
@@ -494,7 +499,15 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
                 Recording.getInstance().addBlock(path)
                 stopRecording(path, delete)
                 Recording.getInstance().removeBlock(path)
-            self.deleteMoviesQuery()
+            # the recorder writes .meta, .eit and .ap when it ends: what is deleted or moved must wait for that (it left them behind)
+            self.waitForRecordingsToEnd(self.recordings_to_stop, self.deleteMoviesQuery)
+
+    def waitForRecordingsToEnd(self, paths, callback, tries=40):
+        """callback() when none of the recordings runs any more, or after 20 s (the file manager does not touch a recording that runs)."""
+        if tries > 0 and any(isRecording(path) for path in paths):
+            DelayTimer(500, self.waitForRecordingsToEnd, paths, callback, tries - 1)
+            return
+        callback()
 
     def stopRecordingsQuery(self, delete=True):
         file_names = self.createMovieList(self.recordings_to_stop)
@@ -540,14 +553,18 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         selection_list = self.getSelectionList()
         for path in selection_list:
             logger.debug("path: %s", path)
-            if not path.endswith(".Trash") and not path.endswith(".."):
+            if os.path.basename(path) != ".Trash" and not path.endswith(".."):
                 self.file_ops_list.append((FILE_OP_DELETE, path, None))
-                if ".Trash" in path:
+                if isInTrashcan(path):
                     file_name = os.path.splitext(os.path.basename(path))[0]
                     if file_name not in self.file_delete_list:
                         self.file_delete_list.append(file_name)
                 if isRecording(path):
                     self.recordings_to_stop.append(path)
+                else:       # a folder with a recording that runs: the recording is what is stopped
+                    for recording in getRecordingsBelow(path):
+                        if recording not in self.recordings_to_stop:
+                            self.recordings_to_stop.append(recording)
 
         if self.recordings_to_stop:
             self.stopRecordingsQuery()
@@ -580,7 +597,7 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         file_ops_list = []
         selection_list = self.getSelectionList()
         for path in selection_list:
-            if not path.endswith("..") and not path.endswith(".Trash") and not isRecording(path):
+            if not path.endswith("..") and os.path.basename(path) != ".Trash" and not isRecording(path):
                 target_dir = getMoveFromTrashcanTarget(path)
                 file_ops_list.append((FILE_OP_MOVE, path, target_dir))
         self.execFileOps(file_ops_list)
@@ -618,8 +635,8 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
                 active_recordings_list = []
                 file_ops_list = []
                 for path in selection_list:
-                    if not path.endswith(".Trash") and not path.endswith(".."):
-                        if not isRecording(path):
+                    if os.path.basename(path) != ".Trash" and not path.endswith(".."):
+                        if not isRecordingIn(path):
                             file_ops_list.append(
                                 (file_op, path, os.path.normpath(target_dir)))
                         else:
@@ -698,9 +715,46 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         self.reload_list_timer.stop()
         self.reload_list_timer.start(500, True)
         if error == FILE_OP_ERROR_NO_DISKSPACE:
+            self.file_op_nospace.append(path)
+        elif error == FILE_OP_ERROR_INTO_ITSELF:
+            self.file_op_itself.append(path)
+        elif error == FILE_OP_ERROR_RECORDING:
+            self.file_op_recording.append(path)
+        elif error == FILE_OP_ERROR:
+            self.file_op_failed.append(path)    # the source is as it was (CacheCockpit does not remove it after a failed copy)
+
+    def fileOpsFinished(self):
+        """500 ms after the last callback of a batch: the list is read again, and what did not work is told once (a MessageBox for every file
+        of a batch of twenty hid the list and each other)."""
+        self.loadList()
+        nospace, failed, recording = self.file_op_nospace, self.file_op_failed, self.file_op_recording
+        itself = self.file_op_itself
+        self.file_op_nospace, self.file_op_failed, self.file_op_recording, self.file_op_itself = [], [], [], []
+        if itself:
             self.session.open(
                 MessageBox,
-                _("Not enough space in target directory for video file") + ":\n" + path,
+                _("A folder cannot be moved or copied into itself") + ":" + self.createMovieList(itself),
+                MessageBox.TYPE_INFO,
+                10
+            )
+        if recording:
+            self.session.open(
+                MessageBox,
+                _("A recording is running in it, nothing was changed") + ":" + self.createMovieList(recording),
+                MessageBox.TYPE_INFO,
+                10
+            )
+        if nospace:
+            self.session.open(
+                MessageBox,
+                _("Not enough space in target directory for video file") + ":" + self.createMovieList(nospace),
+                MessageBox.TYPE_ERROR,
+                10
+            )
+        if failed:
+            self.session.open(
+                MessageBox,
+                _("The file operation failed, the files are unchanged") + ":" + self.createMovieList(failed),
                 MessageBox.TYPE_ERROR,
                 10
             )
