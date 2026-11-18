@@ -46,3 +46,16 @@ screen:
           - convert:
               type: "COCMovieInfo"
               text: "MovieDuration"
+    # while the list loads (Loading.py): the background covers the movie info, the spinner is on top of it
+    - widget:
+        name: "background"
+        position: "0,0"
+        size: "$screen_width,$screen_height"
+        zPosition: "3"
+    - widget:
+        alphatest: "blend"
+        name: "lcd_pic_loading"
+        position: "center,center"
+        size: "54,54"
+        transparent: "1"
+        zPosition: "4"

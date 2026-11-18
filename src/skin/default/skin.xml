@@ -48,7 +48,6 @@
 		<color name="md_transparent" value="#ff000000"/>
 	</colors>
 	<colors>
-		<color name="FdLcdTitleForeground" value="#7fffff"/>
 		<color name="FdLcdRed" value="#00f50808"/>
 		<color name="FdLcdBlack" value="#00000000"/>
 		<color name="FdLcdAmber" value="#fcc800"/>
@@ -120,6 +119,8 @@
 		<widget font="FdLcD;60" halign="right" position="220,170" render="Label" size="172,70" source="parent.Service" transparent="1" valign="center">
 			<convert type="COCMovieInfo">MovieDuration</convert>
 		</widget>
+		<widget name="background" position="0,0" size="396,240" zPosition="3"/>
+		<widget alphatest="blend" name="lcd_pic_loading" position="center,center" size="54,54" transparent="1" zPosition="4"/>
 	</screen>
 	<screen backgroundColor="md_transparent" flags="wfNoBorder" name="MovieInfoEPG" position="fill" resolution="1920,1080">
 		<eLabel backgroundColor="md_surface_container_high" cornerRadius="16" position="96,54" size="1728,972" zPosition="-11"/>

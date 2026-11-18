@@ -39,7 +39,9 @@ class Loading():
             self.csel["int_loading"].setText(f"{seconds:2d}")
         self.csel["msg_loading"].setText(msg)
         if self.summaries:
-            self.summaries[0]["background"].instance.setPixmap(LoadPixmap(getSkinPath("skin_default/display_bg.png"), cached=False))
+            # the background covers what the display shows otherwise; stop() hides it, so it is shown again here
+            self.summaries[0]["background"].instance.setPixmap(LoadPixmap(getSkinPath("images/display_bg.png"), cached=False))
+            self.summaries[0]["background"].show()
             self.summaries[0]["lcd_pic_loading"].show()
 
     def stop(self, msg=""):
