@@ -119,7 +119,9 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
     def onDialogShow(self):
         logger.info("self.return_path: %s", self.return_path)
         if self.last_service is None:
-            self.last_service = self.session.nav.getCurrentlyPlayingServiceReference()
+            # The service as it was played (the one of the bouquet), not the reference the service was rewritten to for the
+            # player (a stream plugin's local proxy address): playing that one again leaves the EPG without a row for it.
+            self.last_service = self.session.nav.getCurrentlyPlayingServiceOrGroup()
         logger.info("self.last_service: %s",
                     self.last_service.toString() if self.last_service else None)
         self.loading.start()
