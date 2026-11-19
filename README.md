@@ -21,3 +21,6 @@
 
 ## Installation
 - https://OpenCockpit.github.io/MovieCockpit
+
+## Wiki
+- https://github.com/OpenCockpit/MovieCockpit/wiki
