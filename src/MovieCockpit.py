@@ -52,6 +52,38 @@ class MovieCockpitSummary(ScreenSummary):
         self["background"] = Pixmap()
 
 
+class MoviePlayer(CockpitPlayer):
+    # the player of this plugin; it uses the skin of CockpitPlayer
+    skipping_with_keys = False   # inside skipForward/skipBackward: the bouquet keys
+
+    def __init__(self, *args, **kwargs):
+        CockpitPlayer.__init__(self, *args, **kwargs)
+        # Not a class attribute: Screen.__init__ sets skinName to the name of the class ("MoviePlayer"), which is the
+        # name of the stock screen that skins define as well (MaterialSkinCockpit): a skin that has no player_icon,
+        # the position and progress widgets of CockpitPlayer, and so on. Like the other players, after the base class.
+        self.skinName = "CockpitPlayer"
+
+    def skipForward(self):
+        self.skipWithoutInfobar(CockpitPlayer.skipForward)
+
+    def skipBackward(self):
+        self.skipWithoutInfobar(CockpitPlayer.skipBackward)
+
+    def skipWithoutInfobar(self, skip):
+        # The bouquet keys skip in steps, often several times in a row: the infobar that CockpitSmartSeek.doSkip shows
+        # after every seek (showAfterSeek) is in the way then. The other skips (next/previous event, to the start of an
+        # event) go through the same doSkip and still show it.
+        self.skipping_with_keys = True
+        try:
+            skip(self)
+        finally:
+            self.skipping_with_keys = False
+
+    def showAfterSeek(self):
+        if not self.skipping_with_keys:
+            CockpitPlayer.showAfterSeek(self)
+
+
 class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList):
 
     def attrgetter(self, default=None):
@@ -383,7 +415,7 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         if os.path.exists(path):
             Recording.getInstance().addBlock(path)
             service = getService(afile[FILE_IDX_PATH], afile[FILE_IDX_NAME])
-            self.session.openWithCallback(boundFunction(self.openPlayerCallback, path), CockpitPlayer,
+            self.session.openWithCallback(boundFunction(self.openPlayerCallback, path), MoviePlayer,
                                           service, config.plugins.moviecockpit, self.showMovieInfoEPG, False, 0, None, self.movie_list)
         else:
             self.session.open(

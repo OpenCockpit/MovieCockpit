@@ -65,7 +65,7 @@
                   position: "e-205,0"
                   size: "185,52"
                   font: "$md_body_small"
-                  flags: RT_HALIGN_RIGHT|RT_VALIGN_CENTER
+                  flags: RT_HALIGN_CENTER|RT_VALIGN_CENTER
                   value: 21
                   color: {call: MultiContentTemplateColor, args: [25]}
                   color_sel: {call: MultiContentTemplateColor, args: [26]}
