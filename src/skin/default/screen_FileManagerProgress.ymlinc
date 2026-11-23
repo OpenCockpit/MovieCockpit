@@ -12,4 +12,5 @@ screen:
     - xmlinc:
         file: "screenpart_FileManagerProgressBody.ymlinc"
         position: "$window_dialog_body_x,$window_dialog_body_y"
-        size: "$dialog_width-$window_dialog_trim_x,$dialog_height-$window_dialog_trim_y"
+        width: "$dialog_width-$window_dialog_trim_x"
+        height: "$dialog_height-$window_dialog_trim_y"
