@@ -43,6 +43,10 @@ from .DelayTimer import DelayTimer
 from .PluginUtils import getPlugin, WHERE_MEDIATHEK_SEARCH, WHERE_TMDB_MOVIELIST
 
 
+RELOAD_BATCH_DELAY = 500    # ms the list waits for the next callback while more file operations are queued
+RELOAD_LAST_DELAY = 150     # ms after the last (or only) one: short, but longer than the gap between two callbacks of a batch
+
+
 class MovieCockpitSummary(ScreenSummary):
 
     def __init__(self, session, parent):
@@ -746,8 +750,11 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
         # Enigma2's own "main thread busy" spinner). Debounce it: reset a
         # short one-shot timer on every callback, so the actual reload only
         # runs once no further callback has arrived within the window.
+        # The long window is for a batch: while more file jobs are queued, the next callback is on its way. The last one (and a
+        # single file) reloads soon: 500 ms was what a single delete waited for after it had been done.
+        queued = FileManager.getInstance(ID).getJobsProgress()[0]
         self.reload_list_timer.stop()
-        self.reload_list_timer.start(500, True)
+        self.reload_list_timer.start(RELOAD_BATCH_DELAY if queued else RELOAD_LAST_DELAY, True)
         if error == FILE_OP_ERROR_NO_DISKSPACE:
             self.file_op_nospace.append(path)
         elif error == FILE_OP_ERROR_INTO_ITSELF:
@@ -758,7 +765,7 @@ class MovieCockpit(Screen, HelpableScreen, CockpitContextMenu, Actions, CutList)
             self.file_op_failed.append(path)    # the source is as it was (CacheCockpit does not remove it after a failed copy)
 
     def fileOpsFinished(self):
-        """500 ms after the last callback of a batch: the list is read again, and what did not work is told once (a MessageBox for every file
+        """After the last callback of a batch (RELOAD_LAST_DELAY): the list is read again, and what did not work is told once (a MessageBox for every file
         of a batch of twenty hid the list and each other)."""
         self.loadList()
         nospace, failed, recording = self.file_op_nospace, self.file_op_failed, self.file_op_recording
