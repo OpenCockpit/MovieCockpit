@@ -328,10 +328,11 @@ class MovieList(List, Sorting, ServiceCenter):
         for adir in dir_list:
             path = adir[FILE_IDX_PATH]
             if self.list_content == 3 and not path.endswith("..") and not isInTrashcan(path):
-                if FileManager.getInstance(ID).getCountSize(path)[0] == 0:
+                count = FileManager.getInstance(ID).getCountSize(path)[0]   # once: it is a query of the cache per folder
+                if count == 0:
                     logger.debug("skipping: %s", path)
                     continue
-                if FileManager.getInstance(ID).getCountSize(path)[0] == 1:
+                if count == 1:
                     alist = FileManager.getInstance(ID).getFileList(path)
                     if alist:
                         filtered_list.append(alist[0])
