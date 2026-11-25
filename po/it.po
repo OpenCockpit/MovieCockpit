@@ -282,8 +282,14 @@ msgstr "Determinare quali informazioni visualizzare sulle directory."
 msgid "Show mount points"
 msgstr "Mostrare i punti di mount"
 
-msgid "Select whether to show mount_points or not."
+msgid "Select whether to show mount points or not."
 msgstr "Determinare se visualizzare i punti di mount."
+
+msgid "Date format"
+msgstr "Formato della data"
+
+msgid "Select the format of the date shown for videos in the list and in their information."
+msgstr "Determinare il formato della data visualizzata per i video nell'elenco e nelle relative informazioni."
 
 msgid "Watching in progress percent"
 msgstr "Considerare visto se oltre il (%)"

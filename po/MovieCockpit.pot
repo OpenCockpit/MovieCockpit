@@ -363,6 +363,9 @@ msgstr ""
 msgid "Cover source"
 msgstr ""
 
+msgid "Date format"
+msgstr ""
+
 msgid "Default color for highlighted recording"
 msgstr ""
 
@@ -486,6 +489,11 @@ msgid "Select the color for selected video."
 msgstr ""
 
 msgid "Select the cover source."
+msgstr ""
+
+msgid ""
+"Select the format of the date shown for videos in the list and in their "
+"information."
 msgstr ""
 
 msgid "Select the sort mode."

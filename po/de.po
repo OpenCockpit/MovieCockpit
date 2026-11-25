@@ -361,6 +361,9 @@ msgstr "Cache-Verzeichnis"
 msgid "Cover source"
 msgstr "Cover-Quelle"
 
+msgid "Date format"
+msgstr "Datumsformat"
+
 msgid "Default color for highlighted recording"
 msgstr "Standard Farbe für markierte Aufnahme"
 
@@ -483,6 +486,9 @@ msgstr "Wähle eine Farbe für einen ausgewählten Film."
 
 msgid "Select the cover source."
 msgstr "Wähle das Cover-Verzeichnis."
+
+msgid "Select the format of the date shown for videos in the list and in their information."
+msgstr "Wähle das Format des Datums, das für Videos in der Liste und in ihren Informationen angezeigt wird."
 
 msgid "Select the sort mode."
 msgstr "Wähle die Sortierung."

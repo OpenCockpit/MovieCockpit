@@ -9,6 +9,7 @@
 		<item level="0" text="Default sort mode" description="Select the sort mode.">config.plugins.moviecockpit.list_sort</item>
 		<item level="0" text="Show directories information" description="Select which information should be displayed for directories.">config.plugins.moviecockpit.directories_info</item>
 		<item level="0" text="Show mount points" description="Select whether to show mount points or not.">config.plugins.moviecockpit.list_show_mount_points</item>
+		<item level="0" text="Date format" description="Select the format of the date shown for videos in the list and in their information.">config.plugins.moviecockpit.movie_date_format</item>
 		<item level="0" text="Watching in progress percent" description="Select percentage for videos that are considered being watched.">config.plugins.moviecockpit.movie_watching_percent</item>
 		<item level="0" text="Finished watching percent" description="Select percentage for videos that are considered finished.">config.plugins.moviecockpit.movie_finished_percent</item>
 		<item level="0" text="Download cover automatically for recording" description="Select whether a cover should be automatically downloaded when recording a movie.">config.plugins.moviecockpit.cover_auto_download</item>
