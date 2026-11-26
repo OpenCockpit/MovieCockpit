@@ -4,7 +4,6 @@
 
 from Components.Button import Button
 from Components.Sources.StaticText import StaticText
-from Components.Label import Label
 from Components.config import config
 from Components.ActionMap import HelpableActionMap
 from Tools.BoundFunction import boundFunction
@@ -38,15 +37,12 @@ class Actions():
         self.csel["key_green"] = Button()
         self.csel["key_yellow"] = Button()
         self.csel["key_blue"] = Button()
-        self.csel["level"] = Label()
         self.initColorActions(self)
         self.setColorButtons()
 
     # color button management functions
 
     def setColorButtons(self):
-        # self.csel["level"].setText(f"<{self.color_buttons_level + 1}>")
-
         red = self.color_buttons_matrix[self.color_buttons_level][KEY_RED]
         green = self.color_buttons_matrix[self.color_buttons_level][KEY_GREEN]
         yellow = self.color_buttons_matrix[self.color_buttons_level][KEY_YELLOW]

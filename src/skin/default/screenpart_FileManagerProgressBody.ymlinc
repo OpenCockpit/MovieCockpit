@@ -32,9 +32,9 @@
 - widget:
     font: "$md_body_large"
     halign: "left"
-    position: "0,$height-38"
+    position: "0,$height-40"
     render: "Label"
-    size: "$width,38"
+    size: "$width,40"
     source: "DiskSpace"
     transparent: "1"
     children:

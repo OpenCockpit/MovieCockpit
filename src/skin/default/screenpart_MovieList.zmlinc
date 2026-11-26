@@ -1,0 +1,41 @@
+# the list of the recordings and directories: a row an entry, with its icons, its name, its progress and its date and
+# length; the row is as wide as the list (e: the width of the item, COCTemplatedMultiContentEx sets it when the list is drawn)
+- list:
+    backgroundColorSelected: "$backgroundColorSelected"
+    foregroundColorSelected: "$foregroundColorSelected"
+    itemCornerRadiusSelected: "$radius_item"
+    position: "0,0"
+    scrollbarMode: "showNever"
+    size: "1200,16*52"
+    source: "list"
+    converter: "COCTemplatedMultiContentEx"
+    item:
+      height: 52
+      width: "e"
+      padding: "10,10"
+      fonts: ["$md_body_large", "$md_body_small"]
+      columns: [45, 70, "*", 110, 185]
+      body:
+        - row:
+            # the type of the entry (recording, directory, ...)
+            - cell:
+                children:
+                  - icon: {position: "0,center", size: "35,35", flags: BT_SCALE, value: 23}
+            # the picon of its channel
+            - cell:
+                children:
+                  - icon: {position: "0,center", size: "55,35", flags: BT_SCALE, value: 24}
+            # its name
+            - cell:
+                children:
+                  - text: {size: "e-15,e", font: "$md_body_large", flags: RT_HALIGN_LEFT|RT_VALIGN_CENTER, value: 20, color: {call: MultiContentTemplateColor, args: [25]}, color_sel: {call: MultiContentTemplateColor, args: [26]}}
+            # its progress: watched, being recorded, cut - one of the three is drawn
+            - cell:
+                children:
+                  - progress: {position: "0,center", size: "90,14", value: -22, borderWidth: 1, foreColor: "md_on_surface_variant", foreColorSelected: "md_inverse_on_surface", backColor: "md_surface_container_high", backColorSelected: "md_outline"}
+                  - progress: {position: "0,center", size: "90,14", value: -27, borderWidth: 1, foreColor: "md_error", foreColorSelected: "md_inverse_error", backColor: "md_surface_container_high", backColorSelected: "md_outline"}
+                  - progress: {position: "0,center", size: "90,14", value: -28, borderWidth: 1, foreColor: "md_key_yellow", foreColorSelected: "md_inverse_warning", backColor: "md_surface_container_high", backColorSelected: "md_outline"}
+            # its date and length
+            - cell:
+                children:
+                  - text: {font: "$md_body_small", flags: RT_HALIGN_CENTER|RT_VALIGN_CENTER, value: 21, color: {call: MultiContentTemplateColor, args: [25]}, color_sel: {call: MultiContentTemplateColor, args: [26]}}

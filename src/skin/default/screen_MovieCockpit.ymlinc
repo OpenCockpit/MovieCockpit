@@ -12,13 +12,3 @@ screen:
         position: "$window_full_body_x,$window_full_body_y"
         width: "$window_full_body_width"
         height: "$window_full_body_height"
-    - widget:
-        font: "$md_headline_small_emphasized"
-        foregroundColor: "md_on_surface_variant"
-        halign: "center"
-        name: "level"
-        position: "1636,1020"
-        size: "100,36"
-        transparent: "1"
-        valign: "center"
-        zPosition: "20"

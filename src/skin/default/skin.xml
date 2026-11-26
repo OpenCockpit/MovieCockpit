@@ -77,13 +77,13 @@
 			<convert type="COCTemplatedMultiContentEx">
 			{
 				"template": [
-					MultiContentEntryPixmapAlphaBlend(pos=(5,8), size=(35,35), png=23, flags=BT_SCALE),
-					MultiContentEntryPixmapAlphaBlend(pos=(50,8), size=(55,35), png=24, flags=BT_SCALE),
-					MultiContentEntryText(pos=(120,0), size=(e-450,52), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=20, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
-					MultiContentEntryProgress(pos=(e-315,19), size=(90,14), percent=-22, borderWidth=1, foreColor="md_on_surface_variant", foreColorSelected="md_inverse_on_surface", backColor="md_surface_container_high"),
-					MultiContentEntryProgress(pos=(e-315,19), size=(90,14), percent=-27, borderWidth=1, foreColor="md_error", foreColorSelected="md_inverse_error", backColor="md_surface_container_high"),
-					MultiContentEntryProgress(pos=(e-315,19), size=(90,14), percent=-28, borderWidth=1, foreColor="md_key_yellow", foreColorSelected="md_inverse_warning", backColor="md_surface_container_high"),
-					MultiContentEntryText(pos=(e-205,0), size=(185,52), font=1, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, text=21, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
+					MultiContentEntryPixmapAlphaBlend(pos=(10,8), size=(35,35), png=23, flags=BT_SCALE),
+					MultiContentEntryPixmapAlphaBlend(pos=(55,8), size=(55,35), png=24, flags=BT_SCALE),
+					MultiContentEntryText(pos=(125,0), size=((e-10-10)-45-70-110-185-15,52), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=20, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
+					MultiContentEntryProgress(pos=(10+45+70+(e-10-10)-45-70-110-185,19), size=(90,14), percent=-22, borderWidth=1, foreColor="md_on_surface_variant", foreColorSelected="md_inverse_on_surface", backColor="md_surface_container_high", backColorSelected="md_outline"),
+					MultiContentEntryProgress(pos=(10+45+70+(e-10-10)-45-70-110-185,19), size=(90,14), percent=-27, borderWidth=1, foreColor="md_error", foreColorSelected="md_inverse_error", backColor="md_surface_container_high", backColorSelected="md_outline"),
+					MultiContentEntryProgress(pos=(10+45+70+(e-10-10)-45-70-110-185,19), size=(90,14), percent=-28, borderWidth=1, foreColor="md_key_yellow", foreColorSelected="md_inverse_warning", backColor="md_surface_container_high", backColorSelected="md_outline"),
+					MultiContentEntryText(pos=(10+45+70+(e-10-10)-45-70-110-185+110,0), size=(185,52), font=1, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, text=21, color=MultiContentTemplateColor(25), color_sel=MultiContentTemplateColor(26)),
 				],
 				"fonts": [parseFont("Roboto;30"), parseFont("Roboto;26")],
 				"itemHeight": 52
@@ -105,7 +105,6 @@
 		<widget font="Roboto;26" options="movetype=swimming, direction=top, startpoint=0, startdelay=4000, wrap=1, always=0, repeat=1, oneshot=1, steptime=100" position="1260,630" render="COCRunningText" size="630,345" size2="630,290" source="Service" transparent="1">
 			<convert type="COCEventName">ShortAndExtendedDescription</convert>
 		</widget>
-		<widget font="RobotoMedium;36" foregroundColor="md_on_surface_variant" halign="center" name="level" position="1640,1024" size="100,36" transparent="1" valign="center" zPosition="20"/>
 	</screen>
 	<screen name="MovieCockpitSummary" position="fill" resolution="396,240">
 		<ePixmap alphatest="on" pixmap="~/../images/display_bg.png" position="0,0" size="396,240" zPosition="-10"/>
@@ -189,7 +188,7 @@
 		<widget font="Roboto;30" halign="left" name="name" position="376,460" size="1168,43" transparent="1"/>
 		<widget backgroundColor="md_surface_container" cornerRadius="6" foregroundColor="md_primary" name="slider1" position="376,521" size="1168,25" transparent="0"/>
 		<widget font="Roboto;30" halign="left" name="status" position="376,564" size="1168,43" transparent="1"/>
-		<widget font="Roboto;30" halign="left" position="376,623" render="Label" size="1168,38" source="DiskSpace" transparent="1">
+		<widget font="Roboto;30" halign="left" position="376,621" render="Label" size="1168,40" source="DiskSpace" transparent="1">
 			<convert type="COCDiskSpaceInfo">SpaceInfo</convert>
 		</widget>
 	</screen>
@@ -199,7 +198,7 @@
 		<eLabel backgroundColor="md_surface_container_highest" position="380,915" size="1485,2" zPosition="-9"/>
 		<eLabel backgroundColor="md_surface_container_highest" position="1630,930" size="2,100" zPosition="-9"/>
 		<widget alphatest="blend" name="player_icon" position="160,915" size="90,90" zPosition="3"/>
-		<widget backgroundColor="md_surface" font="RobotoMedium;30" foregroundColor="md_on_surface" halign="center" position="1590,990" render="Label" size="320,35" source="global.CurrentTime" transparent="1" valign="top" zPosition="20">
+		<widget backgroundColor="md_surface" font="RobotoMedium;30" foregroundColor="md_on_surface" halign="center" position="1590,990" render="Label" size="320,40" source="global.CurrentTime" transparent="1" valign="top" zPosition="20">
 			<convert type="ClockToText">Format: %d %B</convert>
 		</widget>
 		<widget alphatest="blend" path="icons/audioicon" position="1605,860" render="AudioIcon" size="85,50" source="session.CurrentService" zPosition="10">
@@ -240,7 +239,7 @@
 		<widget alphatest="blend" pixmap="icons/rec2.png" position="1290,880" render="Pixmap" size="49,22" source="session.RecordState" zPosition="2">
 			<convert type="ConditionalShowHide">Blink,4000,1000</convert>
 		</widget>
-		<widget backgroundColor="md_surface" font="Roboto;40" noWrap="1" position="400,935" render="Label" size="1120,50" source="Service" transparent="1" valign="center">
+		<widget backgroundColor="md_surface" font="Roboto;40" noWrap="1" position="400,933" render="Label" size="1120,54" source="Service" transparent="1" valign="center">
 			<convert type="COCEventName">Name</convert>
 		</widget>
 		<widget backgroundColor="md_surface" font="RobotoMedium;36" foregroundColor="md_on_surface" halign="center" position="705,864" render="Label" size="180,51" source="Service" transparent="1" valign="center">
@@ -262,7 +261,7 @@
 		<widget alphatest="blend" cornerRadius="6" foregroundColor="md_outline" position="400,1005" render="Progress" size="1170,12" source="Service" transparent="1" zPosition="4">
 			<convert type="COCBeforeTSPosition">Position</convert>
 		</widget>
-		<widget backgroundColor="md_surface" font="RobotoMedium;60" foregroundColor="md_on_surface" halign="center" position="1590,925" render="Label" size="320,60" source="Service" transparent="1" valign="top" zPosition="20">
+		<widget backgroundColor="md_surface" font="RobotoMedium;60" foregroundColor="md_on_surface" halign="center" position="1590,925" render="Label" size="320,80" source="Service" transparent="1" valign="top" zPosition="20">
 			<convert type="COCServicePosition">EndTime,ShowNoSeconds</convert>
 		</widget>
 	</screen>
